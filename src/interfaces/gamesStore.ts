@@ -1,0 +1,17 @@
+import { Events } from "./events";
+import { Fixture } from "./fixture";
+
+export interface gamesStore {
+  details: boolean;
+  showEvents: boolean;
+  showStatistics: boolean;
+  events: Events[];
+  roundMatches: Fixture[];
+  fixtureId: number | null;
+  setFixtureId: (fixtureId: number) => void;
+  setDetails: (state: boolean) => void;
+  setShowEvents: () => void;
+  setShowStatistics: () => void;
+  setRoundMatches: (roundMatches: Fixture[]) => void;
+  setEvents: (events: Events[]) => void;
+}
