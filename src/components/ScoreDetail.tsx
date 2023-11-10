@@ -13,32 +13,34 @@ function ScoreDetail() {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex justify-center items-center gap-14 p-3 h-1/2">
-        <div className="flex flex-col gap-2 items-center justify-center w-12">
+      <div className="flex justify-center items-center gap-14 p-3 h-1/2 w-auto">
+        <div className="flex flex-col gap-2 items-center justify-center w-auto">
           <Image
             src={match!.teams.home.logo}
             alt="home-team-logo"
             width={60}
             height={60}
-            className="w-14"
+            className="w-10 md:w-14"
           />
           <h3 className="text-xs text-center">{match?.teams.home.name}</h3>
         </div>
         <div className="flex flex-col justify-between items-center gap-2">
-          <p className="text-xs">{formatTimestamp(match!.fixture.timestamp)}</p>
+          <p className="text-xs w-auto text-center">
+            {formatTimestamp(match!.fixture.timestamp)}
+          </p>
           <div className="flex items-center gap-2">
             <p className="text-xl font-semibold">{match?.goals.home}</p>
             <p className="font-semibold">:</p>
             <p className="text-xl font-semibold">{match?.goals.away}</p>
           </div>
         </div>
-        <div className="flex flex-col gap-2 items-center justify-center w-12">
+        <div className="flex flex-col gap-2 items-center justify-center w-auto">
           <Image
             src={match!.teams.away.logo}
             alt="away-team-logo"
             width={60}
             height={60}
-            className="w-14"
+            className="w-10 md:w-14"
           />
           <h3 className="text-xs text-center">{match?.teams.away.name}</h3>
         </div>

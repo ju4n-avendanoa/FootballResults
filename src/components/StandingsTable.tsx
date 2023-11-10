@@ -9,7 +9,7 @@ type Props = {
 
 function StandingsTable({ leagueInfo }: Props) {
   return (
-    <table className="bg-slate-700 text-white w-3/5 table-auto border-collapse text-sm">
+    <table className="bg-slate-700 text-white w-full lg:w-4/5 xl:w-3/5 table-auto border-collapse text-xs lg:text-sm">
       <thead>
         <tr>
           <th></th>
@@ -22,7 +22,7 @@ function StandingsTable({ leagueInfo }: Props) {
           <th>G</th>
           <th>+/-</th>
           <th>P</th>
-          <th></th>
+          <th className="max-md:hidden"></th>
         </tr>
       </thead>
       <tbody className="bg-slate-600">
@@ -47,7 +47,7 @@ function StandingsTable({ leagueInfo }: Props) {
             </td>
             <td className="text-center p-1">{team.goalsDiff}</td>
             <td className="text-center p-1">{team.points}</td>
-            <td>
+            <td className="max-sm:hidden">
               <TeamLastFiveMatches matches={team.form} />
             </td>
           </tr>

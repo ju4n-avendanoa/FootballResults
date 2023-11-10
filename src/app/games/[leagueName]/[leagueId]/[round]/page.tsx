@@ -1,11 +1,9 @@
 import { getRounds } from "@/utils/getFixtures";
-import { Suspense } from "react";
+import { getInfo } from "@/utils/getStandings";
 import GamesFixture from "@/components/GamesFixture";
 import RoundSelector from "@/components/RoundSelector";
-import LoadingPage from "@/app/loading";
 import GameDetail from "@/components/GameDetail";
 import LeftMenu from "@/components/LeftMenu";
-import { getInfo } from "@/utils/getStandings";
 
 async function GamesPage({
   params,
@@ -24,7 +22,7 @@ async function GamesPage({
         currentRound={currentRound}
         leagueInfo={leagueInfo}
       />
-      <section className="flex flex-col w-4/5 bg-slate-300 pt-24">
+      <section className="flex flex-col w-full lg:w-4/5 bg-slate-300 pt-24">
         <div className="flex justify-center">
           <RoundSelector
             rounds={rounds}
@@ -33,10 +31,8 @@ async function GamesPage({
             leagueName={params.leagueName}
           />
         </div>
-        <div className="grid grid-cols-3 gap-8 w-full h-full p-8">
-          <Suspense fallback={<LoadingPage />}>
-            <GamesFixture leagueId={params.leagueId} round={currentRound} />
-          </Suspense>
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 w-full h-full p-8">
+          <GamesFixture leagueId={params.leagueId} round={currentRound} />
         </div>
       </section>
       <GameDetail />

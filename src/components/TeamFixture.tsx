@@ -26,7 +26,7 @@ function TeamFixture({ sortedTeams, leagueId }: Props) {
     <>
       {sortedTeams.map((team) => (
         <article
-          className="flex border justify-evenly items-center font-semibold border-slate-600 bg-slate-400 p-2 rounded-md cursor-pointer hover:bg-slate-200 h-24"
+          className="flex border justify-center gap-5 items-center font-semibold border-slate-600 bg-slate-400 p-2 rounded-md cursor-pointer hover:bg-slate-200 h-24"
           key={team.team.id}
           onClick={() => handleClick(team.team.id)}
         >

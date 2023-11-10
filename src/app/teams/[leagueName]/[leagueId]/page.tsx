@@ -27,7 +27,7 @@ async function Teams({
         leagueName={params.leagueName}
         leagueInfo={leagueInfo}
       />
-      <section className="grid grid-cols-4 gap-8 w-full h-full p-8 pt-20 bg-slate-300 min-h-screen">
+      <section className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-8 w-full h-full p-8 pt-20 bg-slate-300 min-h-screen">
         <TeamFixture sortedTeams={sortedTeams} leagueId={params.leagueId} />
       </section>
       <TeamDetail teams={sortedTeams} />

@@ -6,10 +6,10 @@ function Logo() {
   return (
     <>
       <Link href={"/"}>
-        <GlobeAmericasIcon color="rgb(74 222 128)" className="w-10" />
+        <GlobeAmericasIcon color="rgb(74 222 128)" className="w-8 lg:w-10" />
       </Link>
       <Link href={"/"}>
-        <h3 className="text-white ">
+        <h3 className="text-white w-auto text-base md:text-lg">
           Football <span className="text-green-400">Results</span>
         </h3>
       </Link>

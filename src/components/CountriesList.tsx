@@ -1,5 +1,6 @@
 import { League } from "@/interfaces/Leagues";
 import LeagueItem from "./LeagueItem";
+import { useMenuStore } from "@/store/menuStore";
 
 type Props = {
   worldLeague: League[];
@@ -7,6 +8,20 @@ type Props = {
 };
 
 function CountriesList({ worldLeague, menu }: Props) {
+  const {
+    setIsLeagueMenuOpen,
+    setIsTeamMenuOpen,
+    setIsAmericaOpen,
+    setIsEuropeOpen,
+  } = useMenuStore();
+
+  const hideMenu = () => {
+    setIsLeagueMenuOpen(false);
+    setIsTeamMenuOpen(false);
+    setIsAmericaOpen(false);
+    setIsEuropeOpen(false);
+  };
+
   return (
     <div className="bg-black opacity-90 z-10 p-4 w-full">
       <section className="flex justify-around text-white">
@@ -18,7 +33,11 @@ function CountriesList({ worldLeague, menu }: Props) {
         </div>
         <div className="grid grid-cols-4 gap-8 w-4/5">
           {worldLeague.map((league, index) => (
-            <article key={index} className="hover:bg-green-900 p-2 rounded-lg">
+            <article
+              key={index}
+              className="hover:bg-green-900 p-2 rounded-lg"
+              onClick={hideMenu}
+            >
               <LeagueItem
                 league={league}
                 menu={menu}

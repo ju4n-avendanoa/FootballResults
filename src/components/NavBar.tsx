@@ -1,37 +1,43 @@
 "use client";
 
 import { americaLeagues, europeLeagues } from "@/utils/variablesInfo";
-import { useState } from "react";
-import Logo from "./Logo";
+import { useMenuStore } from "@/store/menuStore";
 import CountriesList from "./CountriesList";
+import Logo from "./Logo";
 
 export type MenuType = "league" | "team" | "America" | "europe";
 
 function NavBar() {
-  const [isLeagueMenuOpen, setIsLeagueMenuOpen] = useState(false);
-  const [isTeamMenuOpen, setIsTeamMenuOpen] = useState(false);
-  const [isAmericaOpen, setIsAmericaOpen] = useState(false);
-  const [isEuropeOpen, setIsEuropeOpen] = useState(false);
+  const {
+    isLeagueMenuOpen,
+    isTeamMenuOpen,
+    isAmericaOpen,
+    isEuropeOpen,
+    setIsLeagueMenuOpen,
+    setIsTeamMenuOpen,
+    setIsAmericaOpen,
+    setIsEuropeOpen,
+  } = useMenuStore();
 
   const menuActions = {
     league: () => {
-      setIsLeagueMenuOpen((prev) => !prev);
+      setIsLeagueMenuOpen(true);
       setIsAmericaOpen(false);
       setIsEuropeOpen(false);
       setIsTeamMenuOpen(false);
     },
     team: () => {
-      setIsTeamMenuOpen((prev) => !prev);
+      setIsTeamMenuOpen(true);
       setIsAmericaOpen(false);
       setIsEuropeOpen(false);
       setIsLeagueMenuOpen(false);
     },
     America: () => {
-      setIsAmericaOpen((prev) => !prev);
+      setIsAmericaOpen(true);
       setIsEuropeOpen(false);
     },
     europe: () => {
-      setIsEuropeOpen((prev) => !prev);
+      setIsEuropeOpen(true);
       setIsAmericaOpen(false);
     },
   };
@@ -54,10 +60,10 @@ function NavBar() {
       }}
     >
       <section className="flex justify-between items-center">
-        <div className="flex gap-4 items-center w-1/5">
+        <div className="flex gap-4 items-center lg:w-1/5">
           <Logo />
         </div>
-        <ul className="flex justify-evenly text-white w-4/5">
+        <ul className="flex justify-evenly text-white lg:w-4/5 max-lg:hidden">
           <li
             onMouseEnter={() => openMenu("league")}
             className={`cursor-pointer select-none ${

@@ -16,7 +16,7 @@ function TeamCard({ team }: Props) {
         height={30}
         priority
       />
-      <h4 className="w-24 text-center">{team.team.name}</h4>
+      <h4 className="w-28 text-center overflow-ellipsis">{team.team.name}</h4>
     </>
   );
 }
