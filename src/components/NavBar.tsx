@@ -4,6 +4,7 @@ import { americaLeagues, europeLeagues } from "@/utils/variablesInfo";
 import { useMenuStore } from "@/store/menuStore";
 import CountriesList from "./CountriesList";
 import Logo from "./Logo";
+import MobileMenu from "./MobileMenu";
 
 export type MenuType = "league" | "team" | "America" | "europe";
 
@@ -63,6 +64,7 @@ function NavBar() {
         <div className="flex gap-4 items-center lg:w-1/5">
           <Logo />
         </div>
+        <MobileMenu />
         <ul className="flex justify-evenly text-white lg:w-4/5 max-lg:hidden">
           <li
             onMouseEnter={() => openMenu("league")}
