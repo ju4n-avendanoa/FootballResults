@@ -16,7 +16,7 @@ export async function getInfo(id: number) {
       return;
     }
     const data = await res.json();
-    const newResponse: RankInfo = data?.response[0]?.league;
+    const newResponse: RankInfo = data?.response[0].league;
     return newResponse;
   } catch (error) {
     console.error(error);

@@ -1,13 +1,13 @@
 import TeamLastFiveMatches from "./TeamLastFiveMatches";
 import Image from "next/image";
 import React from "react";
-import { RankInfo } from "@/interfaces/Rank";
+import { Standing } from "@/interfaces/Rank";
 
 type Props = {
-  leagueInfo: RankInfo | undefined;
+  standing: Standing[] | undefined;
 };
 
-function StandingsTable({ leagueInfo }: Props) {
+function StandingsTable({ standing }: Props) {
   return (
     <table className="bg-slate-700 text-white w-full lg:w-4/5 xl:w-3/5 table-auto border-collapse text-xs lg:text-sm">
       <thead>
@@ -26,7 +26,7 @@ function StandingsTable({ leagueInfo }: Props) {
         </tr>
       </thead>
       <tbody className="bg-slate-600">
-        {leagueInfo?.standings[0].map((team) => (
+        {standing?.map((team) => (
           <tr key={team.team.id} className="border border-slate-700">
             <td className="text-center p-1">{team.rank}</td>
             <td className="flex justify-end items-center p-1">
