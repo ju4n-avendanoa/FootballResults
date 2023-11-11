@@ -38,7 +38,7 @@ async function LeaguePage({
             .map((standing: Standing[], index: number) => (
               <div key={index} className="flex flex-col items-center w-full">
                 <h4 className="text-center text-xl p-4 font-semibold">
-                  {standing[index].group}
+                  {standing[index]?.group}
                 </h4>
                 <StandingsTable standing={standing} />
               </div>
