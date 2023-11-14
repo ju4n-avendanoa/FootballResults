@@ -15,15 +15,14 @@ async function GamesPage({
   const currentRound = params.round.replaceAll("%20", " ");
 
   return (
-    <div className="flex relative">
-      <div className="w-1/5 relative min-h-screen max-lg:hidden">
-        <LeftMenu
-          leagueName={params.leagueName}
-          leagueId={params.leagueId}
-          currentRound={currentRound}
-          leagueInfo={leagueInfo}
-        />
-      </div>
+    <div className="flex flex-col lg:flex-row relative">
+      <LeftMenu
+        leagueName={params.leagueName}
+        leagueId={params.leagueId}
+        currentRound={currentRound}
+        leagueInfo={leagueInfo}
+      />
+
       <section className="flex flex-col w-full min-h-screen lg:w-4/5 bg-slate-300 pt-24">
         <div className="flex justify-center">
           <RoundSelector

@@ -14,15 +14,14 @@ async function LeaguePage({
   const currentRound: string = await getCurrentRound(Number(params.leagueId));
 
   return (
-    <div className="flex w-full">
-      <div className="w-1/5 relative min-h-screen">
-        <LeftMenu
-          currentRound={currentRound}
-          leagueId={params.leagueId}
-          leagueName={params.leagueName}
-          leagueInfo={leagueInfo}
-        />
-      </div>
+    <div className="flex flex-col lg:flex-row relative">
+      <LeftMenu
+        currentRound={currentRound}
+        leagueId={params.leagueId}
+        leagueName={params.leagueName}
+        leagueInfo={leagueInfo}
+      />
+
       <section className="flex flex-col lg:w-4/5 w-full items-center gap-8 bg-slate-300">
         <section className="w-full pb-8 flex flex-col gap-8 items-center p-6">
           <section className="flex items-center gap-12 pt-24">
