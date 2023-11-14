@@ -25,7 +25,9 @@ async function LeaguePage({
       <section className="flex flex-col lg:w-4/5 w-full items-center gap-8 bg-slate-300">
         <section className="w-full pb-8 flex flex-col gap-8 items-center p-6">
           <section className="flex items-center gap-12 pt-24">
-            <h2 className="text-4xl font-bold">{leagueInfo?.name}</h2>
+            <h2 className="text-xl lg:text-4xl font-bold text-center">
+              {leagueInfo?.name}
+            </h2>
             <Image
               src={leagueInfo!.logo}
               alt="league-logo"

@@ -25,8 +25,13 @@ function StandingsTable({ standing }: Props) {
         </tr>
       </thead>
       <tbody className="bg-slate-600">
-        {standing?.map((team) => (
-          <tr key={team.team.id} className="border border-slate-700">
+        {standing?.map((team, index) => (
+          <tr
+            key={team.team.id}
+            className={`border border-slate-700 ${
+              index % 2 === 0 ? "bg-slate-500" : ""
+            }`}
+          >
             <td className="text-center p-1">{team.rank}</td>
             <td className="flex justify-end items-center p-1">
               <Image

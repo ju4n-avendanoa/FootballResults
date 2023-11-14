@@ -22,6 +22,16 @@ function MobileMenu() {
     setIsEuropeTeamsOpen,
   } = useMobileMenuStore();
 
+  function closeAllMenus() {
+    setIsMenuOpen(false);
+    setIsLeagueMenuOpen(false);
+    setIsTeamMenuOpen(false);
+    setIsAmericaLeaguesOpen(false);
+    setIsAmericaTeamsOpen(false);
+    setIsEuropeLeaguesOpen(false);
+    setIsEuropeTeamsOpen(false);
+  }
+
   return (
     <>
       {isMenuOpen ? (
@@ -64,6 +74,7 @@ function MobileMenu() {
                         href={`/leagues/${league.leagueName
                           .toLowerCase()
                           .replaceAll(" ", "-")}/${league.leagueId}`}
+                        onClick={() => closeAllMenus()}
                       >
                         <h4>{league.leagueName}</h4>
                         <p className="text-green-500">{league.country}</p>
@@ -86,6 +97,7 @@ function MobileMenu() {
                         href={`/leagues/${league.leagueName
                           .toLowerCase()
                           .replaceAll(" ", "-")}/${league.leagueId}`}
+                        onClick={() => closeAllMenus()}
                       >
                         <h4>{league.leagueName}</h4>
                         <p className="text-green-500">{league.country}</p>
@@ -118,6 +130,7 @@ function MobileMenu() {
                         href={`/teams/${league.leagueName
                           .toLowerCase()
                           .replaceAll(" ", "-")}/${league.leagueId}`}
+                        onClick={() => closeAllMenus()}
                       >
                         <h4>{league.leagueName}</h4>
                         <p className="text-green-500">{league.country}</p>
@@ -140,6 +153,7 @@ function MobileMenu() {
                         href={`/teams/${league.leagueName
                           .toLowerCase()
                           .replaceAll(" ", "-")}/${league.leagueId}`}
+                        onClick={() => closeAllMenus()}
                       >
                         <h4>{league.leagueName}</h4>
                         <p className="text-green-500">{league.country}</p>
