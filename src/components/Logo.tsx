@@ -1,6 +1,5 @@
 import { GlobeAmericasIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import React from "react";
 
 function Logo() {
   return (

@@ -1,8 +1,7 @@
-import useGamesStore from "@/store/gamesStore";
-import { getIcon } from "@/utils/eventType";
 import { formatTimestamp } from "@/utils/parseDate";
+import { getIcon } from "@/utils/eventType";
+import useGamesStore from "@/store/gamesStore";
 import Image from "next/image";
-import React from "react";
 
 function ScoreDetail() {
   const { roundMatches, fixtureId } = useGamesStore();

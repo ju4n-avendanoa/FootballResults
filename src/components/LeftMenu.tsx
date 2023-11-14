@@ -1,9 +1,9 @@
 "use client";
 
 import { RankInfo } from "@/interfaces/Rank";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
 
 type Props = {
   currentRound: string;
@@ -24,7 +24,7 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
   }
 
   return (
-    <aside className={`fixed w-1/5 bg-slate-800 min-h-screen ${hideMenu()}`}>
+    <aside className={`sticky top-0 bg-slate-800 h-screen ${hideMenu()}`}>
       <div className="flex justify-evenly items-center w-full pt-24 pb-6 gap-4 h-auto p-4">
         <h2 className="text-white font-bold text-2xl w-min text-center p-2">
           {leagueInfo?.name}

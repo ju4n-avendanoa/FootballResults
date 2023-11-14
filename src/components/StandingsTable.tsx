@@ -1,7 +1,6 @@
+import { Standing } from "@/interfaces/Rank";
 import TeamLastFiveMatches from "./TeamLastFiveMatches";
 import Image from "next/image";
-import React from "react";
-import { Standing } from "@/interfaces/Rank";
 
 type Props = {
   standing: Standing[] | undefined;

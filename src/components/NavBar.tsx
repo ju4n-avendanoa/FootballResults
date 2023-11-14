@@ -52,7 +52,7 @@ function NavBar() {
 
   return (
     <nav
-      className="bg-black opacity-90 px-8 py-2 relative w-full"
+      className="bg-black lg:opacity-90 px-8 py-2 relative w-full"
       onMouseLeave={() => {
         setIsAmericaOpen(false);
         setIsEuropeOpen(false);

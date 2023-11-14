@@ -1,9 +1,9 @@
 import { getCurrentRound } from "@/utils/getFixtures";
+import { Standing } from "@/interfaces/Rank";
 import { getInfo } from "@/utils/getStandings";
 import StandingsTable from "@/components/StandingsTable";
 import LeftMenu from "@/components/LeftMenu";
 import Image from "next/image";
-import { Standing } from "@/interfaces/Rank";
 
 async function LeaguePage({
   params,
@@ -15,14 +15,15 @@ async function LeaguePage({
 
   return (
     <div className="flex w-full">
-      <LeftMenu
-        currentRound={currentRound}
-        leagueId={params.leagueId}
-        leagueName={params.leagueName}
-        leagueInfo={leagueInfo}
-      />
-      <div className="w-1/5 bg-slate-300 min-h-screen max-lg:hidden"></div>
-      <section className="flex flex-col lg:w-full w-full items-center gap-8 bg-slate-300">
+      <div className="w-1/5 relative min-h-screen">
+        <LeftMenu
+          currentRound={currentRound}
+          leagueId={params.leagueId}
+          leagueName={params.leagueName}
+          leagueInfo={leagueInfo}
+        />
+      </div>
+      <section className="flex flex-col lg:w-4/5 w-full items-center gap-8 bg-slate-300">
         <section className="w-full pb-8 flex flex-col gap-8 items-center p-6">
           <section className="flex items-center gap-12 pt-24">
             <h2 className="text-4xl font-bold">{leagueInfo?.name}</h2>

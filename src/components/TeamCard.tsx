@@ -1,6 +1,5 @@
 import { Teams } from "@/interfaces/teams";
 import Image from "next/image";
-import React from "react";
 
 type Props = {
   team: Teams;

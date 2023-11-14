@@ -1,7 +1,6 @@
-import useGamesStore from "@/store/gamesStore";
 import { getIcon } from "@/utils/eventType";
+import useGamesStore from "@/store/gamesStore";
 import Image from "next/image";
-import React from "react";
 
 function EventDetails() {
   const { roundMatches, events, fixtureId } = useGamesStore();

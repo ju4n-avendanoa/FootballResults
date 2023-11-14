@@ -21,13 +21,15 @@ async function Teams({
 
   return (
     <div className="flex">
-      <LeftMenu
-        currentRound={currentRound}
-        leagueId={params.leagueId}
-        leagueName={params.leagueName}
-        leagueInfo={leagueInfo}
-      />
-      <section className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-8 w-full h-full p-8 pt-20 bg-slate-300 min-h-screen">
+      <div className="w-1/5 relative min-h-screen max-lg:hidden">
+        <LeftMenu
+          currentRound={currentRound}
+          leagueId={params.leagueId}
+          leagueName={params.leagueName}
+          leagueInfo={leagueInfo}
+        />
+      </div>
+      <section className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-8 w-full lg:w-4/5 h-full p-8 pt-20 bg-slate-300 min-h-screen">
         <TeamFixture sortedTeams={sortedTeams} leagueId={params.leagueId} />
       </section>
       <TeamDetail teams={sortedTeams} />

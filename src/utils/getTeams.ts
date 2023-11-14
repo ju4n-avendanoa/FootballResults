@@ -26,6 +26,7 @@ export async function getTeamStatistics(teamId: number, leagueId: number) {
       "X-RapidAPI-Key": process.env.NEXT_PUBLIC_API_KEY as string,
       "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
     },
+    next: { revalidate: 604800 },
   };
 
   try {

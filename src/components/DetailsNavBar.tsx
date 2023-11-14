@@ -1,5 +1,4 @@
 import useGamesStore from "@/store/gamesStore";
-import React from "react";
 
 function DetailsNavBar() {
   const { setShowEvents, showStatistics, setShowStatistics, showEvents } =

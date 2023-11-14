@@ -16,13 +16,15 @@ async function GamesPage({
 
   return (
     <div className="flex relative">
-      <LeftMenu
-        leagueName={params.leagueName}
-        leagueId={params.leagueId}
-        currentRound={currentRound}
-        leagueInfo={leagueInfo}
-      />
-      <section className="flex flex-col w-full lg:w-4/5 bg-slate-300 pt-24">
+      <div className="w-1/5 relative min-h-screen max-lg:hidden">
+        <LeftMenu
+          leagueName={params.leagueName}
+          leagueId={params.leagueId}
+          currentRound={currentRound}
+          leagueInfo={leagueInfo}
+        />
+      </div>
+      <section className="flex flex-col w-full min-h-screen lg:w-4/5 bg-slate-300 pt-24">
         <div className="flex justify-center">
           <RoundSelector
             rounds={rounds}

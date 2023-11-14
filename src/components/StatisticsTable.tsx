@@ -1,5 +1,4 @@
 import { TeamStatistics } from "@/interfaces/teamStatistics";
-import React from "react";
 
 type Props = {
   statistics: TeamStatistics | null;

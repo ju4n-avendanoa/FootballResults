@@ -1,11 +1,11 @@
 "use client";
 
 import { XCircleIcon } from "@heroicons/react/24/solid";
+import { useEffect } from "react";
 import useGamesStore from "@/store/gamesStore";
 import DetailsNavBar from "./DetailsNavBar";
 import ScoreDetail from "./ScoreDetail";
 import EventDetails from "./EventDetails";
-import { useEffect } from "react";
 import FixtureStatsDetails from "./FixtureStatsDetails";
 
 function GameDetail() {
