@@ -22,14 +22,29 @@ function EventDetails() {
                     key={idx}
                     className={`flex gap-2 text-xs border-t border-black p-0.5 justify-start items-center`}
                   >
-                    <Image
-                      src={getIcon(event.detail)}
-                      alt="event"
-                      width={20}
-                      height={14}
-                    />
                     <span>{event.time.elapsed}&apos;</span>
-                    <p>{event.player.name}</p>
+                    {event.type === "subst" ? (
+                      <>
+                        <p className="text-red-500">{event.player.name}</p>
+                        <Image
+                          src={getIcon(event.detail)}
+                          alt="event"
+                          width={20}
+                          height={14}
+                        />
+                        <p className="text-green-500">{event.assist.name}</p>
+                      </>
+                    ) : (
+                      <>
+                        <Image
+                          src={getIcon(event.detail)}
+                          alt="event"
+                          width={20}
+                          height={14}
+                        />
+                        <p>{event.player.name}</p>
+                      </>
+                    )}
                   </li>
                 );
               } else {
@@ -38,14 +53,29 @@ function EventDetails() {
                     key={idx}
                     className={`flex gap-2 text-xs border-t border-black p-0.5 justify-end items-center`}
                   >
-                    <p>{event.player.name}</p>
+                    {event.type === "subst" ? (
+                      <>
+                        <p className="text-red-500">{event.player.name}</p>
+                        <Image
+                          src={getIcon(event.detail)}
+                          alt="event"
+                          width={20}
+                          height={14}
+                        />
+                        <p className="text-green-500">{event.assist.name}</p>
+                      </>
+                    ) : (
+                      <>
+                        <p>{event.player.name}</p>
+                        <Image
+                          src={getIcon(event.detail)}
+                          alt="event"
+                          width={20}
+                          height={14}
+                        />
+                      </>
+                    )}
                     <span>{event.time.elapsed}&apos;</span>
-                    <Image
-                      src={getIcon(event.detail)}
-                      alt="event"
-                      width={20}
-                      height={14}
-                    />
                   </li>
                 );
               }
@@ -68,14 +98,29 @@ function EventDetails() {
                     key={idx}
                     className={`flex gap-2 text-xs border-t border-black p-0.5 justify-start items-center`}
                   >
-                    <Image
-                      src={getIcon(event.detail)}
-                      alt="event"
-                      width={20}
-                      height={14}
-                    />
                     <span>{event.time.elapsed}&apos;</span>
-                    <p>{event.player.name}</p>
+                    {event.type === "subst" ? (
+                      <>
+                        <p className="text-red-500">{event.player.name}</p>
+                        <Image
+                          src={getIcon(event.detail)}
+                          alt="event"
+                          width={20}
+                          height={14}
+                        />
+                        <p className="text-green-500">{event.assist.name}</p>
+                      </>
+                    ) : (
+                      <>
+                        <Image
+                          src={getIcon(event.detail)}
+                          alt="event"
+                          width={20}
+                          height={14}
+                        />
+                        <p>{event.player.name}</p>
+                      </>
+                    )}
                   </li>
                 );
               } else {
@@ -84,14 +129,29 @@ function EventDetails() {
                     key={idx}
                     className={`flex gap-2 text-xs border-t border-black p-0.5 justify-end items-center`}
                   >
-                    <p>{event.player.name}</p>
+                    {event.type === "subst" ? (
+                      <>
+                        <p className="text-red-500">{event.player.name}</p>
+                        <Image
+                          src={getIcon(event.detail)}
+                          alt="event"
+                          width={20}
+                          height={14}
+                        />
+                        <p className="text-green-500">{event.assist.name}</p>
+                      </>
+                    ) : (
+                      <>
+                        <p>{event.player.name}</p>
+                        <Image
+                          src={getIcon(event.detail)}
+                          alt="event"
+                          width={20}
+                          height={14}
+                        />
+                      </>
+                    )}
                     <span>{event.time.elapsed}&apos;</span>
-                    <Image
-                      src={getIcon(event.detail)}
-                      alt="event"
-                      width={20}
-                      height={14}
-                    />
                   </li>
                 );
               }

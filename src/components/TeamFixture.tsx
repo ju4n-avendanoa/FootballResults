@@ -17,7 +17,6 @@ function TeamFixture({ sortedTeams, leagueId }: Props) {
 
   const handleClick = async (teamId: number) => {
     const response = await getTeamStatistics(teamId, Number(leagueId));
-    console.log(response);
     setTeamStatistics(response);
     setDetails(true);
   };

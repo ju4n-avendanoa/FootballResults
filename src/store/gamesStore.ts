@@ -10,9 +10,8 @@ const useGamesStore = create<gamesStore>((set) => ({
   fixtureId: null,
   setFixtureId: (fixtureId) => set({ fixtureId }),
   setDetails: (details) => set({ details }),
-  setShowEvents: () => set((state) => ({ showEvents: !state.showEvents })),
-  setShowStatistics: () =>
-    set((state) => ({ showStatistics: !state.showStatistics })),
+  setShowEvents: (newState) => set({ showEvents: newState }),
+  setShowStatistics: (newState) => set({ showStatistics: newState }),
   setRoundMatches: (roundMatches) =>
     set((state) => ({
       ...state,

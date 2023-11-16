@@ -2,12 +2,12 @@
 
 import { XCircleIcon } from "@heroicons/react/24/solid";
 import { useEffect } from "react";
+import { sumCardsTotal } from "@/utils/sumCards";
 import { Teams } from "@/interfaces/teams";
 import useTeamsStore from "@/store/teamsStore";
 import useGamesStore from "@/store/gamesStore";
 import Image from "next/image";
 import StatisticsTable from "./StatisticsTable";
-import { sumCardsTotal } from "@/utils/sumCards";
 
 type Props = {
   teams: Teams[];
@@ -27,8 +27,8 @@ function TeamDetail({ teams }: Props) {
       {details && (
         <>
           <section className="fixed bg-gradient-to-t from-black top-0 z-10 w-full min-h-screen flex flex-col items-center justify-center"></section>
-          <section className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white h-2/3 w-4/5 xl:w-1/2 z-20 overflow-auto">
-            <div className="bg-slate-500 h-8 w-full flex items-center">
+          <section className="fixed inset-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white h-2/3 w-4/5 xl:w-1/2 z-20 overflow-auto">
+            <div className="sticky top-0 bg-slate-500 h-8 w-full flex items-center">
               <XCircleIcon
                 color="white"
                 className="w-6 cursor-pointer absolute right-1 top-1"
@@ -42,16 +42,17 @@ function TeamDetail({ teams }: Props) {
                   General Information
                 </h3>
                 <div className="flex flex-col md:flex-row justify-around items-center">
-                  <div className="w-full md:w-1/4 flex justify-center h-full p-2 max-sm:border-b md:border-r border-black bg-slate-300">
+                  <div className="flex justify-center w-full h-40 md:w-1/4 p-2 max-sm:border-b md:border-r border-black bg-slate-300">
                     <Image
                       src={team!.team.logo}
                       alt="team-logo"
                       width={120}
                       height={80}
+                      className="p-2"
                       priority
                     />
                   </div>
-                  <article className="md:w-1/4 h-full w-full flex flex-col justify-evenly p-4 max-sm:border-b md:border-r border-black text-xs">
+                  <article className="md:w-1/4 h-40 w-full flex flex-col justify-evenly p-4 max-sm:border-b md:border-r border-black text-xs">
                     <h4>
                       <span className="font-semibold">Name:</span>{" "}
                       {team?.team.name}
@@ -84,7 +85,7 @@ function TeamDetail({ teams }: Props) {
                       className="p-2 rounded-xl w-full"
                     />
                   </div>
-                  <article className="flex flex-col justify-evenly w-full md:w-1/4 h-full p-4 text-xs">
+                  <article className="flex flex-col justify-evenly w-full md:w-1/4 h-40 p-4 text-xs">
                     <h4>
                       <span className="font-semibold">Name:</span>{" "}
                       {team?.venue.name}

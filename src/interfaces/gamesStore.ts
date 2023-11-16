@@ -10,8 +10,8 @@ export interface gamesStore {
   fixtureId: number | null;
   setFixtureId: (fixtureId: number) => void;
   setDetails: (state: boolean) => void;
-  setShowEvents: () => void;
-  setShowStatistics: () => void;
+  setShowEvents: (state: boolean) => void;
+  setShowStatistics: (state: boolean) => void;
   setRoundMatches: (roundMatches: Fixture[]) => void;
   setEvents: (events: Events[]) => void;
 }

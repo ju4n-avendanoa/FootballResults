@@ -11,8 +11,8 @@ function DetailsNavBar() {
             showEvents ? "bg-slate-500 text-white" : ""
           }`}
           onClick={() => {
-            setShowStatistics();
-            setShowEvents();
+            setShowStatistics(false);
+            setShowEvents(true);
           }}
         >
           EVENTS
@@ -22,8 +22,8 @@ function DetailsNavBar() {
             showStatistics ? "bg-slate-500 text-white" : ""
           }`}
           onClick={() => {
-            setShowEvents();
-            setShowStatistics();
+            setShowEvents(false);
+            setShowStatistics(true);
           }}
         >
           STATISTICS
