@@ -10,8 +10,10 @@ async function LeaguePage({
 }: {
   params: { leagueId: string; leagueName: string };
 }) {
-  const leagueInfo = await getInfo(Number(params.leagueId));
-  const currentRound: string = await getCurrentRound(Number(params.leagueId));
+  const [leagueInfo, currentRound] = await Promise.all([
+    getInfo(Number(params.leagueId)),
+    getCurrentRound(Number(params.leagueId)),
+  ]);
 
   return (
     <div className="flex flex-col lg:flex-row relative">
@@ -35,16 +37,23 @@ async function LeaguePage({
               height={60}
             />
           </section>
-          {leagueInfo?.standings
-            .reverse()
-            .map((standing: Standing[], index: number) => (
-              <div key={index} className="flex flex-col items-center w-full">
-                <h4 className="text-center text-xl p-4 font-semibold">
-                  {standing[index]?.group}
-                </h4>
-                <StandingsTable standing={standing} />
-              </div>
-            ))}
+          {leagueInfo
+            ? leagueInfo.standings
+                .reverse()
+                .map((standing: Standing[], index: number) => (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center w-full"
+                  >
+                    <h4 className="text-center text-xl p-4 font-semibold">
+                      {standing[index] && standing[index].group
+                        ? standing[index].group
+                        : "Name not found"}
+                    </h4>
+                    <StandingsTable standing={standing} />
+                  </div>
+                ))
+            : null}
         </section>
       </section>
     </div>

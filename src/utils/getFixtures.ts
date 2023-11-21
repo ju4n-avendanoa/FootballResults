@@ -2,6 +2,7 @@ export async function getRounds(leagueId: number) {
   const url = `https://api-football-v1.p.rapidapi.com/v3/fixtures/rounds?league=${leagueId}&season=2023`;
   const options = {
     method: "GET",
+    cache: "no-cache",
     headers: {
       "X-RapidAPI-Key": process.env.API_KEY as string,
       "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
@@ -9,7 +10,13 @@ export async function getRounds(leagueId: number) {
   };
 
   try {
-    const response = await fetch(url, options);
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": process.env.API_KEY as string,
+        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+      },
+    });
     const result = await response.json();
     return result.response;
   } catch (error) {

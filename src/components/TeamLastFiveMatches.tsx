@@ -13,16 +13,19 @@ function TeamLastFiveMatches({ matches }: Props) {
 
   return (
     <div className="flex justify-center gap-1">
-      {matches?.split("").map((match, index) => (
-        <article
-          key={index}
-          className={`w-5 h-5 text-center rounded-sm ${
-            matchResult[match as MatchResult]
-          }`}
-        >
-          {match}
-        </article>
-      ))}
+      {matches
+        ?.split("")
+        .reverse()
+        .map((match, index) => (
+          <article
+            key={index}
+            className={`w-5 h-5 text-center rounded-sm ${
+              matchResult[match as MatchResult]
+            }`}
+          >
+            {match}
+          </article>
+        ))}
     </div>
   );
 }

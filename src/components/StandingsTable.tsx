@@ -3,7 +3,7 @@ import TeamLastFiveMatches from "./TeamLastFiveMatches";
 import Image from "next/image";
 
 type Props = {
-  standing: Standing[] | undefined;
+  standing: Standing[];
 };
 
 function StandingsTable({ standing }: Props) {
