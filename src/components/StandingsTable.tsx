@@ -6,7 +6,8 @@ type Props = {
   standing: Standing[];
 };
 
-function StandingsTable({ standing }: Props) {
+async function StandingsTable({ standing }: Props) {
+  await new Promise((resolve) => setTimeout(resolve, 5000));
   return (
     <table className="bg-slate-700 text-white w-full lg:w-4/5 xl:w-3/5 table-auto border-collapse text-xs lg:text-sm">
       <thead>

@@ -9,16 +9,10 @@ export async function getInfo(id: number) {
       "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
       "x-rapidapi-key": process.env.API_KEY as string,
     },
+    next: { revalidate: 86400 },
   };
   try {
-    const res = await fetch(url, {
-      cache: "no-cache",
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-        "x-rapidapi-key": process.env.API_KEY as string,
-      },
-    });
+    const res = await fetch(url, options);
     if (!res.ok) {
       return;
     }
