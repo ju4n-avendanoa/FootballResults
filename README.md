@@ -18,15 +18,19 @@ This is a project that provides information about football match results. It uti
 
 3. Run the application locally with `npm start` or `yarn start`.
 
-4. Open your browser and visit [FootballResults on Vercel](https://footballresults.vercel.app) to see the application in action.
-
 ## Technologies Used
 
 - **React:** The user interface is built with React, providing a fast and responsive user experience.
 
+- **NextJS:** This project uses NextJS.
+
 - **Football API:** This project uses an external football API to fetch real-time data.
 
 - **Styled with TailwindCSS:** The application styles are written in CSS for easy customization.
+
+## Deployed Version
+
+The project is deployed on Vercel. You can access the live version of the application [here](https://footballresults.vercel.app).
 
 ## Contributions
 
