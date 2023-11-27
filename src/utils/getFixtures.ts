@@ -45,6 +45,7 @@ export async function getCurrentRound(leagueId: number) {
       "X-RapidAPI-Key": process.env.API_KEY as string,
       "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
     },
+    next: { revalidate: 86400 },
   };
 
   try {

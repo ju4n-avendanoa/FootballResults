@@ -1,12 +1,15 @@
 import { getIcon } from "@/utils/eventType";
 import useGamesStore from "@/store/gamesStore";
 import Image from "next/image";
+import { NoSymbolIcon } from "@heroicons/react/24/solid";
 
 function EventDetails() {
   const { roundMatches, events, fixtureId } = useGamesStore();
   const match = roundMatches.find(
     (roundMatch) => roundMatch.fixture.id === fixtureId
   );
+
+  const handleImageError = <NoSymbolIcon />;
   return (
     <>
       <div>
@@ -15,6 +18,7 @@ function EventDetails() {
         </h4>
         <ul>
           {events?.map((event, idx) => {
+            const eventImage = getIcon(event.detail);
             if (event.time.elapsed <= 45) {
               if (match?.teams.home.name === event.team.name) {
                 return (
@@ -26,22 +30,30 @@ function EventDetails() {
                     {event.type === "subst" ? (
                       <>
                         <p className="text-red-500">{event.player.name}</p>
-                        <Image
-                          src={getIcon(event.detail)}
-                          alt="event"
-                          width={20}
-                          height={14}
-                        />
+                        {eventImage ? (
+                          <Image
+                            src={eventImage}
+                            alt="event"
+                            width={20}
+                            height={14}
+                          />
+                        ) : (
+                          <NoSymbolIcon className="w-5 h-auto" />
+                        )}
                         <p className="text-green-500">{event.assist.name}</p>
                       </>
                     ) : (
                       <>
-                        <Image
-                          src={getIcon(event.detail)}
-                          alt="event"
-                          width={20}
-                          height={14}
-                        />
+                        {eventImage ? (
+                          <Image
+                            src={eventImage}
+                            alt="event"
+                            width={20}
+                            height={14}
+                          />
+                        ) : (
+                          <NoSymbolIcon className="w-5 h-auto" />
+                        )}
                         <p>{event.player.name}</p>
                       </>
                     )}
@@ -56,23 +68,31 @@ function EventDetails() {
                     {event.type === "subst" ? (
                       <>
                         <p className="text-red-500">{event.player.name}</p>
-                        <Image
-                          src={getIcon(event.detail)}
-                          alt="event"
-                          width={20}
-                          height={14}
-                        />
+                        {eventImage ? (
+                          <Image
+                            src={eventImage}
+                            alt="event"
+                            width={20}
+                            height={14}
+                          />
+                        ) : (
+                          <NoSymbolIcon className="w-5 h-auto" />
+                        )}
                         <p className="text-green-500">{event.assist.name}</p>
                       </>
                     ) : (
                       <>
                         <p>{event.player.name}</p>
-                        <Image
-                          src={getIcon(event.detail)}
-                          alt="event"
-                          width={20}
-                          height={14}
-                        />
+                        {eventImage ? (
+                          <Image
+                            src={eventImage}
+                            alt="event"
+                            width={20}
+                            height={14}
+                          />
+                        ) : (
+                          <NoSymbolIcon className="w-5 h-auto" />
+                        )}
                       </>
                     )}
                     <span>{event.time.elapsed}&apos;</span>
@@ -91,6 +111,7 @@ function EventDetails() {
         </h4>
         <section>
           {events?.map((event, idx) => {
+            const eventImage = getIcon(event.detail);
             if (event.time.elapsed > 45) {
               if (match?.teams.home.name === event.team.name) {
                 return (
@@ -102,22 +123,30 @@ function EventDetails() {
                     {event.type === "subst" ? (
                       <>
                         <p className="text-red-500">{event.player.name}</p>
-                        <Image
-                          src={getIcon(event.detail)}
-                          alt="event"
-                          width={20}
-                          height={14}
-                        />
+                        {eventImage ? (
+                          <Image
+                            src={eventImage}
+                            alt="event"
+                            width={20}
+                            height={14}
+                          />
+                        ) : (
+                          <NoSymbolIcon className="w-5 h-auto" />
+                        )}
                         <p className="text-green-500">{event.assist.name}</p>
                       </>
                     ) : (
                       <>
-                        <Image
-                          src={getIcon(event.detail)}
-                          alt="event"
-                          width={20}
-                          height={14}
-                        />
+                        {eventImage ? (
+                          <Image
+                            src={eventImage}
+                            alt="event"
+                            width={20}
+                            height={14}
+                          />
+                        ) : (
+                          <NoSymbolIcon className="w-5 h-auto" />
+                        )}
                         <p>{event.player.name}</p>
                       </>
                     )}
@@ -132,23 +161,31 @@ function EventDetails() {
                     {event.type === "subst" ? (
                       <>
                         <p className="text-red-500">{event.player.name}</p>
-                        <Image
-                          src={getIcon(event.detail)}
-                          alt="event"
-                          width={20}
-                          height={14}
-                        />
+                        {eventImage ? (
+                          <Image
+                            src={eventImage}
+                            alt="event"
+                            width={20}
+                            height={14}
+                          />
+                        ) : (
+                          <NoSymbolIcon className="w-5 h-auto" />
+                        )}
                         <p className="text-green-500">{event.assist.name}</p>
                       </>
                     ) : (
                       <>
                         <p>{event.player.name}</p>
-                        <Image
-                          src={getIcon(event.detail)}
-                          alt="event"
-                          width={20}
-                          height={14}
-                        />
+                        {eventImage ? (
+                          <Image
+                            src={eventImage}
+                            alt="event"
+                            width={20}
+                            height={14}
+                          />
+                        ) : (
+                          <NoSymbolIcon className="w-5 h-auto" />
+                        )}
                       </>
                     )}
                     <span>{event.time.elapsed}&apos;</span>

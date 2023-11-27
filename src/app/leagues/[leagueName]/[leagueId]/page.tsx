@@ -19,27 +19,27 @@ async function LeaguePage({
 
   return (
     <div className="flex flex-col lg:flex-row relative">
-      <LeftMenu
-        currentRound={currentRound}
-        leagueId={params.leagueId}
-        leagueName={params.leagueName}
-        leagueInfo={leagueInfo}
-      />
+      <Suspense fallback={<LoadingPage />}>
+        <LeftMenu
+          currentRound={currentRound}
+          leagueId={params.leagueId}
+          leagueName={params.leagueName}
+          leagueInfo={leagueInfo}
+        />
 
-      <section className="flex flex-col lg:w-4/5 w-full items-center gap-8 bg-slate-300">
-        <section className="w-full pb-8 flex flex-col gap-8 items-center p-6">
-          <section className="flex items-center gap-12 pt-24">
-            <h2 className="text-xl lg:text-4xl font-bold text-center">
-              {leagueInfo?.name}
-            </h2>
-            <Image
-              src={leagueInfo!.logo}
-              alt="league-logo"
-              width={60}
-              height={60}
-            />
-          </section>
-          <Suspense fallback={<LoadingPage />}>
+        <section className="flex flex-col lg:w-4/5 w-full items-center gap-8 bg-slate-300">
+          <section className="w-full pb-8 flex flex-col gap-8 items-center p-6">
+            <section className="flex items-center gap-12 pt-24">
+              <h2 className="text-xl lg:text-4xl font-bold text-center">
+                {leagueInfo?.name}
+              </h2>
+              <Image
+                src={leagueInfo!.logo}
+                alt="league-logo"
+                width={60}
+                height={60}
+              />
+            </section>
             {leagueInfo
               ? leagueInfo.standings
                   .reverse()
@@ -57,9 +57,9 @@ async function LeaguePage({
                     </div>
                   ))
               : null}
-          </Suspense>
+          </section>
         </section>
-      </section>
+      </Suspense>
     </div>
   );
 }
