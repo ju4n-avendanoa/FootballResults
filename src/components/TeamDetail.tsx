@@ -75,7 +75,7 @@ function TeamDetail({ teams }: Props) {
                       {team?.team.founded}
                     </h4>
                   </article>
-                  <div className="flex items-center w-full md:w-1/4 h-full max-sm:border-b md:border-r border-black bg-slate-300">
+                  <div className="flex items-center w-full md:w-1/4 md:h-40 max-sm:border-b md:border-r border-black bg-slate-300">
                     <Image
                       src={team!.venue.image}
                       alt="venue-logo"

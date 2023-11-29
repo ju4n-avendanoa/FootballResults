@@ -2,13 +2,36 @@ import { formatTimestamp } from "@/utils/parseDate";
 import { getIcon } from "@/utils/eventType";
 import useGamesStore from "@/store/gamesStore";
 import Image from "next/image";
+import { useEffect } from "react";
+import { Value } from "@/interfaces/Odds";
 
 function ScoreDetail() {
-  const { roundMatches, fixtureId } = useGamesStore();
+  const { roundMatches, fixtureId, setOdds, odds } = useGamesStore();
 
   const match = roundMatches.find(
     (roundMatch) => roundMatch.fixture.id === fixtureId
   );
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(
+          `http://localhost:3000/api/games/odds?fixtureId=${fixtureId}`
+        );
+        if (response.ok) {
+          const statsData = await response.json();
+          console.log(statsData);
+          setOdds(statsData);
+        } else {
+          console.error("Error al obtener los datos del backend");
+        }
+      } catch (error) {
+        console.error("Error en la solicitud:", error);
+      }
+    }
+
+    fetchData();
+  }, [fixtureId, setOdds]);
 
   return (
     <div className="flex flex-col items-center">
@@ -51,6 +74,26 @@ function ScoreDetail() {
       <div className="flex items-center gap-2">
         <Image src={getIcon("whistle")} width={20} height={10} alt="whistle" />
         <p className="text-xs">{match?.fixture.referee}</p>
+      </div>
+      <div className="grid grid-cols-3 p-4">
+        {odds.map((odd, index) => (
+          <div key={index}>
+            <p
+              className={`border border-black text-xs p-1 text-center font-semibold ${
+                odd.value === "Home"
+                  ? "bg-green-400"
+                  : odd.value === "Away"
+                  ? "bg-red-400"
+                  : "bg-yellow-400"
+              }`}
+            >
+              {odd.value}
+            </p>
+            <p className="border border-black text-xs p-1 text-center">
+              {odd.odd}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );

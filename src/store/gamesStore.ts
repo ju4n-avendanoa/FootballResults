@@ -7,6 +7,7 @@ const useGamesStore = create<gamesStore>((set) => ({
   showStatistics: false,
   events: [],
   roundMatches: [],
+  odds: [],
   fixtureId: null,
   setFixtureId: (fixtureId) => set({ fixtureId }),
   setDetails: (details) => set({ details }),
@@ -21,6 +22,11 @@ const useGamesStore = create<gamesStore>((set) => ({
     set((state) => ({
       ...state,
       events,
+    })),
+  setOdds: (odds) =>
+    set((state) => ({
+      ...state,
+      odds,
     })),
 }));
 

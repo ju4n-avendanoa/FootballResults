@@ -1,3 +1,4 @@
+import { Value } from "./Odds";
 import { Events } from "./events";
 import { Fixture } from "./fixture";
 
@@ -8,6 +9,8 @@ export interface gamesStore {
   events: Events[];
   roundMatches: Fixture[];
   fixtureId: number | null;
+  odds: Value[];
+  setOdds: (odds: Value[]) => void;
   setFixtureId: (fixtureId: number) => void;
   setDetails: (state: boolean) => void;
   setShowEvents: (state: boolean) => void;

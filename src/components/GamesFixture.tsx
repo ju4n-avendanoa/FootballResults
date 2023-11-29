@@ -19,7 +19,6 @@ function GamesFixture({ matches }: Props) {
 
   const handleClick = async (match: Fixture) => {
     setFixtureId(match.fixture.id);
-    setDetails(true);
     async function fetchData() {
       try {
         const response = await fetch(
@@ -27,6 +26,7 @@ function GamesFixture({ matches }: Props) {
         );
         if (response.ok) {
           const fixtureData = await response.json();
+          setDetails(true);
           setEvents(fixtureData);
         } else {
           console.error("Error al obtener los datos del backend");
