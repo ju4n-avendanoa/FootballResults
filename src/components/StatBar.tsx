@@ -1,12 +1,37 @@
 import { FixtureStats } from "@/interfaces/fixtureStats";
-import getFixtureStats from "@/utils/getFixtureStats";
+import { useEffect, useState } from "react";
+import LoadingPage from "@/app/loading";
 
 type Props = {
   fixtureId: number;
 };
 
 async function StatBar({ fixtureId }: Props) {
-  const stats: FixtureStats[] = await getFixtureStats(fixtureId);
+  const [stats, setStats] = useState<FixtureStats[] | null>(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(
+          `http://localhost:3000/api/games/stats?fixtureId=${fixtureId}`
+        );
+        if (response.ok) {
+          const statsData = await response.json();
+          setStats(statsData);
+        } else {
+          console.error("Error al obtener los datos del backend");
+        }
+      } catch (error) {
+        console.error("Error en la solicitud:", error);
+      }
+    }
+
+    fetchData();
+  }, [fixtureId]);
+
+  if (!stats) {
+    return <LoadingPage />;
+  }
 
   return (
     <div className="h-screen w-full p-2 md:p-10">

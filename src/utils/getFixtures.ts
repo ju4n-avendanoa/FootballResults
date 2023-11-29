@@ -23,9 +23,10 @@ export async function getFixture(leagueId: number, round: string) {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_API_KEY as string,
+      "X-RapidAPI-Key": process.env.API_KEY as string,
       "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
     },
+    next: { revalidate: 604800 },
   };
 
   try {

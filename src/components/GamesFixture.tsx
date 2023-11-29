@@ -1,34 +1,42 @@
 "use client";
 
-import { getFixture } from "@/utils/getFixtures";
 import { Fixture } from "@/interfaces/fixture";
 import { useEffect } from "react";
-import { getEvents } from "@/utils/eventType";
 import useGamesStore from "@/store/gamesStore";
 import GameCard from "./GameCard";
 
 type Props = {
-  leagueId: string;
-  round: string;
+  matches: Fixture[];
 };
 
-function GamesFixture({ leagueId, round }: Props) {
-  const { setDetails, setRoundMatches, setEvents, roundMatches, setFixtureId } =
+function GamesFixture({ matches }: Props) {
+  const { setDetails, setRoundMatches, setEvents, setFixtureId, roundMatches } =
     useGamesStore();
 
   useEffect(() => {
-    async function getRoundMatches() {
-      const matches: Fixture[] = await getFixture(Number(leagueId), round);
-      setRoundMatches(matches);
-    }
-    getRoundMatches();
-  }, [leagueId, round, setRoundMatches]);
+    setRoundMatches(matches);
+  }, [matches, setRoundMatches]);
 
   const handleClick = async (match: Fixture) => {
-    const newEvents = await getEvents(match.fixture.id);
-    setEvents(newEvents);
     setFixtureId(match.fixture.id);
     setDetails(true);
+    async function fetchData() {
+      try {
+        const response = await fetch(
+          `http://localhost:3000/api/games/fixtures?fixtureId=${match.fixture.id}`
+        );
+        if (response.ok) {
+          const fixtureData = await response.json();
+          setEvents(fixtureData);
+        } else {
+          console.error("Error al obtener los datos del backend");
+        }
+      } catch (error) {
+        console.error("Error en la solicitud:", error);
+      }
+    }
+
+    fetchData();
   };
 
   return (

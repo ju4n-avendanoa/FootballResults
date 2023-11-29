@@ -23,7 +23,7 @@ function ScoreDetail() {
           />
           <h3 className="text-xs text-center">{match?.teams.home.name}</h3>
         </div>
-        <div className="flex flex-col justify-between items-center gap-2">
+        <div className="flex flex-col justify-between items-center gap-2 w-max">
           <p className="text-xs w-auto text-center">
             {formatTimestamp(match!.fixture.timestamp)}
           </p>

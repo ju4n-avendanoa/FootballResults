@@ -1,9 +1,10 @@
-import { getRounds } from "@/utils/getFixtures";
+import { getFixture, getRounds } from "@/utils/getFixtures";
 import { getInfo } from "@/utils/getStandings";
 import GamesFixture from "@/components/GamesFixture";
 import RoundSelector from "@/components/RoundSelector";
 import GameDetail from "@/components/GameDetail";
 import LeftMenu from "@/components/LeftMenu";
+import { Fixture } from "@/interfaces/fixture";
 
 async function GamesPage({
   params,
@@ -12,6 +13,10 @@ async function GamesPage({
 }) {
   const rounds: string[] = await getRounds(Number(params.leagueId));
   const leagueInfo = await getInfo(Number(params.leagueId));
+  const matches: Fixture[] = await getFixture(
+    Number(params.leagueId),
+    params.round
+  );
   const currentRound = params.round.replaceAll("%20", " ");
 
   return (
@@ -33,7 +38,7 @@ async function GamesPage({
           />
         </div>
         <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 w-full h-full p-8">
-          <GamesFixture leagueId={params.leagueId} round={currentRound} />
+          <GamesFixture matches={matches} />
         </div>
       </section>
       <GameDetail />

@@ -37,7 +37,7 @@ function GameDetail() {
           <section className="fixed inset-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white h-2/3 w-4/5 lg:w-1/2 z-20 overflow-auto">
             <div className="sticky top-0 bg-slate-500 h-8 w-full flex items-center justify-between px-2">
               <h5 className="text-xs text-white font-semibold pl-2">
-                {match?.league.round} {match?.fixture.id}
+                {match?.league.round}
               </h5>
               <XCircleIcon
                 color="white"

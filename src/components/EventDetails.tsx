@@ -1,7 +1,7 @@
 import { getIcon } from "@/utils/eventType";
+import { NoSymbolIcon } from "@heroicons/react/24/solid";
 import useGamesStore from "@/store/gamesStore";
 import Image from "next/image";
-import { NoSymbolIcon } from "@heroicons/react/24/solid";
 
 function EventDetails() {
   const { roundMatches, events, fixtureId } = useGamesStore();
@@ -9,7 +9,6 @@ function EventDetails() {
     (roundMatch) => roundMatch.fixture.id === fixtureId
   );
 
-  const handleImageError = <NoSymbolIcon />;
   return (
     <>
       <div>

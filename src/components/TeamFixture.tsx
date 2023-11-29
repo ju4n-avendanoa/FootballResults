@@ -1,6 +1,5 @@
 "use client";
 
-import { getTeamStatistics } from "@/utils/getTeams";
 import { Teams } from "@/interfaces/teams";
 import useGamesStore from "@/store/gamesStore";
 import useTeamsStore from "@/store/teamsStore";
@@ -16,9 +15,24 @@ function TeamFixture({ sortedTeams, leagueId }: Props) {
   const { setTeamStatistics } = useTeamsStore();
 
   const handleClick = async (teamId: number) => {
-    const response = await getTeamStatistics(teamId, Number(leagueId));
-    setTeamStatistics(response);
-    setDetails(true);
+    async function fetchData() {
+      try {
+        const response = await fetch(
+          `http://localhost:3000/api/teams/stats?teamId=${teamId}&leagueId=${leagueId}`
+        );
+        if (response.ok) {
+          const statsData = await response.json();
+          setTeamStatistics(statsData);
+          setDetails(true);
+        } else {
+          console.error("Error al obtener los datos del backend");
+        }
+      } catch (error) {
+        console.error("Error en la solicitud:", error);
+      }
+    }
+
+    fetchData();
   };
 
   return (
