@@ -23,7 +23,6 @@ function ScoreDetail() {
         );
         if (response.ok) {
           const statsData = await response.json();
-          console.log(statsData);
           setOdds(statsData);
         } else {
           console.error("Error al obtener los datos del backend");

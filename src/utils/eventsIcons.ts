@@ -4,7 +4,7 @@ export const icons = {
   owngoal:
     "https://res.cloudinary.com/dhjqarghy/image/upload/v1698524740/football/owngoal_iydw1c.png",
   yellowcard:
-    " https://res.cloudinary.com/dhjqarghy/image/upload/v1698524740/football/yellow_tgnela.png",
+    "https://res.cloudinary.com/dhjqarghy/image/upload/v1698524740/football/yellow_tgnela.png",
   redcard:
     "https://res.cloudinary.com/dhjqarghy/image/upload/v1698524740/football/cards_aau3l1.png",
   whistle:

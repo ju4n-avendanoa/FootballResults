@@ -1,7 +1,7 @@
 import { Odds } from "@/interfaces/Odds";
 
 export default async function getOdds(fixtureId: number) {
-  const url = "https://api-football-v1.p.rapidapi.com/v3/odds?fixture=1035294";
+  const url = `https://api-football-v1.p.rapidapi.com/v3/odds?fixture=${fixtureId}`;
   const options = {
     method: "GET",
     headers: {

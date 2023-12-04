@@ -28,7 +28,7 @@ function EventDetails() {
                     <span>{event.time.elapsed}&apos;</span>
                     {event.type === "subst" ? (
                       <>
-                        <p className="text-red-500">{event.player.name}</p>
+                        <p className="text-red-500">{event.assist.name}</p>
                         {eventImage ? (
                           <Image
                             src={eventImage}
@@ -39,7 +39,7 @@ function EventDetails() {
                         ) : (
                           <NoSymbolIcon className="w-5 h-auto" />
                         )}
-                        <p className="text-green-500">{event.assist.name}</p>
+                        <p className="text-green-500">{event.player.name}</p>
                       </>
                     ) : (
                       <>
@@ -66,7 +66,7 @@ function EventDetails() {
                   >
                     {event.type === "subst" ? (
                       <>
-                        <p className="text-red-500">{event.player.name}</p>
+                        <p className="text-red-500">{event.assist.name}</p>
                         {eventImage ? (
                           <Image
                             src={eventImage}
@@ -77,7 +77,7 @@ function EventDetails() {
                         ) : (
                           <NoSymbolIcon className="w-5 h-auto" />
                         )}
-                        <p className="text-green-500">{event.assist.name}</p>
+                        <p className="text-green-500">{event.player.name}</p>
                       </>
                     ) : (
                       <>
@@ -121,7 +121,7 @@ function EventDetails() {
                     <span>{event.time.elapsed}&apos;</span>
                     {event.type === "subst" ? (
                       <>
-                        <p className="text-red-500">{event.player.name}</p>
+                        <p className="text-red-500">{event.assist.name}</p>
                         {eventImage ? (
                           <Image
                             src={eventImage}
@@ -132,7 +132,7 @@ function EventDetails() {
                         ) : (
                           <NoSymbolIcon className="w-5 h-auto" />
                         )}
-                        <p className="text-green-500">{event.assist.name}</p>
+                        <p className="text-green-500">{event.player.name}</p>
                       </>
                     ) : (
                       <>
@@ -159,7 +159,7 @@ function EventDetails() {
                   >
                     {event.type === "subst" ? (
                       <>
-                        <p className="text-red-500">{event.player.name}</p>
+                        <p className="text-red-500">{event.assist.name}</p>
                         {eventImage ? (
                           <Image
                             src={eventImage}
@@ -170,7 +170,7 @@ function EventDetails() {
                         ) : (
                           <NoSymbolIcon className="w-5 h-auto" />
                         )}
-                        <p className="text-green-500">{event.assist.name}</p>
+                        <p className="text-green-500">{event.player.name}</p>
                       </>
                     ) : (
                       <>
