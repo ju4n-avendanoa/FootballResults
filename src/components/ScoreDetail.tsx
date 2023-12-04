@@ -1,9 +1,8 @@
 import { formatTimestamp } from "@/utils/parseDate";
+import { useEffect } from "react";
 import { getIcon } from "@/utils/eventType";
 import useGamesStore from "@/store/gamesStore";
 import Image from "next/image";
-import { useEffect } from "react";
-import { Value } from "@/interfaces/Odds";
 
 function ScoreDetail() {
   const { roundMatches, fixtureId, setOdds, odds } = useGamesStore();
@@ -15,8 +14,12 @@ function ScoreDetail() {
   useEffect(() => {
     async function fetchData() {
       try {
+        const baseUrl =
+          process.env.NODE_ENV === "production"
+            ? "https://footballresults.vercel.app"
+            : "http://localhost:3000";
         const response = await fetch(
-          `http://localhost:3000/api/games/odds?fixtureId=${fixtureId}`
+          `${baseUrl}/api/games/odds?fixtureId=${fixtureId}`
         );
         if (response.ok) {
           const statsData = await response.json();
@@ -76,24 +79,26 @@ function ScoreDetail() {
         <p className="text-xs">{match?.fixture.referee}</p>
       </div>
       <div className="grid grid-cols-3 p-4">
-        {odds.map((odd, index) => (
-          <div key={index}>
-            <p
-              className={`border border-black text-xs p-1 text-center font-semibold ${
-                odd.value === "Home"
-                  ? "bg-green-400"
-                  : odd.value === "Away"
-                  ? "bg-red-400"
-                  : "bg-yellow-400"
-              }`}
-            >
-              {odd.value}
-            </p>
-            <p className="border border-black text-xs p-1 text-center">
-              {odd.odd}
-            </p>
-          </div>
-        ))}
+        {odds.length !== 0
+          ? odds.map((odd, index) => (
+              <div key={index}>
+                <p
+                  className={`border border-black text-xs p-1 text-center font-semibold ${
+                    odd.value === "Home"
+                      ? "bg-green-400"
+                      : odd.value === "Away"
+                      ? "bg-red-400"
+                      : "bg-yellow-400"
+                  }`}
+                >
+                  {odd.value}
+                </p>
+                <p className="border border-black text-xs p-1 text-center">
+                  {odd.odd}
+                </p>
+              </div>
+            ))
+          : null}
       </div>
     </div>
   );

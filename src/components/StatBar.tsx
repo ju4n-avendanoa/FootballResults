@@ -12,8 +12,12 @@ async function StatBar({ fixtureId }: Props) {
   useEffect(() => {
     async function fetchData() {
       try {
+        const baseUrl =
+          process.env.NODE_ENV === "production"
+            ? "https://footballresults.vercel.app"
+            : "http://localhost:3000";
         const response = await fetch(
-          `http://localhost:3000/api/games/stats?fixtureId=${fixtureId}`
+          `${baseUrl}/api/games/stats?fixtureId=${fixtureId}`
         );
         if (response.ok) {
           const statsData = await response.json();

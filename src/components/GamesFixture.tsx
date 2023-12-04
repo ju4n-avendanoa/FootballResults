@@ -19,10 +19,14 @@ function GamesFixture({ matches }: Props) {
 
   const handleClick = async (match: Fixture) => {
     setFixtureId(match.fixture.id);
+    const baseUrl =
+      process.env.NODE_ENV === "production"
+        ? "https://footballresults.vercel.app"
+        : "http://localhost:3000";
     async function fetchData() {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/games/fixtures?fixtureId=${match.fixture.id}`
+          `${baseUrl}/api/games/fixtures?fixtureId=${match.fixture.id}`
         );
         if (response.ok) {
           const fixtureData = await response.json();

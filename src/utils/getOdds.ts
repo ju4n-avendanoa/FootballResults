@@ -13,7 +13,9 @@ export default async function getOdds(fixtureId: number) {
   try {
     const response = await fetch(url, options);
     const result: Odds = await response.json();
-    return result.response[0].bookmakers[0].bets[0].values;
+    if (result.response.length === 0) return [];
+    console.log(result);
+    return result.response[0]?.bookmakers[0]?.bets[0]?.values;
   } catch (error) {
     console.error(error);
   }
