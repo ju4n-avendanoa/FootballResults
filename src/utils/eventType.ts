@@ -24,8 +24,6 @@ export function getIcon(event: string) {
     .toLowerCase()
     .replace(" ", "")
     .replace(/\d+$/, "") as keyof typeof icons;
-  console.log(key);
   const iconToUse = icons[key];
-  console.log(iconToUse);
   return iconToUse;
 }

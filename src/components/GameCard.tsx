@@ -38,10 +38,7 @@ function GameCard({ match }: Props) {
         <div className="flex flex-col items-center justify-center w-12 gap-2">
           <ImageWithFallback
             src={match.teams.home.logo}
-            fallbackSrc={
-              "https://res.cloudinary.com/dhjqarghy/image/upload/v1698524740/football/football_oiz4k3.png"
-              // getIcon("teamdefault")
-            }
+            fallbackSrc={getIcon("teamdefault")}
             alt="1234"
             height={60}
             width={60}
@@ -56,7 +53,7 @@ function GameCard({ match }: Props) {
         <div className="flex flex-col items-center justify-center w-12 gap-2">
           <ImageWithFallback
             src={match.teams.away.logo}
-            fallbackSrc="https://res.cloudinary.com/dhjqarghy/image/upload/v1698524740/football/football_oiz4k3.png"
+            fallbackSrc={getIcon("teamdefault")}
             alt="1234"
             height={60}
             width={60}

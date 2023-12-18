@@ -35,9 +35,6 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
               Teams
             </li>
           </Link>
-          <li className="p-4 hover:bg-slate-600 hover:border hover:border-black h-14">
-            Players
-          </li>
         </ul>
       </>
     );

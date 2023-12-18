@@ -51,7 +51,6 @@ function GameDetail() {
                 }}
               />
             </div>
-
             {match?.fixture.status.short === "NS" ? (
               <div className="5/6">
                 <ScoreDetail />
@@ -59,7 +58,7 @@ function GameDetail() {
             ) : null}
             {match?.fixture.status.short === "FT" ? (
               <>
-                <div className="">
+                <div>
                   <ScoreDetail />
                 </div>
                 <div>

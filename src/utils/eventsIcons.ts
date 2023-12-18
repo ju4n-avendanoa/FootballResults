@@ -20,5 +20,5 @@ export const icons = {
   penaltyconfirmed:
     "https://res.cloudinary.com/dhjqarghy/image/upload/v1698527021/football/var-replay_laiwge.png",
   teamdefault:
-    "https://res.cloudinary.com/dhjqarghy/image/upload/v1702494570/football/Pngtree_golden_shield_badge_3428618_hnsamz.png",
+    "https://res.cloudinary.com/dhjqarghy/image/upload/v1702915364/football/Pngtree_shield_icon_3583480_wpkkbg.png",
 };
