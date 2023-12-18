@@ -21,21 +21,21 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
       <>
         <ul className="flex flex-col text-white">
           <Link href={`/leagues/${leagueName}/${leagueId}`}>
-            <li className="hover:bg-slate-600 hover:border hover:border-black h-14 p-4">
+            <li className="p-4 hover:bg-slate-600 hover:border hover:border-black h-14">
               Standings
             </li>
           </Link>
           <Link href={`/games/${leagueName}/${leagueId}/${currentRound}`}>
-            <li className="hover:bg-slate-600 hover:border hover:border-black h-14 p-4">
+            <li className="p-4 hover:bg-slate-600 hover:border hover:border-black h-14">
               Games
             </li>
           </Link>
           <Link href={`/teams/${leagueName}/${leagueId}`}>
-            <li className="hover:bg-slate-600 hover:border hover:border-black h-14 p-4">
+            <li className="p-4 hover:bg-slate-600 hover:border hover:border-black h-14">
               Teams
             </li>
           </Link>
-          <li className="hover:bg-slate-600 hover:border hover:border-black h-14 p-4">
+          <li className="p-4 hover:bg-slate-600 hover:border hover:border-black h-14">
             Players
           </li>
         </ul>
@@ -46,7 +46,7 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
   const leagueTitle = () => {
     return (
       <>
-        <h2 className="text-white font-bold text-2xl w-min text-center p-2">
+        <h2 className="p-2 text-2xl font-bold text-center text-white w-min">
           {leagueInfo?.name}
         </h2>
         <Image
@@ -54,7 +54,7 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
           alt="league-logo"
           width={50}
           height={10}
-          className="bg-white p-1 rounded-sm"
+          className="p-1 bg-white rounded-sm"
         />
       </>
     );
@@ -62,9 +62,9 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
 
   return (
     <>
-      <div className="fixed flex flex-col mt-12 justify-center items-center w-full lg:hidden z-2">
-        <div className="flex justify-center items-center gap-8 top-12 w-full h-10 bg-slate-900">
-          <h2 className="text-white font-semibold">Menu</h2>
+      <div className="fixed flex flex-col items-center justify-center w-full mt-12 lg:hidden z-2">
+        <div className="flex items-center justify-center w-full h-10 gap-8 top-12 bg-slate-900">
+          <h2 className="font-semibold text-white">Menu</h2>
           <Bars3Icon
             className="w-8"
             color="white"
@@ -73,7 +73,7 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
         </div>
         {isTaskMenuOpen ? (
           <section className={`sticky flex flex-col w-full h-min bg-slate-700`}>
-            <div className="flex justify-center items-center w-full gap-4 p-4">
+            <div className="flex items-center justify-center w-full gap-4 p-4">
               {leagueTitle()}
             </div>
             {menu()}
@@ -83,7 +83,7 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
       <aside
         className={`sticky top-0 w-1/5 bg-slate-800 h-screen hidden lg:block`}
       >
-        <div className="flex justify-evenly items-center w-full pt-24 pb-6 gap-4 h-auto p-4">
+        <div className="flex items-center w-full h-auto gap-4 p-4 pt-24 pb-6 justify-evenly">
           {leagueTitle()}
         </div>
         {menu()}

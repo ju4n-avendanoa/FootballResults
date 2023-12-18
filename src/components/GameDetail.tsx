@@ -32,14 +32,14 @@ function GameDetail() {
     <>
       {details && (
         <>
-          <section className="fixed bg-gradient-to-t from-black top-0 z-10 w-full h-full flex flex-col items-center justify-center"></section>
+          <section className="fixed top-0 z-10 flex flex-col items-center justify-center w-full h-full bg-gradient-to-t from-black"></section>
           <section
             className={`fixed inset-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-4/5 lg:w-1/2 z-20 overflow-auto ${
               match?.fixture.status.short === "NS" ? "h-1/3" : "h-2/3"
             }`}
           >
-            <div className="sticky top-0 bg-slate-500 h-8 w-full flex items-center justify-between px-2">
-              <h5 className="text-xs text-white font-semibold pl-2">
+            <div className="sticky top-0 flex items-center justify-between w-full h-8 px-2 bg-slate-500">
+              <h5 className="pl-2 text-xs font-semibold text-white">
                 {match?.league.round}
               </h5>
               <XCircleIcon

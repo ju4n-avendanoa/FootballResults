@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
-        <header className="w-full fixed z-20">
+        <header className="fixed z-20 w-full">
           <NavBar />
         </header>
         {children}

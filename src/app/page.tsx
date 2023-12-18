@@ -12,7 +12,7 @@ export default function Home() {
           fill
           className="absolute object-cover"
         />
-        <div className="absolute bg-gradient-to-t from-black top-0 z-10 text-white pt-40 w-full h-full flex flex-col items-center justify-center p-8">
+        <div className="absolute top-0 z-10 flex flex-col items-center justify-center w-full h-full p-8 pt-40 text-white bg-gradient-to-t from-black">
           <h1 className="text-4xl font-bold">Football Results</h1>
           <p className="px-10 text-center bg-[#00000090] rounded-lg p-6 mt-4 w-11/12 lg:w-3/5">
             Welcome to our football data hub - your source for match results,

@@ -37,8 +37,8 @@ function ScoreDetail() {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex justify-center items-center gap-14 p-3 h-1/2 w-auto">
-        <div className="flex flex-col gap-2 items-center justify-center w-auto">
+      <div className="flex items-center justify-center w-auto p-3 gap-14 h-1/2">
+        <div className="flex flex-col items-center justify-center w-auto gap-2">
           <Image
             src={match!.teams.home.logo}
             alt="home-team-logo"
@@ -48,8 +48,8 @@ function ScoreDetail() {
           />
           <h3 className="text-xs text-center">{match?.teams.home.name}</h3>
         </div>
-        <div className="flex flex-col justify-between items-center gap-2 w-max">
-          <p className="text-xs w-auto text-center">
+        <div className="flex flex-col items-center justify-between gap-2 w-max">
+          <p className="w-auto text-xs text-center">
             {formatTimestamp(match!.fixture.timestamp)}
           </p>
           <div className="flex items-center gap-2">
@@ -58,7 +58,7 @@ function ScoreDetail() {
             <p className="text-xl font-semibold">{match?.goals.away}</p>
           </div>
         </div>
-        <div className="flex flex-col gap-2 items-center justify-center w-auto">
+        <div className="flex flex-col items-center justify-center w-auto gap-2">
           <Image
             src={match!.teams.away.logo}
             alt="away-team-logo"
@@ -92,7 +92,7 @@ function ScoreDetail() {
                 >
                   {odd.value}
                 </p>
-                <p className="border border-black text-xs p-1 text-center">
+                <p className="p-1 text-xs text-center border border-black">
                   {odd.odd}
                 </p>
               </div>

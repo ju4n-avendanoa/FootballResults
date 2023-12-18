@@ -7,7 +7,7 @@ type Props = {
 function StatisticsTable({ statistics }: Props) {
   return (
     <div>
-      <table className="text-xs w-full border border-slate-500">
+      <table className="w-full text-xs border border-slate-500">
         <thead>
           <tr className="bg-slate-300">
             <th></th>
@@ -96,7 +96,7 @@ function StatisticsTable({ statistics }: Props) {
               {statistics?.goals.against.average.home}
             </td>
           </tr>
-          <tr className="bg-slate-300 h-5 border border-slate-300">
+          <tr className="h-5 border bg-slate-300 border-slate-300">
             <td></td>
             <td></td>
             <td></td>

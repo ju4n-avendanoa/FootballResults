@@ -38,7 +38,7 @@ async function StatBar({ fixtureId }: Props) {
   }
 
   return (
-    <div className="h-screen w-full p-2 md:p-10">
+    <div className="w-full h-screen p-2 md:p-10">
       {stats[0].statistics.map((element1, index) => {
         let element2 = stats[1].statistics[index];
         const widthHomeValue =
@@ -60,7 +60,7 @@ async function StatBar({ fixtureId }: Props) {
         const awayValue = (widthAwayValue / totalWidth) * 100;
 
         return (
-          <section key={index} className="text-xs md:text-sm font-semibold">
+          <section key={index} className="text-xs font-semibold md:text-sm">
             <section className="flex justify-between p-1">
               <p>{element1.value === null ? "0" : element1.value}</p>
               <p>{element1.type}</p>

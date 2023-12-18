@@ -52,7 +52,7 @@ function NavBar() {
 
   return (
     <nav
-      className="bg-black lg:opacity-90 px-8 py-2 relative w-full"
+      className="relative w-full px-8 py-2 bg-black lg:opacity-90"
       onMouseLeave={() => {
         setIsAmericaOpen(false);
         setIsEuropeOpen(false);
@@ -60,12 +60,12 @@ function NavBar() {
         setIsTeamMenuOpen(false);
       }}
     >
-      <section className="flex justify-between items-center">
-        <div className="flex gap-4 items-center lg:w-1/5">
+      <section className="flex items-center justify-between">
+        <div className="flex items-center gap-4 lg:w-1/5">
           <Logo />
         </div>
         <MobileMenu />
-        <ul className="flex justify-evenly text-white lg:w-4/5 max-lg:hidden">
+        <ul className="flex text-white justify-evenly lg:w-4/5 max-lg:hidden">
           <li
             onMouseEnter={() => openMenu("league")}
             className={`cursor-pointer select-none ${
@@ -85,13 +85,13 @@ function NavBar() {
         </ul>
       </section>
       {(isLeagueMenuOpen || isTeamMenuOpen) && (
-        <div className="bg-black opacity-90 z-10 p-4 w-full">
-          <section className="flex justify-evenly text-white">
+        <div className="z-10 w-full p-4 bg-black opacity-90">
+          <section className="flex text-white justify-evenly">
             <div className="flex justify-around w-1/5">
               <h2 className="text-green-400">Continents</h2>
-              <hr className="border-green-400 border h-auto" />
+              <hr className="h-auto border border-green-400" />
             </div>
-            <ul className="flex w-4/5 justify-around">
+            <ul className="flex justify-around w-4/5">
               <li
                 onMouseEnter={() => openMenu("America")}
                 className={`cursor-pointer w-1/2 text-center select-none ${

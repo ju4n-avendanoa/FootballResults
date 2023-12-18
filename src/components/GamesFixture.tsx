@@ -48,7 +48,7 @@ function GamesFixture({ matches }: Props) {
       {roundMatches?.map((match) => (
         <article
           key={match.fixture.id}
-          className="flex justify-center gap-14 border border-slate-600 font-semibold bg-slate-400 cursor-pointer hover:bg-slate-200"
+          className="flex justify-center font-semibold border cursor-pointer gap-14 border-slate-600 bg-slate-400 hover:bg-slate-200"
           onClick={() => {
             handleClick(match);
           }}

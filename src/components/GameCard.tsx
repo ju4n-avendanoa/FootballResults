@@ -1,24 +1,50 @@
 "use client";
 
 import { Fixture } from "@/interfaces/fixture";
+import { getIcon } from "@/utils/eventType";
 import { formatTimestamp } from "@/utils/parseDate";
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
+import React, { useState } from "react";
 
 type Props = {
   match: Fixture;
 };
 
+interface ImageWithFallbackProps extends ImageProps {
+  fallbackSrc: string;
+}
+
+const ImageWithFallback = (props: ImageWithFallbackProps) => {
+  const { src, fallbackSrc, alt, height, width, ...rest } = props;
+  const [imgSrc, setImgSrc] = useState(src);
+  return (
+    <Image
+      {...rest}
+      src={imgSrc}
+      alt={alt}
+      width={width}
+      height={height}
+      onError={() => {
+        setImgSrc(fallbackSrc);
+      }}
+    />
+  );
+};
+
 function GameCard({ match }: Props) {
   return (
-    <div className="flex flex-col h-full w-full">
-      <div className="flex justify-center items-center gap-14 p-3 h-full">
-        <div className="flex flex-col gap-2 items-center justify-center w-12">
-          <Image
+    <div className="flex flex-col w-full h-full">
+      <div className="flex items-center justify-center h-full p-3 gap-14">
+        <div className="flex flex-col items-center justify-center w-12 gap-2">
+          <ImageWithFallback
             src={match.teams.home.logo}
-            alt="home-team-logo"
-            width={60}
+            fallbackSrc={
+              "https://res.cloudinary.com/dhjqarghy/image/upload/v1698524740/football/football_oiz4k3.png"
+              // getIcon("teamdefault")
+            }
+            alt="1234"
             height={60}
-            className="w-14"
+            width={60}
           />
           <h3 className="text-xs text-center">{match.teams.home.name}</h3>
         </div>
@@ -27,13 +53,13 @@ function GameCard({ match }: Props) {
           <p className="font-semibold">:</p>
           <p className="text-xl font-semibold">{match.goals.away}</p>
         </div>
-        <div className="flex flex-col gap-2 items-center justify-center w-12">
-          <Image
+        <div className="flex flex-col items-center justify-center w-12 gap-2">
+          <ImageWithFallback
             src={match.teams.away.logo}
-            alt="away-team-logo"
-            width={60}
+            fallbackSrc="https://res.cloudinary.com/dhjqarghy/image/upload/v1698524740/football/football_oiz4k3.png"
+            alt="1234"
             height={60}
-            className="w-14"
+            width={60}
           />
           <h3 className="text-xs text-center">{match.teams.away.name}</h3>
         </div>

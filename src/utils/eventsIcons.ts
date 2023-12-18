@@ -19,4 +19,6 @@ export const icons = {
     "https://res.cloudinary.com/dhjqarghy/image/upload/v1698527152/football/var_oxyfs0.png",
   penaltyconfirmed:
     "https://res.cloudinary.com/dhjqarghy/image/upload/v1698527021/football/var-replay_laiwge.png",
+  teamdefault:
+    "https://res.cloudinary.com/dhjqarghy/image/upload/v1702494570/football/Pngtree_golden_shield_badge_3428618_hnsamz.png",
 };

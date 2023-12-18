@@ -1,10 +1,10 @@
 import { getFixture, getRounds } from "@/utils/getFixtures";
 import { getInfo } from "@/utils/getStandings";
+import { Fixture } from "@/interfaces/fixture";
 import GamesFixture from "@/components/GamesFixture";
 import RoundSelector from "@/components/RoundSelector";
 import GameDetail from "@/components/GameDetail";
 import LeftMenu from "@/components/LeftMenu";
-import { Fixture } from "@/interfaces/fixture";
 
 async function GamesPage({
   params,
@@ -20,7 +20,7 @@ async function GamesPage({
   const currentRound = params.round.replaceAll("%20", " ");
 
   return (
-    <div className="flex flex-col lg:flex-row relative">
+    <div className="relative flex flex-col lg:flex-row">
       <LeftMenu
         leagueName={params.leagueName}
         leagueId={params.leagueId}
@@ -28,7 +28,7 @@ async function GamesPage({
         leagueInfo={leagueInfo}
       />
 
-      <section className="flex flex-col w-full min-h-screen lg:w-4/5 bg-slate-300 pt-24">
+      <section className="flex flex-col w-full min-h-screen pt-24 lg:w-4/5 bg-slate-300">
         <div className="flex justify-center">
           <RoundSelector
             rounds={rounds}
@@ -37,7 +37,7 @@ async function GamesPage({
             leagueName={params.leagueName}
           />
         </div>
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 w-full h-full p-8">
+        <div className="grid w-full h-full gap-8 p-8 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           <GamesFixture matches={matches} />
         </div>
       </section>

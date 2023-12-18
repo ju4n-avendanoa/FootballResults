@@ -7,6 +7,8 @@ import LeftMenu from "@/components/LeftMenu";
 import Image from "next/image";
 import LoadingPage from "@/app/loading";
 
+export const revalidate = 10;
+
 async function LeaguePage({
   params,
 }: {
@@ -18,7 +20,7 @@ async function LeaguePage({
   ]);
 
   return (
-    <div className="flex flex-col lg:flex-row relative">
+    <div className="relative flex flex-col lg:flex-row">
       <Suspense fallback={<LoadingPage />}>
         <LeftMenu
           currentRound={currentRound}
@@ -27,10 +29,10 @@ async function LeaguePage({
           leagueInfo={leagueInfo}
         />
 
-        <section className="flex flex-col lg:w-4/5 w-full items-center gap-8 bg-slate-300">
-          <section className="w-full pb-8 flex flex-col gap-8 items-center p-6">
+        <section className="flex flex-col items-center w-full gap-8 lg:w-4/5 bg-slate-300">
+          <section className="flex flex-col items-center w-full gap-8 p-6 pb-8">
             <section className="flex items-center gap-12 pt-24">
-              <h2 className="text-xl lg:text-4xl font-bold text-center">
+              <h2 className="text-xl font-bold text-center lg:text-4xl">
                 {leagueInfo?.name}
               </h2>
               <Image
@@ -48,7 +50,7 @@ async function LeaguePage({
                       key={index}
                       className="flex flex-col items-center w-full"
                     >
-                      <h4 className="text-center text-xl p-4 font-semibold">
+                      <h4 className="p-4 text-xl font-semibold text-center">
                         {standing[index] && standing[index].group
                           ? standing[index].group
                           : "Name not found"}

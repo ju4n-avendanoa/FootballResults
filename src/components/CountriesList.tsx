@@ -23,19 +23,19 @@ function CountriesList({ worldLeague, menu }: Props) {
   };
 
   return (
-    <div className="bg-black opacity-90 z-10 p-4 w-full">
+    <div className="z-10 w-full p-4 bg-black opacity-90">
       <section className="flex justify-around text-white">
         <div className="flex w-1/5">
-          <div className="w-full flex justify-around">
+          <div className="flex justify-around w-full">
             <h2 className="text-green-400">Countries</h2>
-            <hr className="border-green-400 border h-auto" />
+            <hr className="h-auto border border-green-400" />
           </div>
         </div>
-        <div className="grid grid-cols-4 gap-8 w-4/5">
+        <div className="grid w-4/5 grid-cols-4 gap-8">
           {worldLeague.map((league, index) => (
             <article
               key={index}
-              className="hover:bg-green-900 p-2 rounded-lg"
+              className="p-2 rounded-lg hover:bg-green-900"
               onClick={hideMenu}
             >
               <LeagueItem

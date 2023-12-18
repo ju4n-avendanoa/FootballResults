@@ -8,7 +8,7 @@ type Props = {
 
 async function StandingsTable({ standing }: Props) {
   return (
-    <table className="bg-slate-700 text-white w-full lg:w-4/5 xl:w-3/5 table-auto border-collapse text-xs lg:text-sm">
+    <table className="w-full text-xs text-white border-collapse table-auto bg-slate-700 lg:w-4/5 xl:w-3/5 lg:text-sm">
       <thead>
         <tr>
           <th></th>
@@ -32,8 +32,8 @@ async function StandingsTable({ standing }: Props) {
               index % 2 === 0 ? "bg-slate-500" : ""
             }`}
           >
-            <td className="text-center p-1">{team.rank}</td>
-            <td className="flex justify-end items-center p-1">
+            <td className="p-1 text-center">{team.rank}</td>
+            <td className="flex items-center justify-end p-1">
               <Image
                 src={team.team.logo}
                 alt="team-logo"
@@ -42,15 +42,15 @@ async function StandingsTable({ standing }: Props) {
               />
             </td>
             <td>{team.team.name}</td>
-            <td className="text-center p-1">{team.all.played}</td>
-            <td className="text-center p-1">{team.all.win}</td>
-            <td className="text-center p-1">{team.all.draw}</td>
-            <td className="text-center p-1">{team.all.lose}</td>
-            <td className="text-center p-1">
+            <td className="p-1 text-center">{team.all.played}</td>
+            <td className="p-1 text-center">{team.all.win}</td>
+            <td className="p-1 text-center">{team.all.draw}</td>
+            <td className="p-1 text-center">{team.all.lose}</td>
+            <td className="p-1 text-center">
               {team.all.goals.for}:{team.all.goals.against}
             </td>
-            <td className="text-center p-1">{team.goalsDiff}</td>
-            <td className="text-center p-1">{team.points}</td>
+            <td className="p-1 text-center">{team.goalsDiff}</td>
+            <td className="p-1 text-center">{team.points}</td>
             <td className="max-sm:hidden">
               <TeamLastFiveMatches matches={team.form} />
             </td>

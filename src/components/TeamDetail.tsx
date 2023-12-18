@@ -26,23 +26,23 @@ function TeamDetail({ teams }: Props) {
     <>
       {details && (
         <>
-          <section className="fixed bg-gradient-to-t from-black top-0 z-10 w-full min-h-screen flex flex-col items-center justify-center"></section>
-          <section className="fixed inset-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white h-2/3 w-4/5 xl:w-1/2 z-20 overflow-auto">
-            <div className="sticky top-0 bg-slate-500 h-8 w-full flex items-center">
+          <section className="fixed top-0 z-10 flex flex-col items-center justify-center w-full min-h-screen bg-gradient-to-t from-black"></section>
+          <section className="fixed z-20 w-4/5 overflow-auto transform -translate-x-1/2 -translate-y-1/2 bg-white inset-1/2 h-2/3 xl:w-1/2">
+            <div className="sticky top-0 flex items-center w-full h-8 bg-slate-500">
               <XCircleIcon
                 color="white"
-                className="w-6 cursor-pointer absolute right-1 top-1"
+                className="absolute w-6 cursor-pointer right-1 top-1"
                 onClick={() => setDetails(false)}
               />
-              <h5 className="text-xs font-semibold pl-2">{team?.team.name}</h5>
+              <h5 className="pl-2 text-xs font-semibold">{team?.team.name}</h5>
             </div>
             <section className="flex flex-col">
               <section className="flex flex-col">
-                <h3 className="bg-slate-400 text-center font-bold">
+                <h3 className="font-bold text-center bg-slate-400">
                   General Information
                 </h3>
-                <div className="flex flex-col md:flex-row justify-around items-center">
-                  <div className="flex justify-center w-full h-40 md:w-1/4 p-2 max-sm:border-b md:border-r border-black bg-slate-300">
+                <div className="flex flex-col items-center justify-around md:flex-row">
+                  <div className="flex justify-center w-full h-40 p-2 border-black md:w-1/4 max-sm:border-b md:border-r bg-slate-300">
                     <Image
                       src={team!.team.logo}
                       alt="team-logo"
@@ -52,7 +52,7 @@ function TeamDetail({ teams }: Props) {
                       priority
                     />
                   </div>
-                  <article className="md:w-1/4 h-40 w-full flex flex-col justify-evenly p-4 max-sm:border-b md:border-r border-black text-xs">
+                  <article className="flex flex-col w-full h-40 p-4 text-xs border-black md:w-1/4 justify-evenly max-sm:border-b md:border-r">
                     <h4>
                       <span className="font-semibold">Name:</span>{" "}
                       {team?.team.name}
@@ -75,17 +75,17 @@ function TeamDetail({ teams }: Props) {
                       {team?.team.founded}
                     </h4>
                   </article>
-                  <div className="flex items-center w-full md:w-1/4 md:h-40 max-sm:border-b md:border-r border-black bg-slate-300">
+                  <div className="flex items-center w-full border-black md:w-1/4 md:h-40 max-sm:border-b md:border-r bg-slate-300">
                     <Image
                       src={team!.venue.image}
                       alt="venue-logo"
                       width={150}
                       height={150}
                       priority
-                      className="p-2 rounded-xl w-full"
+                      className="w-full p-2 rounded-xl"
                     />
                   </div>
-                  <article className="flex flex-col justify-evenly w-full md:w-1/4 h-40 p-4 text-xs">
+                  <article className="flex flex-col w-full h-40 p-4 text-xs justify-evenly md:w-1/4">
                     <h4>
                       <span className="font-semibold">Name:</span>{" "}
                       {team?.venue.name}
@@ -110,32 +110,32 @@ function TeamDetail({ teams }: Props) {
                 </div>
               </section>
               <section className="flex flex-col">
-                <h3 className="bg-slate-400 text-center font-bold">
+                <h3 className="font-bold text-center bg-slate-400">
                   Team Statistics
                 </h3>
-                <section className="flex flex-col md:flex-row text-xs">
-                  <div className="w-full md:w-2/5 p-2">
+                <section className="flex flex-col text-xs md:flex-row">
+                  <div className="w-full p-2 md:w-2/5">
                     <div className="flex flex-col">
                       <div>
-                        <h4 className="text-center bg-slate-300 border font-semibold">
+                        <h4 className="font-semibold text-center border bg-slate-300">
                           Streak
                         </h4>
                       </div>
                       <div className="flex justify-evenly">
                         <div className="flex flex-col items-center w-1/3 border border-slate-300">
-                          <h3 className="bg-green-300 w-full text-center">
+                          <h3 className="w-full text-center bg-green-300">
                             Wins
                           </h3>
                           <p>{teamStatistics?.fixtures.wins.total}</p>
                         </div>
                         <div className="flex flex-col items-center w-1/3 border border-slate-300">
-                          <h3 className="bg-yellow-300 w-full text-center">
+                          <h3 className="w-full text-center bg-yellow-300">
                             Draws
                           </h3>
                           <p>{teamStatistics?.fixtures.draws.total}</p>
                         </div>
                         <div className="flex flex-col items-center w-1/3 border border-slate-300">
-                          <h3 className="bg-red-300 w-full text-center">
+                          <h3 className="w-full text-center bg-red-300">
                             Losses
                           </h3>
                           <p>{teamStatistics?.fixtures.loses.total}</p>
@@ -144,32 +144,32 @@ function TeamDetail({ teams }: Props) {
                     </div>
                     <section className="flex flex-col">
                       <div>
-                        <h4 className="text-center bg-slate-300 font-semibold">
+                        <h4 className="font-semibold text-center bg-slate-300">
                           Penalty
                         </h4>
                       </div>
                       <div className="flex justify-evenly">
                         <div className="flex flex-col items-center w-1/3 text-center">
-                          <h3 className="border border-slate-300 w-full">
+                          <h3 className="w-full border border-slate-300">
                             Scored
                           </h3>
-                          <p className="border border-slate-300 w-full">
+                          <p className="w-full border border-slate-300">
                             {teamStatistics?.penalty.scored.total}
                           </p>
                         </div>
                         <div className="flex flex-col items-center w-1/3 text-center">
-                          <h3 className="border border-slate-300 w-full">
+                          <h3 className="w-full border border-slate-300">
                             Missed
                           </h3>
-                          <p className="border border-slate-300 w-full">
+                          <p className="w-full border border-slate-300">
                             {teamStatistics?.penalty.missed.total}
                           </p>
                         </div>
                         <div className="flex flex-col items-center w-1/3 text-center">
-                          <h3 className="border border-slate-300 w-full ">
+                          <h3 className="w-full border border-slate-300 ">
                             Total
                           </h3>
-                          <p className="border border-slate-300 w-full">
+                          <p className="w-full border border-slate-300">
                             {teamStatistics?.penalty.total}
                           </p>
                         </div>
@@ -178,19 +178,19 @@ function TeamDetail({ teams }: Props) {
                     </section>
                     <section className="flex flex-col">
                       <div>
-                        <h4 className="text-center bg-slate-300 font-semibold">
+                        <h4 className="font-semibold text-center bg-slate-300">
                           Cards
                         </h4>
                       </div>
                       <div className="flex justify-evenly">
                         <div className="flex flex-col items-center w-1/2 border border-slate-300">
-                          <h3 className="bg-yellow-300 w-full text-center">
+                          <h3 className="w-full text-center bg-yellow-300">
                             Yellow Cards
                           </h3>
                           <p>{sumCardsTotal(teamStatistics?.cards.yellow)}</p>
                         </div>
                         <div className="flex flex-col items-center w-1/2 border border-slate-300">
-                          <h3 className="bg-red-300 w-full text-center">
+                          <h3 className="w-full text-center bg-red-300">
                             {" "}
                             Red Cards
                           </h3>
@@ -200,7 +200,7 @@ function TeamDetail({ teams }: Props) {
                       <div className="flex justify-evenly"></div>
                     </section>
                   </div>
-                  <div className="md:w-3/5 w-full p-2 ">
+                  <div className="w-full p-2 md:w-3/5 ">
                     <StatisticsTable statistics={teamStatistics} />
                   </div>
                 </section>

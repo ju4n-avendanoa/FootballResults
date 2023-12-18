@@ -5,7 +5,7 @@ function DetailsNavBar() {
     useGamesStore();
   return (
     <nav>
-      <ul className="flex text-xs h-full gap-1 bg-slate-400 font-semibold">
+      <ul className="flex h-full gap-1 text-xs font-semibold bg-slate-400">
         <li
           className={`p-1 cursor-pointer ${
             showEvents ? "bg-slate-500 text-white" : ""
