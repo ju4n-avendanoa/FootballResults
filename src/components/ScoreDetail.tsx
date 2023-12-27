@@ -36,26 +36,28 @@ function ScoreDetail() {
   }, [fixtureId, setOdds]);
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex items-center justify-center w-auto p-3 gap-14 h-1/2">
+    <div className="grid grid-cols-1 place-items-center py-4">
+      <div className="w-full grid grid-cols-3 place-items-center">
         <div className="flex flex-col items-center justify-center w-auto gap-2">
           <Image
             src={match!.teams.home.logo}
             alt="home-team-logo"
             width={60}
             height={60}
-            className="w-10 md:w-14"
+            className="w-10 h-auto md:w-14"
           />
           <h3 className="text-xs text-center">{match?.teams.home.name}</h3>
         </div>
-        <div className="flex flex-col items-center justify-between gap-2 w-max">
-          <p className="w-auto text-xs text-center">
+        <div className="flex flex-col items-center justify-between gap-2">
+          <p className="text-xs text-center">
             {formatTimestamp(match!.fixture.timestamp)}
           </p>
           <div className="flex items-center gap-2">
-            <p className="text-xl font-semibold">{match?.goals.home}</p>
-            <p className="font-semibold">:</p>
-            <p className="text-xl font-semibold">{match?.goals.away}</p>
+            <p className="text-xl font-semibold">
+              {match?.goals.home}
+              <span className="font-semibold"> : </span>
+              {match?.goals.away}
+            </p>
           </div>
         </div>
         <div className="flex flex-col items-center justify-center w-auto gap-2">
@@ -69,11 +71,11 @@ function ScoreDetail() {
           <h3 className="text-xs text-center">{match?.teams.away.name}</h3>
         </div>
       </div>
-      <p className="text-xs">
+      <p className="text-xs py-2">
         {match?.fixture.venue.name},{" "}
         <span className="font-bold">{match?.fixture.venue.city}</span>
       </p>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 py-2">
         <Image src={getIcon("whistle")} width={20} height={10} alt="whistle" />
         <p className="text-xs">{match?.fixture.referee}</p>
       </div>
