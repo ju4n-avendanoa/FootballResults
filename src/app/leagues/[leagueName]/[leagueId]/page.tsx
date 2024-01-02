@@ -7,7 +7,7 @@ import LeftMenu from "@/components/LeftMenu";
 import Image from "next/image";
 import LoadingPage from "@/app/loading";
 
-export const revalidate = 10;
+export const revalidate = 3600;
 
 async function LeaguePage({
   params,

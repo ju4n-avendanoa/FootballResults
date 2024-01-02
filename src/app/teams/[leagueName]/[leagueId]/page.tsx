@@ -6,6 +6,8 @@ import LeftMenu from "@/components/LeftMenu";
 import TeamFixture from "@/components/TeamFixture";
 import TeamDetail from "@/components/TeamDetail";
 
+export const revalidate = 3600;
+
 async function Teams({
   params,
 }: {

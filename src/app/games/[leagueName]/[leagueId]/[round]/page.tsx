@@ -6,6 +6,8 @@ import RoundSelector from "@/components/RoundSelector";
 import GameDetail from "@/components/GameDetail";
 import LeftMenu from "@/components/LeftMenu";
 
+export const revalidate = 3600;
+
 async function GamesPage({
   params,
 }: {

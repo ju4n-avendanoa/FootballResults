@@ -15,10 +15,14 @@ function TeamFixture({ sortedTeams, leagueId }: Props) {
   const { setTeamStatistics } = useTeamsStore();
 
   const handleClick = async (teamId: number) => {
+    const baseUrl =
+      process.env.NODE_ENV === "production"
+        ? "https://footballresults.vercel.app"
+        : "http://localhost:3000";
     async function fetchData() {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/teams/stats?teamId=${teamId}&leagueId=${leagueId}`
+          `${baseUrl}/api/teams/stats?teamId=${teamId}&leagueId=${leagueId}`
         );
         if (response.ok) {
           const statsData = await response.json();
