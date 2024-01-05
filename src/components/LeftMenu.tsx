@@ -69,7 +69,7 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
           />
         </div>
         {isTaskMenuOpen ? (
-          <section className={`sticky flex flex-col w-full h-min bg-slate-700`}>
+          <section className={`flex flex-col w-full h-min bg-slate-700`}>
             <div className="flex items-center justify-center w-full gap-4 p-4">
               {leagueTitle()}
             </div>
