@@ -3,35 +3,14 @@
 import { Fixture } from "@/interfaces/fixture";
 import { getIcon } from "@/utils/eventType";
 import { formatTimestamp } from "@/utils/parseDate";
-import Image, { ImageProps } from "next/image";
-import React, { useState } from "react";
+import ImageWithFallback from "./ImageWithFallback";
 
 type Props = {
   match: Fixture;
 };
 
-interface ImageWithFallbackProps extends ImageProps {
-  fallbackSrc: string;
-}
-
-const ImageWithFallback = (props: ImageWithFallbackProps) => {
-  const { src, fallbackSrc, alt, height, width, ...rest } = props;
-  const [imgSrc, setImgSrc] = useState(src);
-  return (
-    <Image
-      {...rest}
-      src={imgSrc}
-      alt={alt}
-      width={width}
-      height={height}
-      onError={() => {
-        setImgSrc(fallbackSrc);
-      }}
-    />
-  );
-};
-
 function GameCard({ match }: Props) {
+  console.log(match);
   return (
     <div className="flex flex-col w-full h-full">
       <div className="flex items-center justify-center h-full p-3 gap-14">
@@ -46,9 +25,17 @@ function GameCard({ match }: Props) {
           <h3 className="text-xs text-center">{match.teams.home.name}</h3>
         </div>
         <div className="flex items-center gap-2">
-          <p className="text-xl font-semibold">{match.goals.home}</p>
-          <p className="font-semibold">:</p>
-          <p className="text-xl font-semibold">{match.goals.away}</p>
+          {match.fixture.status.short === "NS" ? (
+            <>
+              <p className="font-semibold">vs</p>
+            </>
+          ) : (
+            <>
+              <p className="text-xl font-semibold">{match.goals.home}</p>
+              <p className="font-semibold">:</p>
+              <p className="text-xl font-semibold">{match.goals.away}</p>
+            </>
+          )}
         </div>
         <div className="flex flex-col items-center justify-center w-12 gap-2">
           <ImageWithFallback

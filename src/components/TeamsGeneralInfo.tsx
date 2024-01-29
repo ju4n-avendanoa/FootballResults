@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React from "react";
+import ImageWithFallback from "./ImageWithFallback";
+import { getIcon } from "@/utils/eventType";
 
 type Props = {
   team: any;
@@ -14,13 +16,13 @@ function TeamsGeneralInfo({ team, teamStatistics }: Props) {
       </h3>
       <div className="flex flex-col items-center justify-around md:flex-row">
         <div className="flex justify-center w-full h-40 p-2 border-black md:w-1/4 max-sm:border-b md:border-r bg-slate-300">
-          <Image
+          <ImageWithFallback
             src={team!.team.logo}
+            fallbackSrc={getIcon("teamdefault")}
             alt="team-logo"
-            width={120}
-            height={80}
+            height={120}
+            width={80}
             className="p-2"
-            priority
           />
         </div>
         <article className="flex flex-col w-full h-40 p-4 text-xs border-black md:w-1/4 justify-evenly max-sm:border-b md:border-r">
@@ -46,12 +48,12 @@ function TeamsGeneralInfo({ team, teamStatistics }: Props) {
           </h4>
         </article>
         <div className="flex items-center w-full border-black md:w-1/4 md:h-40 max-sm:border-b md:border-r bg-slate-300">
-          <Image
+          <ImageWithFallback
             src={team!.venue.image}
-            alt="venue-logo"
-            width={150}
+            fallbackSrc={getIcon("teamdefault")}
+            alt="venue"
             height={150}
-            priority
+            width={150}
             className="w-full p-2 rounded-xl"
           />
         </div>

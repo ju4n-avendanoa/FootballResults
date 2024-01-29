@@ -2,10 +2,11 @@ import { getCurrentRound } from "@/utils/getFixtures";
 import { Standing } from "@/interfaces/Rank";
 import { getInfo } from "@/utils/getStandings";
 import { Suspense } from "react";
+import { getIcon } from "@/utils/eventType";
 import StandingsTable from "@/components/StandingsTable";
 import LeftMenu from "@/components/LeftMenu";
-import Image from "next/image";
 import LoadingPage from "@/app/loading";
+import ImageWithFallback from "@/components/ImageWithFallback";
 
 export const revalidate = 3600;
 
@@ -35,11 +36,12 @@ async function LeaguePage({
               <h2 className="text-xl font-bold text-center lg:text-4xl">
                 {leagueInfo?.name}
               </h2>
-              <Image
+              <ImageWithFallback
                 src={leagueInfo!.logo}
+                fallbackSrc={getIcon("teamdefault")}
                 alt="league-logo"
-                width={60}
                 height={60}
+                width={60}
               />
             </section>
             {leagueInfo

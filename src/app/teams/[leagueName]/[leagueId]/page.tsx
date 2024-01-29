@@ -1,7 +1,7 @@
-import { Teams } from "@/interfaces/teams";
 import { getCurrentRound } from "@/utils/getFixtures";
-import { getInfo } from "@/utils/getStandings";
 import { getTeams } from "@/utils/getTeams";
+import { getInfo } from "@/utils/getStandings";
+import { Teams } from "@/interfaces/teams";
 import LeftMenu from "@/components/LeftMenu";
 import TeamFixture from "@/components/TeamFixture";
 import TeamDetail from "@/components/TeamDetail";
@@ -13,11 +13,13 @@ async function Teams({
 }: {
   params: { leagueId: string; leagueName: string };
 }) {
-  const leagueInfo = await getInfo(Number(params.leagueId));
-  const currentRound: string = await getCurrentRound(Number(params.leagueId));
-  const teams: Teams[] = await getTeams(Number(params.leagueId));
+  const [leagueInfo, currentRound, teams] = await Promise.all([
+    getInfo(Number(params.leagueId)),
+    getCurrentRound(Number(params.leagueId)),
+    getTeams(Number(params.leagueId)),
+  ]);
 
-  const sortedTeams = teams.sort((a, b) =>
+  const sortedTeams = teams.sort((a: Teams, b: Teams) =>
     a.team.name.localeCompare(b.team.name)
   );
 

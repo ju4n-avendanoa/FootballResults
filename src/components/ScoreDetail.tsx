@@ -2,7 +2,7 @@ import { formatTimestamp } from "@/utils/parseDate";
 import { useEffect } from "react";
 import { getIcon } from "@/utils/eventType";
 import useGamesStore from "@/store/gamesStore";
-import Image from "next/image";
+import ImageWithFallback from "./ImageWithFallback";
 
 function ScoreDetail() {
   const { roundMatches, fixtureId, setOdds, odds } = useGamesStore();
@@ -39,11 +39,12 @@ function ScoreDetail() {
     <div className="grid grid-cols-1 place-items-center py-4">
       <div className="w-full grid grid-cols-3 place-items-center">
         <div className="flex flex-col items-center justify-center w-auto gap-2">
-          <Image
+          <ImageWithFallback
             src={match!.teams.home.logo}
+            fallbackSrc={getIcon("teamdefault")}
             alt="home-team-logo"
-            width={60}
             height={60}
+            width={60}
             className="w-10 h-auto md:w-14"
           />
           <h3 className="text-xs text-center">{match?.teams.home.name}</h3>
@@ -61,12 +62,13 @@ function ScoreDetail() {
           </div>
         </div>
         <div className="flex flex-col items-center justify-center w-auto gap-2">
-          <Image
+          <ImageWithFallback
             src={match!.teams.away.logo}
+            fallbackSrc={getIcon("teamdefault")}
             alt="away-team-logo"
-            width={60}
             height={60}
-            className="w-10 md:w-14"
+            width={60}
+            className="w-10 h-auto md:w-14"
           />
           <h3 className="text-xs text-center">{match?.teams.away.name}</h3>
         </div>
@@ -76,7 +78,13 @@ function ScoreDetail() {
         <span className="font-bold">{match?.fixture.venue.city}</span>
       </p>
       <div className="flex items-center gap-2 py-2">
-        <Image src={getIcon("whistle")} width={20} height={10} alt="whistle" />
+        <ImageWithFallback
+          src={getIcon("whistle")}
+          fallbackSrc={getIcon("eventdefault")}
+          alt="whistle"
+          height={20}
+          width={10}
+        />
         <p className="text-xs">{match?.fixture.referee}</p>
       </div>
       <div className="grid grid-cols-3 p-4">

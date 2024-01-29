@@ -3,7 +3,8 @@
 import { RankInfo } from "@/interfaces/Rank";
 import { useState } from "react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
-import Image from "next/image";
+import { getIcon } from "@/utils/eventType";
+import ImageWithFallback from "./ImageWithFallback";
 import Link from "next/link";
 
 type Props = {
@@ -46,12 +47,12 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
         <h2 className="p-2 text-2xl font-bold text-center text-white w-min">
           {leagueInfo?.name}
         </h2>
-        <Image
+        <ImageWithFallback
           src={leagueInfo!.logo}
-          alt="league-logo"
-          width={50}
-          height={10}
-          className="p-1 bg-white rounded-sm"
+          fallbackSrc={getIcon("teamdefault")}
+          alt={"event"}
+          height={50}
+          width={20}
         />
       </>
     );

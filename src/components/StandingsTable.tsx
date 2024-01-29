@@ -1,6 +1,7 @@
 import { Standing } from "@/interfaces/Rank";
+import { getIcon } from "@/utils/eventType";
 import TeamLastFiveMatches from "./TeamLastFiveMatches";
-import Image from "next/image";
+import ImageWithFallback from "./ImageWithFallback";
 
 type Props = {
   standing: Standing[];
@@ -34,8 +35,9 @@ async function StandingsTable({ standing }: Props) {
           >
             <td className="p-1 text-center">{team.rank}</td>
             <td className="flex items-center justify-end p-1">
-              <Image
+              <ImageWithFallback
                 src={team.team.logo}
+                fallbackSrc={getIcon("teamdefault")}
                 alt="team-logo"
                 height={20}
                 width={20}

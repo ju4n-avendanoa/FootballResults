@@ -1,7 +1,6 @@
-import { getIcon } from "@/utils/eventType";
-import { NoSymbolIcon } from "@heroicons/react/24/solid";
 import useGamesStore from "@/store/gamesStore";
-import Image from "next/image";
+import ImageWithFallback from "./ImageWithFallback";
+import { getIcon } from "@/utils/eventType";
 
 function EventDetails() {
   const { roundMatches, events, fixtureId } = useGamesStore();
@@ -29,30 +28,24 @@ function EventDetails() {
                     {event.type === "subst" ? (
                       <>
                         <p className="text-red-500">{event.player.name}</p>
-                        {eventImage ? (
-                          <Image
-                            src={eventImage}
-                            alt="event"
-                            width={20}
-                            height={14}
-                          />
-                        ) : (
-                          <NoSymbolIcon className="w-5 h-auto" />
-                        )}
+                        <ImageWithFallback
+                          src={eventImage}
+                          fallbackSrc={getIcon("eventdefault")}
+                          alt={"event"}
+                          height={20}
+                          width={20}
+                        />
                         <p className="text-green-500">{event.assist.name}</p>
                       </>
                     ) : (
                       <>
-                        {eventImage ? (
-                          <Image
-                            src={eventImage}
-                            alt="event"
-                            width={20}
-                            height={14}
-                          />
-                        ) : (
-                          <NoSymbolIcon className="w-5 h-auto" />
-                        )}
+                        <ImageWithFallback
+                          src={eventImage}
+                          fallbackSrc={getIcon("eventdefault")}
+                          alt={"event"}
+                          height={20}
+                          width={20}
+                        />
                         <p>{event.player.name}</p>
                       </>
                     )}
@@ -67,31 +60,25 @@ function EventDetails() {
                     {event.type === "subst" ? (
                       <>
                         <p className="text-red-500">{event.player.name}</p>
-                        {eventImage ? (
-                          <Image
-                            src={eventImage}
-                            alt="event"
-                            width={20}
-                            height={14}
-                          />
-                        ) : (
-                          <NoSymbolIcon className="w-5 h-auto" />
-                        )}
+                        <ImageWithFallback
+                          src={eventImage}
+                          fallbackSrc={getIcon("eventdefault")}
+                          alt={"event"}
+                          height={20}
+                          width={20}
+                        />
                         <p className="text-green-500">{event.assist.name}</p>
                       </>
                     ) : (
                       <>
                         <p>{event.player.name}</p>
-                        {eventImage ? (
-                          <Image
-                            src={eventImage}
-                            alt="event"
-                            width={20}
-                            height={14}
-                          />
-                        ) : (
-                          <NoSymbolIcon className="w-5 h-auto" />
-                        )}
+                        <ImageWithFallback
+                          src={eventImage}
+                          fallbackSrc={getIcon("eventdefault")}
+                          alt={"event"}
+                          height={20}
+                          width={20}
+                        />
                       </>
                     )}
                     <span>{event.time.elapsed}&apos;</span>
@@ -122,30 +109,24 @@ function EventDetails() {
                     {event.type === "subst" ? (
                       <>
                         <p className="text-red-500">{event.player.name}</p>
-                        {eventImage ? (
-                          <Image
-                            src={eventImage}
-                            alt="event"
-                            width={20}
-                            height={14}
-                          />
-                        ) : (
-                          <NoSymbolIcon className="w-5 h-auto" />
-                        )}
+                        <ImageWithFallback
+                          src={eventImage}
+                          fallbackSrc={getIcon("eventdefault")}
+                          alt={"event"}
+                          height={20}
+                          width={20}
+                        />
                         <p className="text-green-500">{event.assist.name}</p>
                       </>
                     ) : (
                       <>
-                        {eventImage ? (
-                          <Image
-                            src={eventImage}
-                            alt="event"
-                            width={20}
-                            height={14}
-                          />
-                        ) : (
-                          <NoSymbolIcon className="w-5 h-auto" />
-                        )}
+                        <ImageWithFallback
+                          src={eventImage}
+                          fallbackSrc={getIcon("eventdefault")}
+                          alt={"event"}
+                          height={20}
+                          width={20}
+                        />
                         <p>{event.player.name}</p>
                       </>
                     )}
@@ -160,31 +141,25 @@ function EventDetails() {
                     {event.type === "subst" ? (
                       <>
                         <p className="text-red-500">{event.player.name}</p>
-                        {eventImage ? (
-                          <Image
-                            src={eventImage}
-                            alt="event"
-                            width={20}
-                            height={14}
-                          />
-                        ) : (
-                          <NoSymbolIcon className="w-5 h-auto" />
-                        )}
+                        <ImageWithFallback
+                          src={eventImage}
+                          fallbackSrc={getIcon("eventdefault")}
+                          alt={"event"}
+                          height={20}
+                          width={20}
+                        />
                         <p className="text-green-500">{event.assist.name}</p>
                       </>
                     ) : (
                       <>
                         <p>{event.player.name}</p>
-                        {eventImage ? (
-                          <Image
-                            src={eventImage}
-                            alt="event"
-                            width={20}
-                            height={14}
-                          />
-                        ) : (
-                          <NoSymbolIcon className="w-5 h-auto" />
-                        )}
+                        <ImageWithFallback
+                          src={eventImage}
+                          fallbackSrc={getIcon("eventdefault")}
+                          alt={"event"}
+                          height={20}
+                          width={20}
+                        />
                       </>
                     )}
                     <span>{event.time.elapsed}&apos;</span>

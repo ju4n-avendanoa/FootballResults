@@ -17,7 +17,15 @@ async function StatBar({ fixtureId }: Props) {
             ? "https://footballresults.vercel.app"
             : "http://localhost:3000";
         const response = await fetch(
-          `${baseUrl}/api/games/stats?fixtureId=${fixtureId}`
+          `${baseUrl}/api/games/stats?fixtureId=${fixtureId}`,
+          {
+            method: "GET",
+            headers: {
+              "X-RapidAPI-Key": process.env.API_KEY as string,
+              "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+            },
+            cache: "force-cache",
+          }
         );
         if (response.ok) {
           const statsData = await response.json();
@@ -38,7 +46,7 @@ async function StatBar({ fixtureId }: Props) {
   }
 
   return (
-    <div className="w-full h-screen p-2 md:p-10">
+    <div className="w-full h-min p-2 md:p-10">
       {stats[0].statistics.map((element1, index) => {
         let element2 = stats[1].statistics[index];
         const widthHomeValue =

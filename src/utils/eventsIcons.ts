@@ -21,4 +21,6 @@ export const icons = {
     "https://res.cloudinary.com/dhjqarghy/image/upload/v1698527021/football/var-replay_laiwge.png",
   teamdefault:
     "https://res.cloudinary.com/dhjqarghy/image/upload/v1702915364/football/Pngtree_shield_icon_3583480_wpkkbg.png",
+  eventdefault:
+    "https://res.cloudinary.com/dhjqarghy/image/upload/v1705945967/Airbnb/check-square-svgrepo-com_owdrsq.svg",
 };

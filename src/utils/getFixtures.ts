@@ -40,25 +40,18 @@ export async function getFixture(leagueId: number, round: string) {
 
 export async function getCurrentRound(leagueId: number) {
   const url = `https://api-football-v1.p.rapidapi.com/v3/fixtures/rounds?league=${leagueId}&season=2023&current=true`;
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": process.env.API_KEY as string,
-      "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
-    },
-    next: { revalidate: 86400 },
-  };
 
   try {
-    const response = await fetch(url, options);
-    const result = await response.json();
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": process.env.API_KEY as string,
+        "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+      },
+      cache: "no-store",
+    });
 
-    if (result.response.length === 0) {
-      const url = `https://api-football-v1.p.rapidapi.com/v3/fixtures/rounds?league=${leagueId}&season=2023`;
-      const response = await fetch(url, options);
-      const result = await response.json();
-      return result.response[result.response.length - 1];
-    }
+    const result = await response.json();
 
     return result.response[0];
   } catch (error) {

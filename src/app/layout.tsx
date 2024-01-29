@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
+      <body className={`${inter.className} min-h-screen`}>
         <header className="fixed z-20 w-full">
           <NavBar />
         </header>

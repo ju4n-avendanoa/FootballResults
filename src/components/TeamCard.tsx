@@ -1,5 +1,7 @@
 import { Teams } from "@/interfaces/teams";
 import Image from "next/image";
+import ImageWithFallback from "./ImageWithFallback";
+import { getIcon } from "@/utils/eventType";
 
 type Props = {
   team: Teams;
@@ -8,12 +10,12 @@ type Props = {
 function TeamCard({ team }: Props) {
   return (
     <>
-      <Image
+      <ImageWithFallback
         src={team.team.logo}
+        fallbackSrc={getIcon("teamdefault")}
         alt="team-logo"
+        height={50}
         width={50}
-        height={30}
-        priority
       />
       <h4 className="text-center w-28 overflow-ellipsis">{team.team.name}</h4>
     </>

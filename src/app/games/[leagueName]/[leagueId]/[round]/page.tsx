@@ -13,13 +13,15 @@ async function GamesPage({
 }: {
   params: { leagueName: string; leagueId: string; round: string };
 }) {
-  const rounds: string[] = await getRounds(Number(params.leagueId));
-  const leagueInfo = await getInfo(Number(params.leagueId));
-  const matches: Fixture[] = await getFixture(
-    Number(params.leagueId),
-    params.round
-  );
+
+  const [rounds, leagueInfo, matches] = await Promise.all([
+    getRounds(Number(params.leagueId)),
+    getInfo(Number(params.leagueId)),
+    getFixture(Number(params.leagueId), params.round),
+  ]);
+
   const currentRound = params.round.replaceAll("%20", " ");
+
 
   return (
     <div className="relative flex flex-col lg:flex-row">
