@@ -7,6 +7,7 @@ import StandingsTable from "@/components/StandingsTable";
 import LeftMenu from "@/components/LeftMenu";
 import LoadingPage from "@/app/loading";
 import ImageWithFallback from "@/components/ImageWithFallback";
+import getCurrentSeason from "@/utils/getCurrentSeason";
 
 export const revalidate = 3600;
 
@@ -15,9 +16,10 @@ async function LeaguePage({
 }: {
   params: { leagueId: string; leagueName: string };
 }) {
+  const currentSeason = await getCurrentSeason(Number(params.leagueId));
   const [leagueInfo, currentRound] = await Promise.all([
-    getInfo(Number(params.leagueId)),
-    getCurrentRound(Number(params.leagueId)),
+    getInfo(Number(params.leagueId), currentSeason),
+    getCurrentRound(Number(params.leagueId), currentSeason),
   ]);
 
   return (

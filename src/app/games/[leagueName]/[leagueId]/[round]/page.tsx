@@ -1,27 +1,24 @@
 import { getFixture, getRounds } from "@/utils/getFixtures";
 import { getInfo } from "@/utils/getStandings";
-import { Fixture } from "@/interfaces/fixture";
 import GamesFixture from "@/components/GamesFixture";
 import RoundSelector from "@/components/RoundSelector";
 import GameDetail from "@/components/GameDetail";
 import LeftMenu from "@/components/LeftMenu";
-
-export const revalidate = 3600;
+import getCurrentSeason from "@/utils/getCurrentSeason";
 
 async function GamesPage({
   params,
 }: {
   params: { leagueName: string; leagueId: string; round: string };
 }) {
-
+  const currentSeason = await getCurrentSeason(Number(params.leagueId));
   const [rounds, leagueInfo, matches] = await Promise.all([
     getRounds(Number(params.leagueId)),
-    getInfo(Number(params.leagueId)),
-    getFixture(Number(params.leagueId), params.round),
+    getInfo(Number(params.leagueId), currentSeason),
+    getFixture(Number(params.leagueId), params.round, currentSeason),
   ]);
 
   const currentRound = params.round.replaceAll("%20", " ");
-
 
   return (
     <div className="relative flex flex-col lg:flex-row">

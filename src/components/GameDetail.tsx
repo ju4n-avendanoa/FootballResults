@@ -20,7 +20,7 @@ function GameDetail() {
     setShowStatistics,
   } = useGamesStore();
 
-  const match = roundMatches.find(
+  const match = roundMatches?.find(
     (roundMatch) => roundMatch.fixture.id === fixtureId
   );
 

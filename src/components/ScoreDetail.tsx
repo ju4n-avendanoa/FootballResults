@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { getIcon } from "@/utils/eventType";
 import useGamesStore from "@/store/gamesStore";
 import ImageWithFallback from "./ImageWithFallback";
+import { baseUrl } from "@/utils/baseUrl";
 
 function ScoreDetail() {
   const { roundMatches, fixtureId, setOdds, odds } = useGamesStore();
@@ -14,10 +15,6 @@ function ScoreDetail() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const baseUrl =
-          process.env.NODE_ENV === "production"
-            ? "https://footballresults.vercel.app"
-            : "http://localhost:3000";
         const response = await fetch(
           `${baseUrl}/api/games/odds?fixtureId=${fixtureId}`
         );
@@ -82,8 +79,8 @@ function ScoreDetail() {
           src={getIcon("whistle")}
           fallbackSrc={getIcon("eventdefault")}
           alt="whistle"
-          height={20}
-          width={10}
+          height={30}
+          width={20}
         />
         <p className="text-xs">{match?.fixture.referee}</p>
       </div>

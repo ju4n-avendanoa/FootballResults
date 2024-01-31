@@ -5,6 +5,7 @@ import { Teams } from "@/interfaces/teams";
 import LeftMenu from "@/components/LeftMenu";
 import TeamFixture from "@/components/TeamFixture";
 import TeamDetail from "@/components/TeamDetail";
+import getCurrentSeason from "@/utils/getCurrentSeason";
 
 export const revalidate = 3600;
 
@@ -13,10 +14,11 @@ async function Teams({
 }: {
   params: { leagueId: string; leagueName: string };
 }) {
+  const currentSeason = await getCurrentSeason(Number(params.leagueId));
   const [leagueInfo, currentRound, teams] = await Promise.all([
-    getInfo(Number(params.leagueId)),
-    getCurrentRound(Number(params.leagueId)),
-    getTeams(Number(params.leagueId)),
+    getInfo(Number(params.leagueId), currentSeason),
+    getCurrentRound(Number(params.leagueId), currentSeason),
+    getTeams(Number(params.leagueId), currentSeason),
   ]);
 
   const sortedTeams = teams.sort((a: Teams, b: Teams) =>

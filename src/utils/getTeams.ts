@@ -1,5 +1,5 @@
-export async function getTeams(leagueId: number) {
-  const url = `https://api-football-v1.p.rapidapi.com/v3/teams?league=${leagueId}&season=2023`;
+export async function getTeams(leagueId: number, currentSeason: number) {
+  const url = `https://api-football-v1.p.rapidapi.com/v3/teams?league=${leagueId}&season=${currentSeason}`;
   const options = {
     method: "GET",
     headers: {
@@ -18,8 +18,12 @@ export async function getTeams(leagueId: number) {
   }
 }
 
-export async function getTeamStatistics(teamId: number, leagueId: number) {
-  const url = `https://api-football-v1.p.rapidapi.com/v3/teams/statistics?league=${leagueId}&season=2023&team=${teamId}`;
+export async function getTeamStatistics(
+  teamId: number,
+  leagueId: number,
+  currentSeason: number
+) {
+  const url = `https://api-football-v1.p.rapidapi.com/v3/teams/statistics?league=${leagueId}&season=${currentSeason}&team=${teamId}`;
 
   const options = {
     method: "GET",

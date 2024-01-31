@@ -4,6 +4,7 @@ import { Fixture } from "@/interfaces/fixture";
 import { useEffect } from "react";
 import useGamesStore from "@/store/gamesStore";
 import GameCard from "./GameCard";
+import { baseUrl } from "@/utils/baseUrl";
 
 type Props = {
   matches: Fixture[];
@@ -19,10 +20,7 @@ function GamesFixture({ matches }: Props) {
 
   const handleClick = async (match: Fixture) => {
     setFixtureId(match.fixture.id);
-    const baseUrl =
-      process.env.NODE_ENV === "production"
-        ? "https://footballresults.vercel.app"
-        : "http://localhost:3000";
+
     async function fetchData() {
       try {
         const response = await fetch(

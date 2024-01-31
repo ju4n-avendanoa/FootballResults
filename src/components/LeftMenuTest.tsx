@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { getIcon } from "@/utils/eventType";
 import ImageWithFallback from "./ImageWithFallback";
-import MenuItems from "./MenuItems";
+import Link from "next/link";
 
 type Props = {
   currentRound: string;
@@ -16,6 +16,30 @@ type Props = {
 
 function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
   const [isTaskMenuOpen, setIsTaskMenuOpen] = useState(false);
+
+  const menu = () => {
+    return (
+      <>
+        <ul className="flex flex-col text-white">
+          <Link href={`/leagues/${leagueName}/${leagueId}`}>
+            <li className="p-4 hover:bg-slate-600 hover:border hover:border-black h-14">
+              Standings
+            </li>
+          </Link>
+          <Link href={`/games/${leagueName}/${leagueId}/${currentRound}`}>
+            <li className="p-4 hover:bg-slate-600 hover:border hover:border-black h-14">
+              Games
+            </li>
+          </Link>
+          <Link href={`/teams/${leagueName}/${leagueId}`}>
+            <li className="p-4 hover:bg-slate-600 hover:border hover:border-black h-14">
+              Teams
+            </li>
+          </Link>
+        </ul>
+      </>
+    );
+  };
 
   const leagueTitle = () => {
     return (
@@ -51,11 +75,7 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
             <div className="flex items-center justify-center w-full gap-4 p-4">
               {leagueTitle()}
             </div>
-            <MenuItems
-              currentRound={currentRound}
-              leagueId={leagueId}
-              leagueName={leagueName}
-            />
+            {menu()}
           </section>
         ) : null}
       </div>
@@ -65,11 +85,7 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
         <div className="flex items-center w-full h-auto gap-4 p-4 pt-24 pb-6 justify-evenly">
           {leagueTitle()}
         </div>
-        <MenuItems
-          currentRound={currentRound}
-          leagueId={leagueId}
-          leagueName={leagueName}
-        />
+        {menu()}
       </aside>
     </>
   );

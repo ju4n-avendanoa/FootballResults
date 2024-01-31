@@ -1,6 +1,7 @@
 import { FixtureStats } from "@/interfaces/fixtureStats";
 import { useEffect, useState } from "react";
 import LoadingPage from "@/app/loading";
+import { baseUrl } from "@/utils/baseUrl";
 
 type Props = {
   fixtureId: number;
@@ -12,10 +13,6 @@ async function StatBar({ fixtureId }: Props) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const baseUrl =
-          process.env.NODE_ENV === "production"
-            ? "https://footballresults.vercel.app"
-            : "http://localhost:3000";
         const response = await fetch(
           `${baseUrl}/api/games/stats?fixtureId=${fixtureId}`,
           {

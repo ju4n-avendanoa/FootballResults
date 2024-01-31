@@ -4,6 +4,7 @@ import { Teams } from "@/interfaces/teams";
 import useGamesStore from "@/store/gamesStore";
 import useTeamsStore from "@/store/teamsStore";
 import TeamCard from "./TeamCard";
+import { baseUrl } from "@/utils/baseUrl";
 
 type Props = {
   sortedTeams: Teams[];
@@ -15,10 +16,6 @@ function TeamFixture({ sortedTeams, leagueId }: Props) {
   const { setTeamStatistics } = useTeamsStore();
 
   const handleClick = async (teamId: number) => {
-    const baseUrl =
-      process.env.NODE_ENV === "production"
-        ? "https://footballresults.vercel.app"
-        : "http://localhost:3000";
     async function fetchData() {
       try {
         const response = await fetch(
