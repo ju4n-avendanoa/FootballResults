@@ -9,8 +9,6 @@ import LoadingPage from "@/app/loading";
 import ImageWithFallback from "@/components/ImageWithFallback";
 import getCurrentSeason from "@/utils/getCurrentSeason";
 
-export const revalidate = 3600;
-
 async function LeaguePage({
   params,
 }: {
@@ -23,16 +21,15 @@ async function LeaguePage({
   ]);
 
   return (
-    <div className="relative flex flex-col lg:flex-row">
+    <div className="relative flex flex-col lg:flex-row w-full">
+      <LeftMenu
+        currentRound={currentRound}
+        leagueId={params.leagueId}
+        leagueName={params.leagueName}
+        leagueInfo={leagueInfo}
+      />
       <Suspense fallback={<LoadingPage />}>
-        <LeftMenu
-          currentRound={currentRound}
-          leagueId={params.leagueId}
-          leagueName={params.leagueName}
-          leagueInfo={leagueInfo}
-        />
-
-        <section className="flex flex-col items-center w-full gap-8 lg:w-4/5 bg-slate-300">
+        <section className="flex flex-col items-center w-full gap-8 lg:w-4/5 bg-slate-300 min-h-screen">
           <section className="flex flex-col items-center w-full gap-8 p-6 pb-8">
             <section className="flex items-center gap-12 pt-24">
               <h2 className="text-xl font-bold text-center lg:text-4xl">

@@ -34,11 +34,14 @@ function GameDetail() {
         <>
           <section className="fixed top-0 z-10 flex flex-col items-center justify-center w-full h-full bg-gradient-to-t from-black"></section>
           <section
-            className={`fixed inset-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-4/5 lg:w-1/2 z-20 overflow-auto ${
-              match?.fixture.status.short === "NS" ? "h-1/3" : "h-2/3"
+            className={`fixed inset-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-4/5 lg:w-1/2 z-20 overflow-auto rounded-2xl ${
+              match?.fixture.status.short === "NS" ||
+              match?.fixture.status.short === "TBD"
+                ? "h-min"
+                : "h-2/3"
             }`}
           >
-            <div className="sticky top-0 flex items-center justify-between w-full h-8 px-2 bg-slate-500">
+            <div className="sticky top-0 flex items-center justify-between w-full h-8 px-2 bg-black">
               <h5 className="pl-2 text-xs font-semibold text-white">
                 {match?.league.round}
               </h5>
@@ -51,16 +54,13 @@ function GameDetail() {
                 }}
               />
             </div>
-            {match?.fixture.status.short === "NS" ? (
-              <div className="5/6">
-                <ScoreDetail />
-              </div>
+            {match?.fixture.status.short === "NS" ||
+            match?.fixture.status.short === "TBD" ? (
+              <ScoreDetail />
             ) : null}
             {match?.fixture.status.short === "FT" ? (
               <>
-                <div>
-                  <ScoreDetail />
-                </div>
+                <ScoreDetail />
                 <div>
                   <DetailsNavBar />
                   {showEvents ? <EventDetails /> : null}

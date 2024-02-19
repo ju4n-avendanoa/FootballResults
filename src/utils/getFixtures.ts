@@ -54,6 +54,8 @@ export async function getCurrentRound(leagueId: number, currentSeason: number) {
       cache: "no-store",
     });
 
+    // console.log(leagueId, currentSeason);
+
     const result = await response.json();
 
     return result.response[0];

@@ -10,7 +10,7 @@ type Props = {
 };
 
 function GameCard({ match }: Props) {
-  console.log(match);
+  // console.log(match);
   return (
     <div className="flex flex-col w-full h-full">
       <div className="flex items-center justify-center h-full p-3 gap-14">
@@ -25,7 +25,8 @@ function GameCard({ match }: Props) {
           <h3 className="text-xs text-center">{match.teams.home.name}</h3>
         </div>
         <div className="flex items-center gap-2">
-          {match.fixture.status.short === "NS" ? (
+          {match.fixture.status.short === "NS" ||
+          match.fixture.status.short === "TBD" ? (
             <>
               <p className="font-semibold">vs</p>
             </>

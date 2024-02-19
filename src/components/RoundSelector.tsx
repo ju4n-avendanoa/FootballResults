@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Select from "react-select";
 
 type Props = {
   rounds: string[];
@@ -12,27 +13,25 @@ type Props = {
 function RoundSelector({ rounds, leagueId, actualRound, leagueName }: Props) {
   const router = useRouter();
 
-  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const options = rounds.map((round) => ({ label: round, value: round }));
+
+  const handleSelectChange = (selectedOption: any) => {
     router.push(
-      `/games/${leagueName}/${Number(leagueId)}/${event.target.value}`
+      `/games/${leagueName}/${Number(leagueId)}/${selectedOption.value}`
     );
   };
+
   return (
     <>
       <label htmlFor="rounds" className="px-4 font-bold">
         Round number:
       </label>
-      <select
-        name="rounds"
-        id="rounds"
-        value={actualRound}
+      <Select
+        options={options}
+        value={{ label: actualRound, value: actualRound }}
         onChange={handleSelectChange}
-        className="border-2 border-black"
-      >
-        {rounds.map((round, index) => (
-          <option key={index}>{round}</option>
-        ))}
-      </select>
+        className="border-2 border-black w-1/4"
+      />
     </>
   );
 }

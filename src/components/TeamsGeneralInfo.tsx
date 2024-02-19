@@ -22,7 +22,7 @@ function TeamsGeneralInfo({ team, teamStatistics }: Props) {
             alt="team-logo"
             height={120}
             width={80}
-            className="p-2"
+            className="p-2 w-2/5 md:w-2/3"
           />
         </div>
         <article className="flex flex-col w-full h-40 p-4 text-xs border-black md:w-1/4 justify-evenly max-sm:border-b md:border-r">

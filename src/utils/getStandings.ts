@@ -3,16 +3,16 @@ import { RankInfo } from "@/interfaces/Rank";
 export async function getInfo(id: number, currentSeason: number) {
   const url = `https://api-football-v1.p.rapidapi.com/v3/standings?season=${currentSeason}&league=${id}`;
 
-  const options = {
-    method: "GET",
-    headers: {
-      "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-      "x-rapidapi-key": process.env.API_KEY as string,
-    },
-    next: { revalidate: 259200 },
-  };
   try {
-    const res = await fetch(url, options);
+    const res = await fetch(url, {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+        "x-rapidapi-key": process.env.API_KEY as string,
+      },
+      next: { revalidate: 259200 },
+      // cache: "no-store",
+    });
     if (!res.ok) {
       return;
     }

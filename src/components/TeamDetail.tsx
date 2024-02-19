@@ -27,7 +27,7 @@ function TeamDetail({ teams }: Props) {
       {details && (
         <>
           <section className="fixed top-0 z-10 flex flex-col items-center justify-center w-full min-h-screen bg-gradient-to-t from-black"></section>
-          <section className="fixed z-20 w-4/5 overflow-auto transform -translate-x-1/2 -translate-y-1/2 bg-white inset-1/2 h-2/3 xl:w-1/2">
+          <section className="fixed z-20 w-4/5 overflow-auto transform -translate-x-1/2 -translate-y-1/2 bg-white inset-1/2 xl:w-1/2 h-2/3">
             <div className="sticky top-0 flex items-center w-full h-8 bg-slate-500">
               <XCircleIcon
                 color="white"

@@ -53,7 +53,13 @@ function ScoreDetail() {
           <div className="flex items-center gap-2">
             <p className="text-xl font-semibold">
               {match?.goals.home}
-              <span className="font-semibold"> : </span>
+              <span className="font-semibold">
+                {" "}
+                {match?.fixture.status.short === "NS" ||
+                match?.fixture.status.short === "TBD"
+                  ? "vs"
+                  : ":"}{" "}
+              </span>
               {match?.goals.away}
             </p>
           </div>
@@ -104,7 +110,22 @@ function ScoreDetail() {
                 </p>
               </div>
             ))
-          : null}
+          : odds.map((odd, index) => (
+              <div key={index}>
+                <p
+                  className={`border border-black text-xs p-1 text-center font-semibold ${
+                    odd.value === "Home"
+                      ? "bg-green-400"
+                      : odd.value === "Away"
+                      ? "bg-red-400"
+                      : "bg-yellow-400"
+                  }`}
+                >
+                  {odd.value}
+                </p>
+                <p className="p-1 text-xs text-center border border-black">-</p>
+              </div>
+            ))}
       </div>
     </div>
   );
