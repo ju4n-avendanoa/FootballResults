@@ -1,7 +1,7 @@
-import { FixtureStats } from "@/interfaces/fixtureStats";
 import { useEffect, useState } from "react";
-import LoadingPage from "@/app/loading";
+import { FixtureStats } from "@/interfaces/fixtureStats";
 import { baseUrl } from "@/utils/baseUrl";
+import LoadingPage from "@/app/loading";
 
 type Props = {
   fixtureId: number;

@@ -1,5 +1,5 @@
-import LoadingPage from "@/app/loading";
 import { Suspense } from "react";
+import LoadingPage from "@/app/loading";
 import Games from "./Games";
 
 async function GamesPage({

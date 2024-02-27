@@ -3,10 +3,10 @@
 import { XCircleIcon } from "@heroicons/react/24/solid";
 import { useEffect } from "react";
 import { Teams } from "@/interfaces/teams";
+import TeamsGeneralInfo from "./TeamsGeneralInfo";
+import StatisticsTable from "./StatisticsTable";
 import useTeamsStore from "@/store/teamsStore";
 import useGamesStore from "@/store/gamesStore";
-import StatisticsTable from "./StatisticsTable";
-import TeamsGeneralInfo from "./TeamsGeneralInfo";
 import TeamSummary from "./TeamSummary";
 
 type Props = {

@@ -1,7 +1,6 @@
-import { Teams } from "@/interfaces/teams";
-import Image from "next/image";
 import ImageWithFallback from "./ImageWithFallback";
 import { getIcon } from "@/utils/eventType";
+import { Teams } from "@/interfaces/teams";
 
 type Props = {
   team: Teams;

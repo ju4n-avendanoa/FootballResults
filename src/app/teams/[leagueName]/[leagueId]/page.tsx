@@ -2,10 +2,10 @@ import { getCurrentRound } from "@/utils/getFixtures";
 import { getTeams } from "@/utils/getTeams";
 import { getInfo } from "@/utils/getStandings";
 import { Teams } from "@/interfaces/teams";
-import LeftMenu from "@/components/LeftMenu";
+import getCurrentSeason from "@/utils/getCurrentSeason";
 import TeamFixture from "@/components/TeamFixture";
 import TeamDetail from "@/components/TeamDetail";
-import getCurrentSeason from "@/utils/getCurrentSeason";
+import LeftMenu from "@/components/LeftMenu";
 
 export const revalidate = 3600;
 

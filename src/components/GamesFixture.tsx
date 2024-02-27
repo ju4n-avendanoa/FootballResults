@@ -1,10 +1,10 @@
 "use client";
 
-import { Fixture } from "@/interfaces/fixture";
 import { useEffect } from "react";
+import { Fixture } from "@/interfaces/fixture";
+import { baseUrl } from "@/utils/baseUrl";
 import useGamesStore from "@/store/gamesStore";
 import GameCard from "./GameCard";
-import { baseUrl } from "@/utils/baseUrl";
 
 type Props = {
   matches: Fixture[];

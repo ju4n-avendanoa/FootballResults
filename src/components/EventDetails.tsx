@@ -1,6 +1,6 @@
-import useGamesStore from "@/store/gamesStore";
-import ImageWithFallback from "./ImageWithFallback";
 import { getIcon } from "@/utils/eventType";
+import ImageWithFallback from "./ImageWithFallback";
+import useGamesStore from "@/store/gamesStore";
 
 function EventDetails() {
   const { roundMatches, events, fixtureId } = useGamesStore();

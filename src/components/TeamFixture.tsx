@@ -1,10 +1,10 @@
 "use client";
 
+import { baseUrl } from "@/utils/baseUrl";
 import { Teams } from "@/interfaces/teams";
 import useGamesStore from "@/store/gamesStore";
 import useTeamsStore from "@/store/teamsStore";
 import TeamCard from "./TeamCard";
-import { baseUrl } from "@/utils/baseUrl";
 
 type Props = {
   sortedTeams: Teams[];

@@ -1,5 +1,4 @@
 import { sumCardsTotal } from "@/utils/sumCards";
-import React from "react";
 
 type Props = {
   teamStatistics: any;

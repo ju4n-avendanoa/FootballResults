@@ -1,8 +1,8 @@
 "use client";
 
+import { Bars3Icon } from "@heroicons/react/24/solid";
 import { RankInfo } from "@/interfaces/Rank";
 import { useState } from "react";
-import { Bars3Icon } from "@heroicons/react/24/solid";
 import { getIcon } from "@/utils/eventType";
 import ImageWithFallback from "./ImageWithFallback";
 import Link from "next/link";

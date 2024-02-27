@@ -1,10 +1,10 @@
 import { getFixture, getRounds } from "@/utils/getFixtures";
 import { getInfo } from "@/utils/getStandings";
-import GamesFixture from "@/components/GamesFixture";
+import getCurrentSeason from "@/utils/getCurrentSeason";
 import RoundSelector from "@/components/RoundSelector";
+import GamesFixture from "@/components/GamesFixture";
 import GameDetail from "@/components/GameDetail";
 import LeftMenu from "@/components/LeftMenu";
-import getCurrentSeason from "@/utils/getCurrentSeason";
 
 type Props = {
   leagueName: string;
@@ -21,8 +21,6 @@ async function Games({ leagueId, leagueName, round }: Props) {
   ]);
 
   const currentRound = round.replaceAll("%20", " ");
-
-  // console.log(rounds, leagueInfo, matches, currentSeason, currentRound);
 
   return (
     <div className="relative flex flex-col lg:flex-row">

@@ -1,7 +1,5 @@
-import Image from "next/image";
-import React from "react";
-import ImageWithFallback from "./ImageWithFallback";
 import { getIcon } from "@/utils/eventType";
+import ImageWithFallback from "./ImageWithFallback";
 
 type Props = {
   team: any;

@@ -1,9 +1,9 @@
 import { formatTimestamp } from "@/utils/parseDate";
 import { useEffect } from "react";
 import { getIcon } from "@/utils/eventType";
-import useGamesStore from "@/store/gamesStore";
-import ImageWithFallback from "./ImageWithFallback";
 import { baseUrl } from "@/utils/baseUrl";
+import ImageWithFallback from "./ImageWithFallback";
+import useGamesStore from "@/store/gamesStore";
 
 function ScoreDetail() {
   const { roundMatches, fixtureId, setOdds, odds } = useGamesStore();

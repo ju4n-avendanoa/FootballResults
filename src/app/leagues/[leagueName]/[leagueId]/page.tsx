@@ -1,13 +1,13 @@
 import { getCurrentRound } from "@/utils/getFixtures";
 import { Standing } from "@/interfaces/Rank";
-import { getInfo } from "@/utils/getStandings";
 import { Suspense } from "react";
+import { getInfo } from "@/utils/getStandings";
 import { getIcon } from "@/utils/eventType";
-import StandingsTable from "@/components/StandingsTable";
-import LeftMenu from "@/components/LeftMenu";
-import LoadingPage from "@/app/loading";
 import ImageWithFallback from "@/components/ImageWithFallback";
 import getCurrentSeason from "@/utils/getCurrentSeason";
+import StandingsTable from "@/components/StandingsTable";
+import LoadingPage from "@/app/loading";
+import LeftMenu from "@/components/LeftMenu";
 
 async function LeaguePage({
   params,

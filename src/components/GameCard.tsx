@@ -1,8 +1,8 @@
 "use client";
 
+import { formatTimestamp } from "@/utils/parseDate";
 import { Fixture } from "@/interfaces/fixture";
 import { getIcon } from "@/utils/eventType";
-import { formatTimestamp } from "@/utils/parseDate";
 import ImageWithFallback from "./ImageWithFallback";
 
 type Props = {
