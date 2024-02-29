@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Mulish } from "next/font/google";
 import NavBar from "@/components/NavBar";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const mulish = Mulish({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Football Results",
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen`}>
+      <body className={`${mulish.className} min-h-screen`}>
         <header className="fixed z-20 w-full">
           <NavBar />
         </header>

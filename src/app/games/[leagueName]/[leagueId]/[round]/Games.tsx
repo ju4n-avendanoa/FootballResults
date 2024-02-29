@@ -44,7 +44,6 @@ async function Games({ leagueId, leagueName, round }: Props) {
           <GamesFixture matches={matches} />
         </div>
       </section>
-      <GameDetail />
     </div>
   );
 }

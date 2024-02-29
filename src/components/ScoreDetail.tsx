@@ -4,11 +4,17 @@ import { getIcon } from "@/utils/eventType";
 import { baseUrl } from "@/utils/baseUrl";
 import ImageWithFallback from "./ImageWithFallback";
 import useGamesStore from "@/store/gamesStore";
+import { Fixture } from "@/interfaces/fixture";
 
-function ScoreDetail() {
-  const { roundMatches, fixtureId, setOdds, odds } = useGamesStore();
+type Props = {
+  matches: Fixture[];
+  fixtureId?: number;
+};
 
-  const match = roundMatches.find(
+function ScoreDetail({ matches, fixtureId }: Props) {
+  const { setOdds, odds } = useGamesStore();
+
+  const match = matches.find(
     (roundMatch) => roundMatch.fixture.id === fixtureId
   );
 
@@ -44,7 +50,9 @@ function ScoreDetail() {
             width={60}
             className="w-10 h-auto md:w-14"
           />
-          <h3 className="text-xs text-center">{match?.teams.home.name}</h3>
+          <h3 className="text-xs text-center font-bold">
+            {match?.teams.home.name}
+          </h3>
         </div>
         <div className="flex flex-col items-center justify-between gap-2">
           <p className="text-xs text-center">
@@ -73,7 +81,9 @@ function ScoreDetail() {
             width={60}
             className="w-10 h-auto md:w-14"
           />
-          <h3 className="text-xs text-center">{match?.teams.away.name}</h3>
+          <h3 className="text-xs text-center font-bold">
+            {match?.teams.away.name}
+          </h3>
         </div>
       </div>
       <p className="text-xs py-2">

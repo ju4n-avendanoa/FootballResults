@@ -1,0 +1,145 @@
+[
+  {
+    "time": { "elapsed": 16, "extra": null },
+    "team": {
+      "id": 1134,
+      "name": "La Equidad",
+      "logo": "https://media.api-sports.io/football/teams/1134.png"
+    },
+    "player": { "id": 13198, "name": "K. Viveros" },
+    "assist": { "id": null, "name": null },
+    "type": "Goal",
+    "detail": "Normal Goal",
+    "comments": null
+  },
+  {
+    "time": { "elapsed": 37, "extra": null },
+    "team": {
+      "id": 1134,
+      "name": "La Equidad",
+      "logo": "https://media.api-sports.io/football/teams/1134.png"
+    },
+    "player": { "id": 126093, "name": "Juan Ceballos" },
+    "assist": { "id": null, "name": null },
+    "type": "Card",
+    "detail": "Yellow Card",
+    "comments": "Foul"
+  },
+  {
+    "time": { "elapsed": 45, "extra": 1 },
+    "team": {
+      "id": 1134,
+      "name": "La Equidad",
+      "logo": "https://media.api-sports.io/football/teams/1134.png"
+    },
+    "player": { "id": 79312, "name": "Felipe Acosta" },
+    "assist": { "id": null, "name": null },
+    "type": "Card",
+    "detail": "Yellow Card",
+    "comments": "Foul"
+  },
+  {
+    "time": { "elapsed": 45, "extra": 2 },
+    "team": {
+      "id": 1137,
+      "name": "Atletico Nacional",
+      "logo": "https://media.api-sports.io/football/teams/1137.png"
+    },
+    "player": { "id": 47505, "name": "Bernardo Espinosa" },
+    "assist": { "id": null, "name": null },
+    "type": "Card",
+    "detail": "Yellow Card",
+    "comments": "Foul"
+  },
+  {
+    "time": { "elapsed": 54, "extra": null },
+    "team": {
+      "id": 1137,
+      "name": "Atletico Nacional",
+      "logo": "https://media.api-sports.io/football/teams/1137.png"
+    },
+    "player": { "id": 308805, "name": "Andrés Salazar" },
+    "assist": { "id": null, "name": null },
+    "type": "Card",
+    "detail": "Yellow Card",
+    "comments": "Foul"
+  },
+  {
+    "time": { "elapsed": 61, "extra": null },
+    "team": {
+      "id": 1137,
+      "name": "Atletico Nacional",
+      "logo": "https://media.api-sports.io/football/teams/1137.png"
+    },
+    "player": { "id": 308805, "name": "A. Salazar" },
+    "assist": { "id": 356518, "name": "S. Velásquez" },
+    "type": "subst",
+    "detail": "Substitution 1",
+    "comments": null
+  },
+  {
+    "time": { "elapsed": 61, "extra": null },
+    "team": {
+      "id": 1137,
+      "name": "Atletico Nacional",
+      "logo": "https://media.api-sports.io/football/teams/1137.png"
+    },
+    "player": { "id": 369284, "name": "É. Ocampo" },
+    "assist": { "id": 356520, "name": "Ó. Perea" },
+    "type": "subst",
+    "detail": "Substitution 2",
+    "comments": null
+  },
+  {
+    "time": { "elapsed": 68, "extra": null },
+    "team": {
+      "id": 1134,
+      "name": "La Equidad",
+      "logo": "https://media.api-sports.io/football/teams/1134.png"
+    },
+    "player": { "id": 13198, "name": "K. Viveros" },
+    "assist": { "id": 13609, "name": "A. Torralvo" },
+    "type": "Goal",
+    "detail": "Normal Goal",
+    "comments": null
+  },
+  {
+    "time": { "elapsed": 76, "extra": null },
+    "team": {
+      "id": 1134,
+      "name": "La Equidad",
+      "logo": "https://media.api-sports.io/football/teams/1134.png"
+    },
+    "player": { "id": 13198, "name": "K. Viveros" },
+    "assist": { "id": 79529, "name": "J. Lloreda" },
+    "type": "subst",
+    "detail": "Substitution 1",
+    "comments": null
+  },
+  {
+    "time": { "elapsed": 78, "extra": null },
+    "team": {
+      "id": 1137,
+      "name": "Atletico Nacional",
+      "logo": "https://media.api-sports.io/football/teams/1137.png"
+    },
+    "player": { "id": 35555, "name": "D. Pabón" },
+    "assist": { "id": 356516, "name": "J. Torres" },
+    "type": "subst",
+    "detail": "Substitution 3",
+    "comments": null
+  },
+  {
+    "time": { "elapsed": 78, "extra": null },
+    "team": {
+      "id": 1137,
+      "name": "Atletico Nacional",
+      "logo": "https://media.api-sports.io/football/teams/1137.png"
+    },
+    "player": { "id": 13293, "name": "P. Ceppelini" },
+    "assist": { "id": 146659, "name": "A. Álvarez" },
+    "type": "subst",
+    "detail": "Substitution 4",
+    "comments": null
+  }
+]
