@@ -29,7 +29,7 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
           alt={"event"}
           height={50}
           width={60}
-          className="bg-white p-2 rounded-lg"
+          className="p-2 bg-white rounded-lg"
         />
       </>
     );
@@ -37,7 +37,7 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
 
   return (
     <>
-      <div className="fixed flex flex-col items-center justify-center w-full mt-12 lg:hidden z-20">
+      <div className="fixed z-20 flex flex-col items-center justify-center w-full mt-12 lg:hidden">
         <div className="flex items-center justify-center w-full h-10 gap-8 top-12 bg-zinc-900">
           <h2 className="font-semibold text-white">Menu</h2>
           <Bars3Icon

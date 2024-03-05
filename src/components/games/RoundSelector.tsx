@@ -22,8 +22,8 @@ function RoundSelector({ rounds, leagueId, actualRound, leagueName }: Props) {
   };
 
   return (
-    <div className="flex justify-center items-center gap-2 flex-col w-full md:flex-row">
-      <span className="px-4 font-bold text-white text-sm lg:text-lg">
+    <div className="flex flex-col items-center justify-center w-full gap-2 md:flex-row">
+      <span className="px-4 text-sm font-bold text-white lg:text-lg">
         Round number:
       </span>
       <Select

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Mulish } from "next/font/google";
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/navbar/NavBar";
 import "./globals.css";
 import Provider from "@/context/Provider";
 

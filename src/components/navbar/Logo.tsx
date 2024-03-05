@@ -5,7 +5,7 @@ function Logo() {
   return (
     <div className="flex items-center gap-2">
       <Link href={"/"}>
-        <GlobeAmericasIcon className="w-8 lg:w-10 text-green-400" />
+        <GlobeAmericasIcon className="w-8 text-green-400 lg:w-10" />
       </Link>
       <Link href={"/"}>
         <h3 className="w-auto text-base text-white md:text-lg">

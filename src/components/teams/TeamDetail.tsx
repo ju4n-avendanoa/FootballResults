@@ -5,11 +5,10 @@ import { TeamStatistics } from "@/interfaces/teamStatistics";
 import { XCircleIcon } from "@heroicons/react/24/solid";
 import { baseUrl } from "@/utils/baseUrl";
 import { Teams } from "@/interfaces/teams";
-import LoadingGameDetail from "./LoadingGameDetail";
+import LoadingTeamDetails from "../loading/LoadingTeamDetails";
 import TeamsGeneralInfo from "./TeamsGeneralInfo";
 import StatisticsTable from "./StatisticsTable";
 import TeamSummary from "./TeamSummary";
-import LoadingTeamDetails from "./LoadingTeamDetails";
 
 type Props = {
   teams: Teams[];
@@ -54,7 +53,7 @@ function TeamDetail({ teams, isVisible, onClose, leagueId, teamId }: Props) {
       {loading ? (
         <LoadingTeamDetails />
       ) : (
-        <section className="fixed w-5/6 md:w-4/5 overflow-auto transform -translate-x-1/2 -translate-y-1/2 bg-white inset-1/2 xl:w-1/2 h-2/3">
+        <section className="fixed w-5/6 overflow-auto transform -translate-x-1/2 -translate-y-1/2 bg-white md:w-4/5 inset-1/2 xl:w-1/2 h-2/3">
           <div className="sticky top-0 flex items-center w-full h-8 bg-zinc-950">
             <XCircleIcon
               color="white"

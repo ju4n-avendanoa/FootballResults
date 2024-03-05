@@ -3,7 +3,7 @@
 import { formatTimestamp } from "@/utils/parseDate";
 import { Fixture } from "@/interfaces/fixture";
 import { getIcon } from "@/actions/eventType";
-import ImageWithFallback from "./ImageWithFallback";
+import ImageWithFallback from "../ImageWithFallback";
 
 type Props = {
   match: Fixture;

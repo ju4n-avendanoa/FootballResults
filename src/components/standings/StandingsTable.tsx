@@ -1,7 +1,7 @@
 import { Standing } from "@/interfaces/Rank";
 import { getIcon } from "@/actions/eventType";
 import TeamLastFiveMatches from "./TeamLastFiveMatches";
-import ImageWithFallback from "./ImageWithFallback";
+import ImageWithFallback from "../ImageWithFallback";
 
 type Props = {
   standing: Standing[];

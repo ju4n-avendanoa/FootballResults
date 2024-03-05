@@ -1,4 +1,4 @@
-import StatBar from "./StatBar";
+import StatBar from "../StatBar";
 
 type Props = {
   fixtureId: number | undefined;

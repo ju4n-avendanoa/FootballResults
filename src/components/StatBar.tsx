@@ -45,9 +45,9 @@ async function StatBar({ fixtureId }: Props) {
   }
 
   return (
-    <div className="w-full h-min p-2 md:p-10">
+    <div className="w-full p-2 h-min md:p-10">
       {stats.length === 0 ? (
-        <h2 className="text-lg lg:text-2xl text-center">
+        <h2 className="text-lg text-center lg:text-2xl">
           There is no stats to show
         </h2>
       ) : (

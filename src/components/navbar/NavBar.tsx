@@ -3,7 +3,7 @@
 import { americaLeagues, europeLeagues } from "@/utils/variablesInfo";
 import { useMenuStore } from "@/store/menuStore";
 import CountriesList from "./CountriesList";
-import MobileMenu from "./MobileMenu";
+import MobileMenu from "../MobileMenu";
 import Logo from "./Logo";
 
 export type MenuType = "league" | "team" | "America" | "europe";

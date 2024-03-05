@@ -2,7 +2,7 @@ import { formatTimestamp } from "@/utils/parseDate";
 import { useEffect } from "react";
 import { getIcon } from "@/actions/eventType";
 import { baseUrl } from "@/utils/baseUrl";
-import ImageWithFallback from "./ImageWithFallback";
+import ImageWithFallback from "../ImageWithFallback";
 import useGamesStore from "@/store/gamesStore";
 import { Fixture } from "@/interfaces/fixture";
 
@@ -39,8 +39,8 @@ function ScoreDetail({ matches, fixtureId }: Props) {
   }, [fixtureId, setOdds]);
 
   return (
-    <div className="grid grid-cols-1 place-items-center py-4">
-      <div className="w-full grid grid-cols-3 place-items-center">
+    <div className="grid grid-cols-1 py-4 place-items-center">
+      <div className="grid w-full grid-cols-3 place-items-center">
         <div className="flex flex-col items-center justify-center w-auto gap-2">
           <ImageWithFallback
             src={match!.teams.home.logo}
@@ -50,7 +50,7 @@ function ScoreDetail({ matches, fixtureId }: Props) {
             width={60}
             className="w-10 h-auto md:w-14"
           />
-          <h3 className="text-xs text-center font-bold">
+          <h3 className="text-xs font-bold text-center">
             {match?.teams.home.name}
           </h3>
         </div>
@@ -81,12 +81,12 @@ function ScoreDetail({ matches, fixtureId }: Props) {
             width={60}
             className="w-10 h-auto md:w-14"
           />
-          <h3 className="text-xs text-center font-bold">
+          <h3 className="text-xs font-bold text-center">
             {match?.teams.away.name}
           </h3>
         </div>
       </div>
-      <p className="text-xs py-2">
+      <p className="py-2 text-xs">
         {match?.fixture.venue.name},{" "}
         <span className="font-bold">{match?.fixture.venue.city}</span>
       </p>

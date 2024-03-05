@@ -1,6 +1,6 @@
 import { useMenuStore } from "@/store/menuStore";
 import { League } from "@/interfaces/Leagues";
-import LeagueItem from "./LeagueItem";
+import LeagueItem from "../LeagueItem";
 
 type Props = {
   worldLeague: League[];

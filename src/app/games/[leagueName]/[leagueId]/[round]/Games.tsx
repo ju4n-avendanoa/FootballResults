@@ -1,9 +1,9 @@
 import { getFixture, getRounds } from "@/actions/getFixtures";
 import { getInfo } from "@/actions/getStandings";
 import getCurrentSeason from "@/actions/getCurrentSeason";
-import RoundSelector from "@/components/RoundSelector";
-import GamesFixture from "@/components/GamesFixture";
-import GameDetail from "@/components/GameDetail";
+import RoundSelector from "@/components/games/RoundSelector";
+import GamesFixture from "@/components/games/GamesFixture";
+import GameDetail from "@/components/games/GameDetail";
 import LeftMenu from "@/components/LeftMenu";
 
 type Props = {

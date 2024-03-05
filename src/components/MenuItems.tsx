@@ -15,8 +15,8 @@ function MenuItems({ leagueId, currentRound, leagueName }: Props) {
 
   return (
     <>
-      <ul className="flex flex-col text-white gap-2">
-        <li className="text-sm md:text-base w-full">
+      <ul className="flex flex-col gap-2 text-white">
+        <li className="w-full text-sm md:text-base">
           <Link
             href={`/leagues/${leagueName}/${leagueId}`}
             className={`${
@@ -33,7 +33,7 @@ function MenuItems({ leagueId, currentRound, leagueName }: Props) {
               alt={"menu-item"}
               height={50}
               width={60}
-              className="bg-white rounded-lg xl:w-9 xl:h-9 w-8 h-8"
+              className="w-8 h-8 bg-white rounded-lg xl:w-9 xl:h-9"
             />
             <span>Standings</span>
           </Link>
@@ -53,7 +53,7 @@ function MenuItems({ leagueId, currentRound, leagueName }: Props) {
               alt={"menu-item"}
               height={50}
               width={60}
-              className="bg-white px-1 rounded-lg xl:w-9 xl:h-9 w-8 h-8"
+              className="w-8 h-8 px-1 bg-white rounded-lg xl:w-9 xl:h-9"
             />
             <span>Games</span>
           </Link>
@@ -75,7 +75,7 @@ function MenuItems({ leagueId, currentRound, leagueName }: Props) {
               alt={"menu-item"}
               height={50}
               width={60}
-              className="bg-white p-1 rounded-lg xl:w-9 xl:h-9 w-8 h-8"
+              className="w-8 h-8 p-1 bg-white rounded-lg xl:w-9 xl:h-9"
             />
             <span>Teams</span>
           </Link>

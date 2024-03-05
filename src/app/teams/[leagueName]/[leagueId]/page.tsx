@@ -3,7 +3,7 @@ import { getTeams } from "@/actions/getTeams";
 import { getInfo } from "@/actions/getStandings";
 import { Teams } from "@/interfaces/teams";
 import getCurrentSeason from "@/actions/getCurrentSeason";
-import TeamFixture from "@/components/TeamFixture";
+import TeamFixture from "@/components/teams/TeamFixture";
 import LeftMenu from "@/components/LeftMenu";
 
 export const revalidate = 3600;

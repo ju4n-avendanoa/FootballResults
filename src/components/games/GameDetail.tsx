@@ -6,9 +6,9 @@ import { Fixture } from "@/interfaces/fixture";
 import { baseUrl } from "@/utils/baseUrl";
 import { Events } from "@/interfaces/events";
 import FixtureStatsDetails from "./FixtureStatsDetails";
-import LoadingGameDetail from "./LoadingGameDetail";
+import LoadingGameDetail from "../loading/LoadingGameDetail";
 import useGamesStore from "@/store/gamesStore";
-import DetailsNavBar from "./DetailsNavBar";
+import DetailsNavBar from "../navbar/DetailsNavBar";
 import EventDetails from "./EventDetails";
 import LoadingPage from "@/app/loading";
 import ScoreDetail from "./ScoreDetail";
@@ -46,7 +46,6 @@ function GameDetail({ matches, isVisible, onClose, fixtureId }: Props) {
       } catch (error) {
         console.error("Error in the request:", error);
       } finally {
-        setLoading(false);
       }
     }
 
@@ -56,7 +55,7 @@ function GameDetail({ matches, isVisible, onClose, fixtureId }: Props) {
   if (!isVisible) return null;
 
   return (
-    <section className="fixed flex flex-col items-center justify-center inset-0 bg-gradient-to-t from-black">
+    <section className="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-black">
       {loading ? (
         <LoadingGameDetail />
       ) : (

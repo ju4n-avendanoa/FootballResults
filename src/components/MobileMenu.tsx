@@ -1,7 +1,7 @@
 import { Bars3BottomRightIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { americaLeagues, europeLeagues } from "@/utils/variablesInfo";
 import { useMobileMenuStore } from "@/store/mobileMenuStore";
-import Logo from "./Logo";
+import Logo from "./navbar/Logo";
 import Link from "next/link";
 
 function MobileMenu() {

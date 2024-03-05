@@ -5,7 +5,7 @@ import { getInfo } from "@/actions/getStandings";
 import { getIcon } from "@/actions/eventType";
 import ImageWithFallback from "@/components/ImageWithFallback";
 import getCurrentSeason from "@/actions/getCurrentSeason";
-import StandingsTable from "@/components/StandingsTable";
+import StandingsTable from "@/components/standings/StandingsTable";
 import LoadingPage from "@/app/loading";
 import LeftMenu from "@/components/LeftMenu";
 
@@ -21,7 +21,7 @@ async function LeaguePage({
   ]);
 
   return (
-    <div className="relative flex flex-col lg:flex-row w-full">
+    <div className="relative flex flex-col w-full lg:flex-row">
       <LeftMenu
         currentRound={currentRound}
         leagueId={params.leagueId}
@@ -29,10 +29,10 @@ async function LeaguePage({
         leagueInfo={leagueInfo}
       />
       <Suspense fallback={<LoadingPage />}>
-        <section className="flex flex-col items-center w-full gap-8 lg:w-4/5 bg-zinc-700 min-h-screen">
+        <section className="flex flex-col items-center w-full min-h-screen gap-8 lg:w-4/5 bg-zinc-700">
           <section className="flex flex-col items-center w-full gap-8 p-6 pb-8">
             <section className="flex items-center gap-12 pt-24">
-              <h2 className="text-xl font-bold text-center lg:text-4xl text-white">
+              <h2 className="text-xl font-bold text-center text-white lg:text-4xl">
                 {leagueInfo?.name}
               </h2>
               <ImageWithFallback
@@ -41,7 +41,7 @@ async function LeaguePage({
                 alt="league-logo"
                 height={60}
                 width={60}
-                className="bg-white p-2 rounded-lg"
+                className="p-2 bg-white rounded-lg"
               />
             </section>
             {leagueInfo
