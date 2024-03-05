@@ -3,15 +3,15 @@
 import { Suspense, useEffect, useState } from "react";
 import { XCircleIcon } from "@heroicons/react/24/solid";
 import { Fixture } from "@/interfaces/fixture";
+import { baseUrl } from "@/utils/baseUrl";
+import { Events } from "@/interfaces/events";
 import FixtureStatsDetails from "./FixtureStatsDetails";
+import LoadingGameDetail from "./LoadingGameDetail";
 import useGamesStore from "@/store/gamesStore";
 import DetailsNavBar from "./DetailsNavBar";
 import EventDetails from "./EventDetails";
-import ScoreDetail from "./ScoreDetail";
 import LoadingPage from "@/app/loading";
-import { baseUrl } from "@/utils/baseUrl";
-import { Events } from "@/interfaces/events";
-import LoadingGameDetail from "./LoadingGameDetail";
+import ScoreDetail from "./ScoreDetail";
 
 type Props = {
   matches: Fixture[];
@@ -31,20 +31,20 @@ function GameDetail({ matches, isVisible, onClose, fixtureId }: Props) {
 
   useEffect(() => {
     if (!match?.fixture.id) return;
+
     setLoading(true);
     async function fetchData() {
       try {
         const response = await fetch(
           `${baseUrl}/api/games/fixtures?fixtureId=${match?.fixture.id}`
         );
-        if (response.ok) {
-          const fixtureData = await response.json();
-          setEvents(fixtureData);
-        } else {
-          console.error("Error al obtener los datos del backend");
+        if (!response.ok) {
+          throw new Error("An error ocurred");
         }
+        const fixtureData = await response.json();
+        setEvents(fixtureData);
       } catch (error) {
-        console.error("Error en la solicitud:", error);
+        console.error("Error in the request:", error);
       } finally {
         setLoading(false);
       }
@@ -61,14 +61,14 @@ function GameDetail({ matches, isVisible, onClose, fixtureId }: Props) {
         <LoadingGameDetail />
       ) : (
         <section
-          className={`fixed inset-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-4/5 lg:w-1/3 z-20 overflow-auto rounded-md ${
+          className={`fixed inset-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-5/6 md:w-2/3 lg:w-1/2 xl:w-1/3 overflow-auto rounded-md ${
             match?.fixture.status.short === "NS" ||
             match?.fixture.status.short === "TBD"
               ? "h-min"
               : "h-2/3"
           }`}
         >
-          <div className="sticky top-0 flex items-center justify-between w-full h-8 px-2 bg-black">
+          <div className="sticky top-0 flex items-center justify-between w-full h-8 px-2 bg-zinc-950">
             <h5 className="pl-2 text-xs font-semibold text-white">
               {match?.league.round}
             </h5>

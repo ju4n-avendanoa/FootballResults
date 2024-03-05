@@ -22,17 +22,36 @@ function RoundSelector({ rounds, leagueId, actualRound, leagueName }: Props) {
   };
 
   return (
-    <>
-      <label htmlFor="rounds" className="px-4 font-bold">
+    <div className="flex justify-center items-center gap-2 flex-col w-full md:flex-row">
+      <span className="px-4 font-bold text-white text-sm lg:text-lg">
         Round number:
-      </label>
+      </span>
       <Select
         options={options}
         value={{ label: actualRound, value: actualRound }}
         onChange={handleSelectChange}
-        className="border-2 border-black w-1/4"
+        className="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 focus:bg-red-500"
+        styles={{
+          control: (baseStyles) => ({
+            ...baseStyles,
+            border: 0,
+            boxShadow: "none",
+            "&:hover": {
+              border: "3px solid #38a169",
+              color: "black",
+            },
+          }),
+          option: (baseStyles, state) => ({
+            ...baseStyles,
+            background: state.isSelected ? "#38a169" : "white",
+            "&:hover": {
+              backgroundColor: "rgba(56, 161, 105, 0.5)",
+              color: "black",
+            },
+          }),
+        }}
       />
-    </>
+    </div>
   );
 }
 

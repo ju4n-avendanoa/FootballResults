@@ -11,7 +11,6 @@ export async function getInfo(id: number, currentSeason: number) {
         "x-rapidapi-key": process.env.API_KEY as string,
       },
       next: { revalidate: 259200 },
-      // cache: "no-store",
     });
     if (!res.ok) {
       return;

@@ -1,9 +1,8 @@
-import { icons } from "./eventsIcons";
+import { icons } from "../utils/eventsIcons";
 
 export async function getEvents(fixtureId: number) {
   const url = `https://api-football-v1.p.rapidapi.com/v3/fixtures/events?fixture=${fixtureId}`;
-  console.log(fixtureId);
-  console.log(typeof fixtureId);
+
   try {
     const response = await fetch(url, {
       method: "GET",

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Mulish } from "next/font/google";
 import NavBar from "@/components/NavBar";
 import "./globals.css";
+import Provider from "@/context/Provider";
 
 const mulish = Mulish({ subsets: ["latin"] });
 
@@ -18,10 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${mulish.className} min-h-screen`}>
-        <header className="fixed z-20 w-full">
-          <NavBar />
-        </header>
-        {children}
+        <Provider>
+          <header className="fixed z-20 w-full">
+            <NavBar />
+          </header>
+          {children}
+        </Provider>
       </body>
     </html>
   );

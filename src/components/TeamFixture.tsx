@@ -1,9 +1,8 @@
 "use client";
 
-import { baseUrl } from "@/utils/baseUrl";
+import { useState } from "react";
 import { Teams } from "@/interfaces/teams";
-import useGamesStore from "@/store/gamesStore";
-import useTeamsStore from "@/store/teamsStore";
+import TeamDetail from "./TeamDetail";
 import TeamCard from "./TeamCard";
 
 type Props = {
@@ -12,41 +11,34 @@ type Props = {
 };
 
 function TeamFixture({ sortedTeams, leagueId }: Props) {
-  const { setDetails } = useGamesStore();
-  const { setTeamStatistics } = useTeamsStore();
+  const [showTeamDetails, setShowTeamDetails] = useState(false);
+  const [teamId, setTeamId] = useState<number>();
 
-  const handleClick = async (teamId: number) => {
-    async function fetchData() {
-      try {
-        const response = await fetch(
-          `${baseUrl}/api/teams/stats?teamId=${teamId}&leagueId=${leagueId}`
-        );
-        if (response.ok) {
-          const statsData = await response.json();
-          setTeamStatistics(statsData);
-          setDetails(true);
-        } else {
-          console.error("Error al obtener los datos del backend");
-        }
-      } catch (error) {
-        console.error("Error en la solicitud:", error);
-      }
-    }
-
-    fetchData();
+  const handleClick = async (team: Teams) => {
+    setTeamId(team.team.id);
+    setShowTeamDetails(true);
   };
 
   return (
     <>
       {sortedTeams.map((team) => (
         <article
-          className="flex items-center justify-center h-24 gap-5 p-2 font-semibold border rounded-md cursor-pointer border-slate-600 bg-slate-400 hover:bg-slate-200 transition duration-150 hover:scale-105"
+          className="flex items-center justify-center h-24 gap-5 p-2 font-semibold border rounded-md cursor-pointer border-zinc-800 bg-zinc-500 hover:bg-zinc-300 transition duration-150 hover:scale-105 shadow-md shadow-zinc-950 hover:text-black text-white"
           key={team.team.id}
-          onClick={() => handleClick(team.team.id)}
+          onClick={() => handleClick(team)}
         >
           <TeamCard team={team} />
         </article>
       ))}
+      {showTeamDetails && (
+        <TeamDetail
+          teams={sortedTeams}
+          teamId={teamId}
+          leagueId={leagueId}
+          isVisible={showTeamDetails}
+          onClose={() => setShowTeamDetails(false)}
+        />
+      )}
     </>
   );
 }

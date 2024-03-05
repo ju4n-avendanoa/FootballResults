@@ -1,5 +1,5 @@
 import { Standing } from "@/interfaces/Rank";
-import { getIcon } from "@/utils/eventType";
+import { getIcon } from "@/actions/eventType";
 import TeamLastFiveMatches from "./TeamLastFiveMatches";
 import ImageWithFallback from "./ImageWithFallback";
 
@@ -9,7 +9,7 @@ type Props = {
 
 async function StandingsTable({ standing }: Props) {
   return (
-    <table className="w-full text-xs text-white border-collapse table-auto bg-slate-700 lg:w-4/5 xl:w-3/5 lg:text-sm">
+    <table className="w-full text-xs text-white border-collapse table-auto bg-zinc-800 lg:w-4/5 xl:w-3/5 lg:text-sm">
       <thead>
         <tr>
           <th></th>
@@ -25,12 +25,12 @@ async function StandingsTable({ standing }: Props) {
           <th className="max-md:hidden"></th>
         </tr>
       </thead>
-      <tbody className="bg-slate-600">
+      <tbody className="bg-zinc-600">
         {standing?.map((team, index) => (
           <tr
             key={team.team.id}
-            className={`border border-slate-700 ${
-              index % 2 === 0 ? "bg-slate-500" : ""
+            className={`border border-zinc-700 ${
+              index % 2 === 0 ? "bg-zinc-500" : ""
             }`}
           >
             <td className="p-1 text-center">{team.rank}</td>

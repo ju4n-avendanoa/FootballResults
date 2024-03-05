@@ -5,10 +5,10 @@ function DetailsNavBar() {
     useGamesStore();
   return (
     <nav>
-      <ul className="flex h-full gap-1 text-xs font-semibold bg-slate-400">
+      <ul className="flex h-full gap-1 text-xs font-semibold bg-zinc-400">
         <li
           className={`p-1 cursor-pointer ${
-            showEvents ? "bg-slate-500 text-white" : ""
+            showEvents ? "bg-zinc-500 text-white" : ""
           }`}
           onClick={() => {
             setShowStatistics(false);
@@ -19,7 +19,7 @@ function DetailsNavBar() {
         </li>
         <li
           className={`p-1 cursor-pointer ${
-            showStatistics ? "bg-slate-500 text-white" : ""
+            showStatistics ? "bg-zinc-500 text-white" : ""
           }`}
           onClick={() => {
             setShowEvents(false);

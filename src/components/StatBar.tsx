@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { FixtureStats } from "@/interfaces/fixtureStats";
 import { baseUrl } from "@/utils/baseUrl";
@@ -42,8 +44,6 @@ async function StatBar({ fixtureId }: Props) {
     return <LoadingPage />;
   }
 
-  // console.log("stats", stats);
-
   return (
     <div className="w-full h-min p-2 md:p-10">
       {stats.length === 0 ? (
@@ -79,7 +79,7 @@ async function StatBar({ fixtureId }: Props) {
                 <p>{element2.value === null ? "0" : element2.value}</p>
               </section>
               <section className="flex gap-4">
-                <div className="flex justify-end w-full h-4 bg-slate-300">
+                <div className="flex justify-end w-full h-4 bg-zinc-300">
                   <div
                     className={`h-4 ${
                       widthHomeValue > widthAwayValue
@@ -89,7 +89,7 @@ async function StatBar({ fixtureId }: Props) {
                     style={{ width: `${homeValue}%` }}
                   ></div>
                 </div>
-                <div className="flex justify-start w-full h-4 bg-slate-300">
+                <div className="flex justify-start w-full h-4 bg-zinc-300">
                   <div
                     className={`h-4 ${
                       widthAwayValue > widthHomeValue

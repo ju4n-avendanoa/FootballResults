@@ -1,5 +1,5 @@
-import getOdds from "@/utils/getOdds";
 import { NextResponse } from "next/server";
+import getOdds from "@/actions/getOdds";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

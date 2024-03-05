@@ -2,7 +2,7 @@
 
 import { formatTimestamp } from "@/utils/parseDate";
 import { Fixture } from "@/interfaces/fixture";
-import { getIcon } from "@/utils/eventType";
+import { getIcon } from "@/actions/eventType";
 import ImageWithFallback from "./ImageWithFallback";
 
 type Props = {
@@ -10,9 +10,8 @@ type Props = {
 };
 
 function GameCard({ match }: Props) {
-  // console.log(match);
   return (
-    <div className="flex flex-col w-full h-full">
+    <div className="flex flex-col w-full h-full text-white hover:text-black">
       <div className="flex items-center justify-center h-full p-3 gap-14">
         <div className="flex flex-col items-center justify-center w-12 gap-2">
           <ImageWithFallback
@@ -49,10 +48,10 @@ function GameCard({ match }: Props) {
           <h3 className="text-xs text-center">{match.teams.away.name}</h3>
         </div>
       </div>
-      <p className="border-t border-slate-600 bg-slate-500  text-slate-200 text-xs p-0.5">
+      <p className="border-t border-zinc-600 bg-zinc-800 text-white text-xs py-0.5 px-2">
         {match.fixture.venue.name}, {match.fixture.venue.city}
       </p>
-      <p className="border-t border-slate-600 bg-slate-500  text-slate-200 text-xs p-0.5">
+      <p className="border-t border-zinc-600 bg-zinc-800 text-white text-xs py-0.5 px-2">
         {formatTimestamp(match.fixture.timestamp)}
       </p>
     </div>

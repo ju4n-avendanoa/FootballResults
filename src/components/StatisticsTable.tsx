@@ -1,15 +1,15 @@
 import { TeamStatistics } from "@/interfaces/teamStatistics";
 
 type Props = {
-  statistics: TeamStatistics | null;
+  statistics: TeamStatistics | undefined;
 };
 
 function StatisticsTable({ statistics }: Props) {
   return (
     <div>
-      <table className="w-full text-xs border border-slate-500">
+      <table className="w-full text-xs border border-zinc-500">
         <thead>
-          <tr className="bg-slate-300">
+          <tr className="bg-zinc-300">
             <th></th>
             <th>HOME</th>
             <th>AWAY</th>
@@ -17,43 +17,43 @@ function StatisticsTable({ statistics }: Props) {
           </tr>
         </thead>
         <tbody>
-          <tr className="border border-slate-300">
+          <tr className="border border-zinc-300">
             <td>Games played</td>
             <td className="text-center">{statistics?.fixtures.played.home}</td>
             <td className="text-center">{statistics?.fixtures.played.away}</td>
             <td className="text-center">{statistics?.fixtures.played.total}</td>
           </tr>
-          <tr className="border border-slate-300">
+          <tr className="border border-zinc-300">
             <td>Wins</td>
             <td className="text-center">{statistics?.fixtures.wins.home}</td>
             <td className="text-center">{statistics?.fixtures.wins.away}</td>
             <td className="text-center">{statistics?.fixtures.wins.total}</td>
           </tr>
-          <tr className="border border-slate-300">
+          <tr className="border border-zinc-300">
             <td>Draw</td>
             <td className="text-center">{statistics?.fixtures.draws.home}</td>
             <td className="text-center">{statistics?.fixtures.draws.away}</td>
             <td className="text-center">{statistics?.fixtures.draws.total}</td>
           </tr>
-          <tr className="border border-slate-300">
+          <tr className="border border-zinc-300">
             <td>Loss</td>
             <td className="text-center">{statistics?.fixtures.loses.home}</td>
             <td className="text-center">{statistics?.fixtures.loses.away}</td>
             <td className="text-center">{statistics?.fixtures.loses.total}</td>
           </tr>
-          <tr className="bg-slate-300">
+          <tr className="bg-zinc-300">
             <td className="font-semibold">GOALS</td>
             <td></td>
             <td></td>
             <td></td>
           </tr>
-          <tr className="border border-slate-300">
+          <tr className="border border-zinc-300">
             <td>Goals For</td>
             <td className="text-center">{statistics?.goals.for.total.home}</td>
             <td className="text-center">{statistics?.goals.for.total.away}</td>
             <td className="text-center">{statistics?.goals.for.total.total}</td>
           </tr>
-          <tr className="border border-slate-300">
+          <tr className="border border-zinc-300">
             <td>Goals Against</td>
 
             <td className="text-center">
@@ -66,13 +66,13 @@ function StatisticsTable({ statistics }: Props) {
               {statistics?.goals.against.total.total}
             </td>
           </tr>
-          <tr className="bg-slate-300">
+          <tr className="bg-zinc-300">
             <td className="font-semibold">GOALS AVERAGE</td>
             <td></td>
             <td></td>
             <td></td>
           </tr>
-          <tr className="border border-slate-300">
+          <tr className="border border-zinc-300">
             <td>Goals For</td>
             <td className="text-center">
               {statistics?.goals.for.average.home}
@@ -84,7 +84,7 @@ function StatisticsTable({ statistics }: Props) {
               {statistics?.goals.for.average.total}
             </td>
           </tr>
-          <tr className="border border-slate-300">
+          <tr className="border border-zinc-300">
             <td>Goals Against</td>
             <td className="text-center">
               {statistics?.goals.against.average.away}
@@ -96,19 +96,19 @@ function StatisticsTable({ statistics }: Props) {
               {statistics?.goals.against.average.home}
             </td>
           </tr>
-          <tr className="h-5 border bg-slate-300 border-slate-300">
+          <tr className="h-5 border bg-zinc-300 border-zinc-300">
             <td></td>
             <td></td>
             <td></td>
             <td></td>
           </tr>
-          <tr className="border border-slate-300">
+          <tr className="border border-zinc-300">
             <td>Clean sheets</td>
             <td className="text-center">{statistics?.clean_sheet.home}</td>
             <td className="text-center">{statistics?.clean_sheet.away}</td>
             <td className="text-center">{statistics?.clean_sheet.total}</td>
           </tr>
-          <tr className="border border-slate-300">
+          <tr className="border border-zinc-300">
             <td>Failed to score</td>
             <td className="text-center">{statistics?.failed_to_score.home}</td>
             <td className="text-center">{statistics?.failed_to_score.away}</td>

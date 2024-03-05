@@ -1,6 +1,6 @@
-import { getFixture, getRounds } from "@/utils/getFixtures";
-import { getInfo } from "@/utils/getStandings";
-import getCurrentSeason from "@/utils/getCurrentSeason";
+import { getFixture, getRounds } from "@/actions/getFixtures";
+import { getInfo } from "@/actions/getStandings";
+import getCurrentSeason from "@/actions/getCurrentSeason";
 import RoundSelector from "@/components/RoundSelector";
 import GamesFixture from "@/components/GamesFixture";
 import GameDetail from "@/components/GameDetail";
@@ -31,15 +31,13 @@ async function Games({ leagueId, leagueName, round }: Props) {
         leagueInfo={leagueInfo}
       />
 
-      <section className="flex flex-col w-full min-h-screen pt-24 lg:w-4/5 bg-slate-300">
-        <div className="flex justify-center items-center">
-          <RoundSelector
-            rounds={rounds}
-            leagueId={leagueId}
-            actualRound={currentRound}
-            leagueName={leagueName}
-          />
-        </div>
+      <section className="flex flex-col w-full min-h-screen pt-24 lg:w-4/5 bg-zinc-700">
+        <RoundSelector
+          rounds={rounds}
+          leagueId={leagueId}
+          actualRound={currentRound}
+          leagueName={leagueName}
+        />
         <div className="grid w-full h-full gap-8 p-8 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           <GamesFixture matches={matches} />
         </div>

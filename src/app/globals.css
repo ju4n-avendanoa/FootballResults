@@ -5,10 +5,33 @@
 ::-webkit-scrollbar {
   height: 5px;
   width: 7px;
-  @apply bg-slate-500;
+  @apply bg-zinc-500;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  @apply bg-slate-700;
+  @apply bg-zinc-700;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 16px;
+}
+
+.loader {
+  border: 6px solid #38a169;
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
 }

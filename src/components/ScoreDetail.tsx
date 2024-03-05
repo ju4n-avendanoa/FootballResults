@@ -1,6 +1,6 @@
 import { formatTimestamp } from "@/utils/parseDate";
 import { useEffect } from "react";
-import { getIcon } from "@/utils/eventType";
+import { getIcon } from "@/actions/eventType";
 import { baseUrl } from "@/utils/baseUrl";
 import ImageWithFallback from "./ImageWithFallback";
 import useGamesStore from "@/store/gamesStore";

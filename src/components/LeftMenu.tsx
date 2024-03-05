@@ -1,9 +1,9 @@
 "use client";
 
+import { Bars3Icon } from "@heroicons/react/24/solid";
 import { RankInfo } from "@/interfaces/Rank";
 import { useState } from "react";
-import { Bars3Icon } from "@heroicons/react/24/solid";
-import { getIcon } from "@/utils/eventType";
+import { getIcon } from "@/actions/eventType";
 import ImageWithFallback from "./ImageWithFallback";
 import MenuItems from "./MenuItems";
 
@@ -20,7 +20,7 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
   const leagueTitle = () => {
     return (
       <>
-        <h2 className="p-2 text-2xl font-bold text-center text-white w-min">
+        <h2 className="p-2 text-2xl font-bold text-center text-white w-fit">
           {leagueInfo?.name}
         </h2>
         <ImageWithFallback
@@ -37,8 +37,8 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
 
   return (
     <>
-      <div className="fixed flex flex-col items-center justify-center w-full mt-12 lg:hidden z-2">
-        <div className="flex items-center justify-center w-full h-10 gap-8 top-12 bg-slate-900">
+      <div className="fixed flex flex-col items-center justify-center w-full mt-12 lg:hidden z-20">
+        <div className="flex items-center justify-center w-full h-10 gap-8 top-12 bg-zinc-900">
           <h2 className="font-semibold text-white">Menu</h2>
           <Bars3Icon
             className="w-8"
@@ -47,7 +47,7 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
           />
         </div>
         {isTaskMenuOpen ? (
-          <section className={`flex flex-col w-full h-min bg-slate-700`}>
+          <section className={`flex flex-col w-full h-min bg-zinc-700`}>
             <div className="flex items-center justify-center w-full gap-4 p-4">
               {leagueTitle()}
             </div>
@@ -60,7 +60,7 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
         ) : null}
       </div>
       <aside
-        className={`sticky top-0 w-1/5 bg-slate-800 h-screen hidden lg:block`}
+        className={`sticky top-0 w-1/5 bg-zinc-800 h-screen hidden lg:block`}
       >
         <div className="flex items-center w-full h-auto gap-4 p-4 pt-24 pb-6 justify-evenly">
           {leagueTitle()}

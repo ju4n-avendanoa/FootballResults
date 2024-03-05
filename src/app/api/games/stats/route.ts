@@ -1,5 +1,5 @@
-import getFixtureStats from "@/utils/getFixtureStats";
 import { NextResponse } from "next/server";
+import getFixtureStats from "@/actions/getFixtureStats";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

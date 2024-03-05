@@ -1,8 +1,11 @@
 function LoadingPage() {
   return (
-    <div className="flex items-center justify-center w-auto min-h-screen">
-      <div className="w-16 h-16 border-t-2 border-b-2 border-blue-300 rounded-full animate-spin"></div>
-    </div>
+    <main className="w-screen min-h-screen loader-parent bg-zinc-700">
+      <div className="loader-container">
+        <div className="loader"></div>
+        <p className="text-white">Loading...</p>
+      </div>
+    </main>
   );
 }
 
