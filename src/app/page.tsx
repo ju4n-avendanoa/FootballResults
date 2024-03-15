@@ -20,9 +20,9 @@ export default function Home() {
           fallbackSrc="https://res.cloudinary.com/dhjqarghy/image/upload/v1697832129/football/HomePage.jpg"
           className="absolute object-cover"
         />
-        <div className="absolute top-0 z-10 flex flex-col items-center justify-center w-full h-full p-8 pt-40 text-white bg-gradient-to-t from-black">
+        <div className="absolute top-0 z-10 flex flex-col items-center justify-center w-full h-full p-8 pt-40 text-white bg-gradient-to-t from-black text-center">
           <h1 className="text-4xl font-bold">Football Results</h1>
-          <p className="px-10 text-center bg-[#00000090] rounded-lg p-6 mt-4 w-11/12 lg:w-3/5">
+          <p className="bg-[#00000090] rounded-lg py-6 lg:px-10 px-4 mt-4 w-11/12 lg:w-3/5">
             Welcome to our football data hub - your source for match results,
             player stats, team info, global leagues, and current standings. Stay
             in the know with the latest football action!
