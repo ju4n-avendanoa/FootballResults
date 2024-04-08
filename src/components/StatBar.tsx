@@ -10,11 +10,13 @@ type Props = {
 };
 
 async function StatBar({ fixtureId }: Props) {
+  const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState<FixtureStats[] | null>(null);
 
   useEffect(() => {
     async function fetchData() {
       try {
+        setLoading(true);
         const response = await fetch(
           `${baseUrl}/api/games/stats?fixtureId=${fixtureId}`,
           {
@@ -23,7 +25,6 @@ async function StatBar({ fixtureId }: Props) {
               "X-RapidAPI-Key": process.env.API_KEY as string,
               "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
             },
-            cache: "force-cache",
           }
         );
         if (response.ok) {
@@ -32,6 +33,7 @@ async function StatBar({ fixtureId }: Props) {
         } else {
           console.error("Error al obtener los datos del backend");
         }
+        setLoading(false);
       } catch (error) {
         console.error("Error en la solicitud:", error);
       }
@@ -41,6 +43,18 @@ async function StatBar({ fixtureId }: Props) {
   }, [fixtureId]);
 
   if (!stats) {
+    return <LoadingPage />;
+  }
+
+  if (stats.length === 0) {
+    return (
+      <h2 className="text-lg text-center lg:text-2xl">
+        There is no stats to show
+      </h2>
+    );
+  }
+
+  if (loading) {
     return <LoadingPage />;
   }
 

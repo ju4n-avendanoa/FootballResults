@@ -21,7 +21,7 @@ async function LeaguePage({
   ]);
 
   return (
-    <div className="relative flex flex-col w-full lg:flex-row">
+    <div className="flex flex-col w-full lg:flex-row h-full min-w-min">
       <LeftMenu
         currentRound={currentRound}
         leagueId={params.leagueId}

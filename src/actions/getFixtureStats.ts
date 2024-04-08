@@ -7,6 +7,7 @@ export default async function getFixtureStats(fixtureId: number) {
         "X-RapidAPI-Key": process.env.API_KEY as string,
         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
       },
+      cache: "force-cache",
     });
     const result = await response.json();
     return result.response;

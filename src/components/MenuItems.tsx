@@ -15,7 +15,7 @@ function MenuItems({ leagueId, currentRound, leagueName }: Props) {
 
   return (
     <>
-      <ul className="flex flex-col gap-2 text-white py-6">
+      <ul className="flex flex-col gap-2 text-white py-3 md:py-6 min-w-fit">
         <li className="w-full text-sm md:text-base">
           <Link
             href={`/leagues/${leagueName}/${leagueId}`}

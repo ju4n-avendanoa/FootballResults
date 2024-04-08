@@ -10,7 +10,7 @@ export async function getEvents(fixtureId: number) {
         "X-RapidAPI-Key": process.env.API_KEY as string,
         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
       },
-      cache: "no-store",
+      next: { revalidate: 604800 },
     });
     const result = await response.json();
     return result.response;

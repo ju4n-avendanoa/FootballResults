@@ -3,7 +3,6 @@ import { getInfo } from "@/actions/getStandings";
 import getCurrentSeason from "@/actions/getCurrentSeason";
 import RoundSelector from "@/components/games/RoundSelector";
 import GamesFixture from "@/components/games/GamesFixture";
-import GameDetail from "@/components/games/GameDetail";
 import LeftMenu from "@/components/LeftMenu";
 
 type Props = {
@@ -23,7 +22,7 @@ async function Games({ leagueId, leagueName, round }: Props) {
   const currentRound = round.replaceAll("%20", " ");
 
   return (
-    <div className="relative flex flex-col lg:flex-row">
+    <div className="relative flex flex-col lg:flex-row h-full">
       <LeftMenu
         leagueName={leagueName}
         leagueId={leagueId}
@@ -38,9 +37,7 @@ async function Games({ leagueId, leagueName, round }: Props) {
           actualRound={currentRound}
           leagueName={leagueName}
         />
-        <div className="grid w-full h-full gap-8 p-8 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-          <GamesFixture matches={matches} />
-        </div>
+        <GamesFixture matches={matches} />
       </section>
     </div>
   );

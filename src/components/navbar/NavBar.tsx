@@ -52,7 +52,7 @@ function NavBar() {
 
   return (
     <nav
-      className="relative w-full px-8 py-2 bg-black lg:opacity-90"
+      className="flex items-center w-full px-8 py-2 bg-black lg:opacity-90 h-[46px] lg:h-[55px]"
       onMouseLeave={() => {
         setIsAmericaOpen(false);
         setIsEuropeOpen(false);
@@ -60,7 +60,7 @@ function NavBar() {
         setIsTeamMenuOpen(false);
       }}
     >
-      <section className="flex items-center justify-between">
+      <section className="flex items-center justify-between w-full">
         <div className="flex items-center gap-4 lg:w-1/5">
           <Logo />
         </div>

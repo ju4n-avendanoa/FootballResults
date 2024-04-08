@@ -8,15 +8,13 @@ async function GamesPage({
   params: { leagueName: string; leagueId: string; round: string };
 }) {
   return (
-    <section>
-      <Suspense fallback={<LoadingPage />}>
-        <Games
-          leagueName={params.leagueName}
-          leagueId={params.leagueId}
-          round={params.round}
-        />
-      </Suspense>
-    </section>
+    <Suspense fallback={<LoadingPage />}>
+      <Games
+        leagueName={params.leagueName}
+        leagueId={params.leagueId}
+        round={params.round}
+      />
+    </Suspense>
   );
 }
 

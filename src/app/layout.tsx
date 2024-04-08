@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Mulish } from "next/font/google";
+import { Mulish } from "next/font/google";
+import Provider from "@/context/Provider";
 import NavBar from "@/components/navbar/NavBar";
 import "./globals.css";
-import Provider from "@/context/Provider";
 
 const mulish = Mulish({ subsets: ["latin"] });
 

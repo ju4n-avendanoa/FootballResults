@@ -4,11 +4,10 @@ export default function Home() {
   const images = [
     "https://res.cloudinary.com/dhjqarghy/image/upload/v1697832129/football/HomePage.jpg",
     "https://res.cloudinary.com/dhjqarghy/image/upload/v1709606295/football/daniel-norin-lBhhnhndpE0-unsplash_fco62s.jpg",
-    "https://res.cloudinary.com/dhjqarghy/image/upload/v1709606292/football/chaos-soccer-gear-Cjfl8r_eYxY-unsplash_bg635t.jpg",
     "https://res.cloudinary.com/dhjqarghy/image/upload/v1709606291/football/vienna-reyes-qCrKTET_09o-unsplash_i5p2yd.jpg",
   ];
 
-  const imageToShow = images[Math.floor(Math.random() * 4)];
+  const imageToShow = images[Math.floor(Math.random() * 3)];
 
   return (
     <main className="w-full h-full">

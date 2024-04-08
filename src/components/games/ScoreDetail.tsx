@@ -39,7 +39,7 @@ function ScoreDetail({ matches, fixtureId }: Props) {
   }, [fixtureId, setOdds]);
 
   return (
-    <div className="grid grid-cols-1 py-4 place-items-center">
+    <div className="grid grid-cols-1 py-4 place-items-center h-min">
       <div className="grid w-full grid-cols-3 place-items-center">
         <div className="flex flex-col items-center justify-center w-auto gap-2">
           <ImageWithFallback
@@ -63,10 +63,7 @@ function ScoreDetail({ matches, fixtureId }: Props) {
               {match?.goals.home}
               <span className="font-semibold">
                 {" "}
-                {match?.fixture.status.short === "NS" ||
-                match?.fixture.status.short === "TBD"
-                  ? "vs"
-                  : ":"}{" "}
+                {match?.fixture.status.short === "FT" ? ":" : "vs"}{" "}
               </span>
               {match?.goals.away}
             </p>
@@ -98,45 +95,34 @@ function ScoreDetail({ matches, fixtureId }: Props) {
           height={30}
           width={20}
         />
-        <p className="text-xs">{match?.fixture.referee}</p>
+        <p className="text-xs">
+          {match?.fixture.referee
+            ? match?.fixture.referee
+            : "no referee asigned yet"}
+        </p>
       </div>
-      <div className="grid grid-cols-3 p-4">
-        {odds.length !== 0
-          ? odds.map((odd, index) => (
-              <div key={index}>
-                <p
-                  className={`border border-black text-xs p-1 text-center font-semibold ${
-                    odd.value === "Home"
-                      ? "bg-green-400"
-                      : odd.value === "Away"
-                      ? "bg-red-400"
-                      : "bg-yellow-400"
-                  }`}
-                >
-                  {odd.value}
-                </p>
-                <p className="p-1 text-xs text-center border border-black">
-                  {odd.odd}
-                </p>
-              </div>
-            ))
-          : odds.map((odd, index) => (
-              <div key={index}>
-                <p
-                  className={`border border-black text-xs p-1 text-center font-semibold ${
-                    odd.value === "Home"
-                      ? "bg-green-400"
-                      : odd.value === "Away"
-                      ? "bg-red-400"
-                      : "bg-yellow-400"
-                  }`}
-                >
-                  {odd.value}
-                </p>
-                <p className="p-1 text-xs text-center border border-black">-</p>
-              </div>
-            ))}
-      </div>
+      {odds.length !== 0 ? (
+        <div className="grid grid-cols-3 p-4">
+          {odds.map((odd, index) => (
+            <div key={index}>
+              <p
+                className={`border border-black text-xs p-1 text-center font-semibold ${
+                  odd.value === "Home"
+                    ? "bg-green-400"
+                    : odd.value === "Away"
+                    ? "bg-red-400"
+                    : "bg-yellow-400"
+                }`}
+              >
+                {odd.value}
+              </p>
+              <p className="p-1 text-xs text-center border border-black">
+                {odd.odd}
+              </p>
+            </div>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }

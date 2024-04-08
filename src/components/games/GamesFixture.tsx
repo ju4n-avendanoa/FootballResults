@@ -18,12 +18,20 @@ function GamesFixture({ matches }: Props) {
     setShowGameDetails(true);
   };
 
+  if (matches.length === 0) {
+    return (
+      <div className="text-white text-2xl flex justify-center font-semibold w-full lg:text-4xl py-10">
+        <h2>No matches scheduled at the moment</h2>
+      </div>
+    );
+  }
+
   return (
-    <>
+    <div className="grid w-full h-full gap-8 p-4 sm:p-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
       {matches?.map((match) => (
         <article
           key={match.fixture.id}
-          className="flex justify-center font-semibold transition duration-150 border rounded-md shadow-md cursor-pointer gap-14 bg-zinc-500 hover:bg-zinc-300 hover:scale-105 border-zinc-800 shadow-zinc-950"
+          className="flex justify-center font-semibold transition duration-150 border rounded-md shadow-md cursor-pointer gap-14 bg-zinc-500 hover:bg-zinc-300 hover:scale-105 border-zinc-800 shadow-zinc-950 h-[170px] w-full"
           onClick={() => handleClick(match)}
         >
           <GameCard match={match} />
@@ -37,7 +45,7 @@ function GamesFixture({ matches }: Props) {
           fixtureId={fixtureId}
         />
       )}
-    </>
+    </div>
   );
 }
 

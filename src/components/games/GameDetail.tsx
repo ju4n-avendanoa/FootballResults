@@ -21,9 +21,10 @@ type Props = {
 };
 
 function GameDetail({ matches, isVisible, onClose, fixtureId }: Props) {
-  const [loading, setLoading] = useState(false);
-  const { showEvents, showStatistics, setShowStatistics } = useGamesStore();
+  const { showEvents, showStatistics, setShowStatistics, setShowEvents } =
+    useGamesStore();
   const [events, setEvents] = useState<Events[]>();
+  const [loading, setLoading] = useState(false);
 
   const match = matches?.find(
     (roundMatch) => roundMatch.fixture.id === fixtureId
@@ -32,9 +33,9 @@ function GameDetail({ matches, isVisible, onClose, fixtureId }: Props) {
   useEffect(() => {
     if (!match?.fixture.id) return;
 
-    setLoading(true);
     async function fetchData() {
       try {
+        setLoading(true);
         const response = await fetch(
           `${baseUrl}/api/games/fixtures?fixtureId=${match?.fixture.id}`
         );
@@ -46,6 +47,7 @@ function GameDetail({ matches, isVisible, onClose, fixtureId }: Props) {
       } catch (error) {
         console.error("Error in the request:", error);
       } finally {
+        setLoading(false);
       }
     }
 
@@ -53,7 +55,6 @@ function GameDetail({ matches, isVisible, onClose, fixtureId }: Props) {
   }, [match?.fixture.id]);
 
   if (!isVisible) return null;
-
   return (
     <section className="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-black">
       {loading ? (
@@ -77,6 +78,7 @@ function GameDetail({ matches, isVisible, onClose, fixtureId }: Props) {
               onClick={() => {
                 onClose();
                 setShowStatistics(false);
+                setShowEvents(true);
               }}
             />
           </div>
@@ -87,21 +89,20 @@ function GameDetail({ matches, isVisible, onClose, fixtureId }: Props) {
           {match?.fixture.status.short === "FT" ? (
             <>
               <ScoreDetail matches={matches} fixtureId={fixtureId} />
-              <div>
-                <DetailsNavBar />
-                {showEvents ? (
-                  <EventDetails
-                    fixtureId={fixtureId}
-                    matches={matches}
-                    events={events}
-                  />
+
+              <DetailsNavBar />
+              {showEvents ? (
+                <EventDetails
+                  fixtureId={fixtureId}
+                  matches={matches}
+                  events={events}
+                />
+              ) : null}
+              <Suspense fallback={<LoadingPage />}>
+                {showStatistics ? (
+                  <FixtureStatsDetails fixtureId={match?.fixture.id} />
                 ) : null}
-                <Suspense fallback={<LoadingPage />}>
-                  {showStatistics ? (
-                    <FixtureStatsDetails fixtureId={match?.fixture.id} />
-                  ) : null}
-                </Suspense>
-              </div>
+              </Suspense>
             </>
           ) : null}
         </section>

@@ -22,7 +22,7 @@ function RoundSelector({ rounds, leagueId, actualRound, leagueName }: Props) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full gap-2 md:flex-row">
+    <div className="flex flex-col items-center justify-center w-full gap-6 md:flex-row px-8 py-4">
       <span className="px-4 text-sm font-bold text-white lg:text-lg">
         Round number:
       </span>
@@ -30,16 +30,16 @@ function RoundSelector({ rounds, leagueId, actualRound, leagueName }: Props) {
         options={options}
         value={{ label: actualRound, value: actualRound }}
         onChange={handleSelectChange}
-        className="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 focus:bg-red-500"
+        className="w-full md:w-1/3 lg:w-1/3 focus:bg-red-500"
         styles={{
           control: (baseStyles) => ({
             ...baseStyles,
             border: 0,
             boxShadow: "none",
-            "&:hover": {
-              border: "3px solid #38a169",
-              color: "black",
-            },
+          }),
+          menu: (base) => ({
+            ...base,
+            width: "100%",
           }),
           option: (baseStyles, state) => ({
             ...baseStyles,

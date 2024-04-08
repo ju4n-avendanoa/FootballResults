@@ -25,7 +25,7 @@ async function Teams({
   );
 
   return (
-    <div className="relative flex flex-col lg:flex-row">
+    <div className="relative flex flex-col lg:flex-row h-full">
       <LeftMenu
         currentRound={currentRound}
         leagueId={params.leagueId}
