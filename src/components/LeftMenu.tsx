@@ -37,7 +37,7 @@ function LeftMenu({ leagueId, currentRound, leagueName, leagueInfo }: Props) {
 
   return (
     <>
-      <div className="fixed flex flex-col items-center justify-center w-full mt-[46px] lg:hidden z-10">
+      <div className="fixed flex flex-col items-center justify-center w-full mt-[62px] lg:hidden z-10">
         <div
           className="flex items-center justify-center w-full h-10 gap-8 bg-zinc-900"
           onClick={() => setIsTaskMenuOpen((prev) => !prev)}

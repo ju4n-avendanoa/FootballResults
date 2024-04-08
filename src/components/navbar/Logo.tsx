@@ -15,7 +15,7 @@ function Logo() {
         />
       </Link>
       <Link href={"/"}>
-        <h3 className="w-auto text-xs sm:text-base text-white md:text-lg">
+        <h3 className="w-auto text-base text-white md:text-lg">
           Football <span className="text-green-400">Results</span>
         </h3>
       </Link>
