@@ -22,7 +22,7 @@ async function Games({ leagueId, leagueName, round }: Props) {
   const currentRound = round.replaceAll("%20", " ");
 
   return (
-    <div className="relative flex flex-col lg:flex-row h-full">
+    <div className="relative flex flex-col w-full lg:flex-row h-full min-w-min">
       <LeftMenu
         leagueName={leagueName}
         leagueId={leagueId}

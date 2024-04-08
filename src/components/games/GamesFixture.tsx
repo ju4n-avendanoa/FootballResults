@@ -31,7 +31,7 @@ function GamesFixture({ matches }: Props) {
       {matches?.map((match) => (
         <article
           key={match.fixture.id}
-          className="flex justify-center font-semibold transition duration-150 border rounded-md shadow-md cursor-pointer gap-14 bg-zinc-500 hover:bg-zinc-300 hover:scale-105 border-zinc-800 shadow-zinc-950 h-[170px] w-full"
+          className="flex justify-center font-semibold transition duration-150 border rounded-md shadow-md cursor-pointer gap-14 bg-zinc-500 hover:bg-zinc-300 hover:scale-105 border-zinc-800 shadow-zinc-950 h-auto w-full min-w-[326px]"
           onClick={() => handleClick(match)}
         >
           <GameCard match={match} />
