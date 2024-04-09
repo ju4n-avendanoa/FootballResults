@@ -49,7 +49,7 @@ function TeamDetail({ teams, isVisible, onClose, leagueId, teamId }: Props) {
   if (!isVisible) return null;
 
   return (
-    <section className="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-black">
+    <section className="fixed inset-0 flex flex-col items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm">
       {loading ? (
         <LoadingTeamDetails />
       ) : (
