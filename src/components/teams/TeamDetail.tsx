@@ -64,24 +64,28 @@ function TeamDetail({ teams, isVisible, onClose, leagueId, teamId }: Props) {
               {team?.team.name}
             </h5>
           </div>
-          <section className="flex flex-col">
-            {teamStatistics ? (
-              <TeamsGeneralInfo team={team!} teamStatistics={teamStatistics} />
-            ) : (
-              <div>no</div>
-            )}
+          {teamStatistics ? (
             <section className="flex flex-col">
-              <h3 className="font-bold text-center bg-zinc-400">
-                Team Statistics
-              </h3>
-              <section className="flex flex-col text-xs md:flex-row">
-                <TeamSummary teamStatistics={teamStatistics} />
-                <div className="w-full p-2 md:w-3/5 ">
-                  <StatisticsTable statistics={teamStatistics} />
-                </div>
+              <TeamsGeneralInfo team={team!} teamStatistics={teamStatistics} />
+              <section className="flex flex-col">
+                <h3 className="font-bold text-center bg-zinc-400">
+                  Team Statistics
+                </h3>
+                <section className="flex flex-col text-xs md:flex-row">
+                  <TeamSummary teamStatistics={teamStatistics} />
+                  <div className="w-full p-2 md:w-3/5 ">
+                    <StatisticsTable statistics={teamStatistics} />
+                  </div>
+                </section>
               </section>
             </section>
-          </section>
+          ) : (
+            <div className="flex justify-center pt-10">
+              <h2 className="text-2xl font-semibold">
+                There is no info to show
+              </h2>
+            </div>
+          )}
         </section>
       )}
     </section>
