@@ -20,6 +20,7 @@ function GameCard({ match }: Props) {
             alt="team-logo"
             height={60}
             width={60}
+            className="w-[40px] sm:w-[60px] h-auto"
           />
           <h3 className="text-xs text-center line-clamp-2">
             {match.teams.home.name}
@@ -46,6 +47,7 @@ function GameCard({ match }: Props) {
             alt="team-logo"
             height={60}
             width={60}
+            className="w-[40px] sm:w-[60px] h-auto"
           />
           <h3 className="text-xs text-center line-clamp-2">
             {match.teams.away.name}

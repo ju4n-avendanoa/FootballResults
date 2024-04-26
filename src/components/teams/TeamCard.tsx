@@ -1,9 +1,9 @@
 import ImageWithFallback from "../ImageWithFallback";
 import { getIcon } from "@/actions/eventType";
-import { Teams } from "@/interfaces/teams";
+import { TeamsI } from "@/interfaces/teams";
 
 type Props = {
-  team: Teams;
+  team: TeamsI;
 };
 
 function TeamCard({ team }: Props) {

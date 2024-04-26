@@ -1,10 +1,10 @@
 import { TeamStatistics } from "@/interfaces/teamStatistics";
 import { getIcon } from "@/actions/eventType";
-import { Teams } from "@/interfaces/teams";
+import { TeamsI } from "@/interfaces/teams";
 import ImageWithFallback from "../ImageWithFallback";
 
 type Props = {
-  team: Teams;
+  team: TeamsI;
   teamStatistics: TeamStatistics;
 };
 
@@ -20,7 +20,7 @@ function TeamsGeneralInfo({ team, teamStatistics }: Props) {
             alt="team-logo"
             height={500}
             width={500}
-            className="w-2/5 h-auto p-2 md:w-2/3"
+            className="w-[150px] h-auto p-2 md:w-[170px]"
           />
         </div>
         <article className="flex flex-col w-full h-40 p-4 text-xs border-black md:w-1/4 justify-evenly max-sm:border-b md:border-r">

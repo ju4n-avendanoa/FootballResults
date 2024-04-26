@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import { TeamStatistics } from "@/interfaces/teamStatistics";
 import { XCircleIcon } from "@heroicons/react/24/solid";
 import { baseUrl } from "@/utils/baseUrl";
-import { Teams } from "@/interfaces/teams";
+import { TeamsI } from "@/interfaces/teams";
 import LoadingTeamDetails from "../loading/LoadingTeamDetails";
 import TeamsGeneralInfo from "./TeamsGeneralInfo";
 import StatisticsTable from "./StatisticsTable";
 import TeamSummary from "./TeamSummary";
 
 type Props = {
-  teams: Teams[];
+  teams: TeamsI[];
   isVisible: boolean;
   leagueId: string;
   teamId: number | undefined;

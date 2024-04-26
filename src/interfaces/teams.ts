@@ -1,4 +1,4 @@
-export interface Teams {
+export interface TeamsI {
   team: TeamClass;
   venue: Venue;
 }

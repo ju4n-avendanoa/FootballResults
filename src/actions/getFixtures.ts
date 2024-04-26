@@ -1,5 +1,5 @@
-export async function getRounds(leagueId: number) {
-  const url = `https://api-football-v1.p.rapidapi.com/v3/fixtures/rounds?league=${leagueId}&season=2023`;
+export async function getRounds(leagueId: number, currentSeason: number) {
+  const url = `https://api-football-v1.p.rapidapi.com/v3/fixtures/rounds?league=${leagueId}&season=${currentSeason}`;
   const options = {
     method: "GET",
     headers: {
@@ -12,6 +12,7 @@ export async function getRounds(leagueId: number) {
   try {
     const response = await fetch(url, options);
     const result = await response.json();
+    console.log(result.response);
     return result.response;
   } catch (error) {
     console.error(error);

@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Teams } from "@/interfaces/teams";
+import { TeamsI } from "@/interfaces/teams";
 import TeamDetail from "./TeamDetail";
 import TeamCard from "./TeamCard";
 
 type Props = {
-  sortedTeams: Teams[];
+  sortedTeams: TeamsI[];
   leagueId: string;
 };
 
@@ -14,13 +14,13 @@ function TeamFixture({ sortedTeams, leagueId }: Props) {
   const [showTeamDetails, setShowTeamDetails] = useState(false);
   const [teamId, setTeamId] = useState<number>();
 
-  const handleClick = async (team: Teams) => {
+  const handleClick = async (team: TeamsI) => {
     setTeamId(team.team.id);
     setShowTeamDetails(true);
   };
 
   return (
-    <>
+    <section className="grid w-full h-full min-w-[260px] grid-cols-1 gap-8 md:grid-cols-3 xl:grid-cols-4 max-md:max-w-[360px] lg:max-w-[1440px]">
       {sortedTeams.map((team) => (
         <article
           className="flex items-center justify-center h-24 gap-5 p-2 font-semibold text-white transition duration-150 border rounded-md shadow-md cursor-pointer border-zinc-800 bg-zinc-500 hover:bg-zinc-300 hover:scale-105 shadow-zinc-950 hover:text-black"
@@ -39,7 +39,7 @@ function TeamFixture({ sortedTeams, leagueId }: Props) {
           onClose={() => setShowTeamDetails(false)}
         />
       )}
-    </>
+    </section>
   );
 }
 

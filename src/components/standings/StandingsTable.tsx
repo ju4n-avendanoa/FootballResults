@@ -44,8 +44,9 @@ async function StandingsTable({ standing }: Props) {
                 src={team.team.logo}
                 fallbackSrc={getIcon("teamdefault")}
                 alt="team-logo"
-                height={20}
-                width={20}
+                height={60}
+                width={60}
+                className="w-[20px] md:w-[25px] h-auto"
               />
             </td>
             <td className="w-6 p-1">{team.team.name}</td>

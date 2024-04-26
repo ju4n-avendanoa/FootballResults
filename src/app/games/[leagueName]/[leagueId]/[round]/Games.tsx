@@ -14,7 +14,7 @@ type Props = {
 async function Games({ leagueId, leagueName, round }: Props) {
   const currentSeason = await getCurrentSeason(Number(leagueId));
   const [rounds, leagueInfo, matches] = await Promise.all([
-    getRounds(Number(leagueId)),
+    getRounds(Number(leagueId), currentSeason),
     getInfo(Number(leagueId), currentSeason),
     getFixture(Number(leagueId), round, currentSeason),
   ]);
@@ -22,7 +22,7 @@ async function Games({ leagueId, leagueName, round }: Props) {
   const currentRound = round.replaceAll("%20", " ");
 
   return (
-    <div className="relative flex flex-col w-full lg:flex-row h-full min-w-min">
+    <div className="relative flex flex-col w-full h-full lg:flex-row min-w-[320px]">
       <LeftMenu
         leagueName={leagueName}
         leagueId={leagueId}
@@ -30,11 +30,11 @@ async function Games({ leagueId, leagueName, round }: Props) {
         leagueInfo={leagueInfo}
       />
 
-      <section className="flex flex-col w-full min-h-screen pt-24 lg:w-4/5 bg-zinc-700">
+      <section className="flex flex-col items-center w-full min-h-screen pt-24 lg:w-4/5 bg-zinc-700">
         <RoundSelector
           rounds={rounds}
           leagueId={leagueId}
-          actualRound={currentRound}
+          actualRound={rounds[0]}
           leagueName={leagueName}
         />
         <GamesFixture matches={matches} />
