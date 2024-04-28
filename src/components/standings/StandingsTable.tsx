@@ -39,14 +39,14 @@ async function StandingsTable({ standing }: Props) {
             }`}
           >
             <td className="p-1 text-center">{team.rank}</td>
-            <td className="p-1 hidden sm:flex sm:justify-center sm:items-center h-[40px]">
+            <td className="sm:p-[1px] hidden sm:flex sm:justify-center sm:items-center h-[40px]">
               <ImageWithFallback
                 src={team.team.logo}
                 fallbackSrc={getIcon("teamdefault")}
                 alt="team-logo"
                 height={60}
                 width={60}
-                className="w-[20px] md:w-[25px] h-auto"
+                className="sm:min-w-[20px] sm:w-[25px] h-auto"
               />
             </td>
             <td className="w-6 p-1">{team.team.name}</td>
