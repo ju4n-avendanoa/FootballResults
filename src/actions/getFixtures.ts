@@ -12,7 +12,6 @@ export async function getRounds(leagueId: number, currentSeason: number) {
   try {
     const response = await fetch(url, options);
     const result = await response.json();
-    console.log(result.response);
     return result.response;
   } catch (error) {
     console.error(error);
@@ -56,7 +55,6 @@ export async function getCurrentRound(leagueId: number, currentSeason: number) {
     });
 
     const result = await response.json();
-
     return result.response[0];
   } catch (error) {
     console.error(error);
